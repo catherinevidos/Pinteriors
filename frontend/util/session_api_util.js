@@ -24,3 +24,16 @@ export const logoutUser = () => (
     url: '/api/session'
   })
 );
+
+export const demoUser = () => {
+  return $.ajax ({
+    method: 'POST',
+    url: '/api/session',
+    data: {
+      user: {
+        email: 'pinteriors@catherine.com',
+        password: 'welcome1'
+      }
+    }
+  });
+}

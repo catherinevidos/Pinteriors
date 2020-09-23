@@ -27,11 +27,7 @@ class SessionForm extends React.Component {
 
   demoUser(e) {
     e.preventDefault();
-    const demoUser = {
-      email: 'pinteriors_demo@catherine.com',
-      password: 'welcome1'
-    };
-    this.props.processForm(demoUser).then(this.props.closeModal);
+    this.props.loginDemoUser().then(this.props.closeModal);
   }
 
   renderErrors() {
@@ -96,7 +92,7 @@ class SessionForm extends React.Component {
             <p className="session-or-message">OR</p>
 
             <div className="session-submit-demo">
-              <button onClick={this.demoUser}>Demo user</button>
+              <button onClick={(e) => {this.demoUser(e)}}>Demo User</button>
             </div>
 
             {this.renderErrors()}
