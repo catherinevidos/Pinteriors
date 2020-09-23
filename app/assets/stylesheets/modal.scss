@@ -1,0 +1,46 @@
+// .login-form-container {
+//   background-color: white;
+//   display: flex;
+//   z-index: 600;
+// }
+
+.modal-background {
+  position: fixed;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 10;
+}
+
+.login-form-container {
+  margin: 16px;
+  max-width: 500px;
+  width: 100%;
+  height: 600px;
+  display: flex;
+  border-radius: 20px;
+  padding: 16px;
+  overflow: hidden;
+  background-color: white;
+  // position: absolute;
+  // top: 50%;
+  // left: 50%;
+  // transform: translate(-50%, -50%);
+}
+
+// .login-form-box {
+//  background-color: lawngreen;
+// }
+
+
+
+
+

@@ -18,8 +18,11 @@ document.addEventListener("DOMContentLoaded", () => {
     store = configureStore(preloadedState);
     delete window.currentUser;
   } else {
-    store = configureStore();
-  }
+    preloadedState = {
+      ui: { modal: 'signup'},
+    };
+    store = configureStore(preloadedState);
+  };
 
 
   window.getState = store.getState();
