@@ -1,0 +1,135 @@
+.login-form-container {
+  margin: 16px;
+  margin-top: 50px;
+  max-width: 500px;
+  width: 100%;
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  padding: 16px;
+  overflow: hidden;
+  background-color: #FFFFFF;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+// .session-center-form {
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
+// }
+
+// .login-form-box {
+//   margin: 0px auto;
+//   position: relative;
+//   text-align: center;
+// }
+
+.session-welcome {
+  text-align: center;
+  margin: 0;
+  font-size: 36px;
+  letter-spacing: -1.6px;
+}
+
+.session-form-add-space {
+  padding: 10px;
+}
+
+.session-new-ideas {
+  text-align: center;
+  margin-bottom: 10px;
+  margin-top: 5px;
+}
+
+.login-input {
+  position: relative;
+  justify-content: center;
+  width: 100%;
+  min-height: 48px;
+  padding: 8px 16px;
+  background-color: whitesmoke;
+  border: solid 2px;
+  border-color: lightgrey;
+  border-radius: 16px;
+}
+
+.login-input:focus {
+  border: 2px solid;
+  border-color: #E60122;
+  transform: border-color .5s ease-in-out;
+  border-radius: 16px;
+}
+
+.session-submit {
+  display: flex;
+  justify-content: center;
+  color: #FFFFFF;
+  height: 30px;
+  padding: 0px 18px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background: #E60122;
+  transition: background 0.5s;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+.session-submit-demo {
+  display: flex;
+  justify-content: center;
+  color: #FFFFFF;
+  height: 30px;
+  padding: 0px 18px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background: #1977F2;
+  transition: background 0.5s;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+.switch-session-form {
+  font-size: 12pt;
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  padding-top: 4px;
+}
+
+.session-terms-message {
+  font-size: 10pt;
+  color: grey;
+  display: flex;
+  padding: 10px;
+  justify-content: center;
+}
+.switch-session-form:hover {
+  text-decoration: underline;
+}
+
+.session-errors {
+  font-size: 12pt;
+  padding: 3px;
+  color: #E60122;
+}
+
+.close-x {
+  position: absolute;
+  font-family: sans-serif;
+  top: 5px;
+  right: 5px;
+  color: white;
+  transition: background 0.5s;
+  border-radius: 80%;
+  padding: 3px 5px;
+  opacity: 70%;
+}
+
+.close-x:hover {
+ background-color: dimgray;
+ cursor: pointer;
+}

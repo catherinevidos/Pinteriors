@@ -7,10 +7,10 @@ class SessionForm extends React.Component {
     super(props);
     this.state = {
       email: '',
-      username: '',
       password: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.demoUser = this.demoUser.bind(this);
   }
 
   update(field) {
@@ -25,11 +25,21 @@ class SessionForm extends React.Component {
     this.props.processForm(user).then(this.props.closeModal);
   }
 
+  demoUser(e) {
+    e.preventDefault();
+    const demoUser = {
+      email: 'pinteriors_demo@catherine.com',
+      password: 'welcome1'
+    };
+    this.props.processForm(demoUser).then(this.props.closeModal);
+  }
+
   renderErrors() {
     return (
       <ul>
         {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`}>
+          <li className="session-errors" 
+              key={`error-${i}`}>
             {error}
           </li>
         ))}
@@ -52,11 +62,11 @@ class SessionForm extends React.Component {
     return (
       <div className="login-form-container">
         <form onSubmit={this.handleSubmit} className="login-form-box">
-          <h4>Welcome to Pinteriors</h4>
-          <h6>Find new ideas to try</h6>
-          <br/>
+          <h4 className="session-welcome">Welcome to Pinteriors</h4>
+          <h6 className="session-new-ideas">Find new ideas to try</h6>
+          
           <div onClick={this.props.closeModal} className="close-x">X</div>
-          {this.renderErrors()}
+          
           <div className="login-form">
           
             <label>
@@ -67,15 +77,8 @@ class SessionForm extends React.Component {
                 className="login-input"
               />
             </label>
-            
-            <label>
-              <input type="text"
-                value={this.state.username}
-                onChange={this.update('username')}
-                placeholder="username"
-                className="login-input"
-              />
-            </label>
+            <div className="session-form-add-space">
+            </div>
         
             <label>
               <input type="password"
@@ -86,12 +89,25 @@ class SessionForm extends React.Component {
               />
             </label>
             
-            <input className="session-submit" type="submit" value={buttonMessage} />
-            <p>By continuing, you agree to Pinterior's Terms of Service</p>
-            <a onClick={() => {this.props.switchForm()}}>{renderMessage}</a>
+            <div className="session-submit">
+              <input type="submit" value={buttonMessage} />
+            </div>
+
+            <p className="session-or-message">OR</p>
+
+            <div className="session-submit-demo">
+              <button onClick={this.demoUser}>Demo user</button>
+            </div>
+
+            {this.renderErrors()}
+
+            <p className="session-terms-message">By continuing, you agree to Pinterior's Terms of Service</p>
+            
+            <a className="switch-session-form" onClick={() => {this.props.switchForm()}}>{renderMessage}</a>
+
           </div>
-        </form>
-      </div>
+          </form>
+          </div>
     );
   }
 }

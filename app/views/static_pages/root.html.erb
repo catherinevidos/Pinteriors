@@ -1,10 +1,12 @@
-<script id="bootstrap-current-user" type="text/javascript">
+
   <% if logged_in? %>
-  	window.currentUser = <%= render("api/users/user.json.jbuilder",
-  		user: current_user
-      ).html_safe %>
+    <script id="bootstrap-current-user" type="text/javascript">
+      window.currentUser = <%= render("api/users/user.json.jbuilder",
+        user: current_user
+        ).html_safe %>
+    </script>
   <% end %>
-</script>
+
 
 <main id="root" >If you are seeing this something is wrong :( </main>
 

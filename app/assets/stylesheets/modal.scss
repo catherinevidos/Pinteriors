@@ -1,8 +1,3 @@
-// .login-form-container {
-//   background-color: white;
-//   display: flex;
-//   z-index: 600;
-// }
 
 .modal-background {
   position: fixed;
@@ -20,21 +15,7 @@
   z-index: 10;
 }
 
-.login-form-container {
-  margin: 16px;
-  max-width: 500px;
-  width: 100%;
-  height: 600px;
-  display: flex;
-  border-radius: 20px;
-  padding: 16px;
-  overflow: hidden;
-  background-color: white;
-  // position: absolute;
-  // top: 50%;
-  // left: 50%;
-  // transform: translate(-50%, -50%);
-}
+
 
 // .login-form-box {
 //  background-color: lawngreen;
