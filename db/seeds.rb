@@ -8,4 +8,4 @@
 
 User.destroy_all
 
-user1 = user.create(email: 'pinteriors@catherine.com', password: 'welcome1')
+user1 = User.create(email: 'pinteriors@catherine.com', password: 'welcome1')
