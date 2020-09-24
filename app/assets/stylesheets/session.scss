@@ -1,9 +1,9 @@
 .login-form-container {
   margin: 16px;
   margin-top: 50px;
-  max-width: 500px;
+  max-width: 400px;
   width: 100%;
-  min-height: 600px;
+  min-height: 550px; 
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -14,6 +14,42 @@
   background-color: #FFFFFF;
   font-family: Arial, Helvetica, sans-serif;
 }
+
+
+.modal-child-text {
+  display: flex;
+  justify-content: space-around;
+  width: calc(100% - 400px);
+  margin: auto;
+}
+
+.modal-child-text > h1 {
+  display: inline-block;
+  width: 30%;
+  color: white;
+  font-size: 70pt;
+  margin: auto 0;
+  // marin-right: 
+}
+
+.footer-container {
+  position: absolute;
+  bottom: 0;
+  background-color: lawngreen;
+  width: 100%;
+  margin-top: 500px;
+}
+
+.footer-container > ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+// .footer-container {
+//   background-color: lawngreen;
+//   z-index: 50;
+// }
 
 // .session-center-form {
 //   display: flex;
@@ -28,6 +64,18 @@
 //   text-align: center;
 // }
 
+.login-form {
+  width: calc(100% - 50px);
+  margin: 0 auto;
+}
+
+
+.session-messages {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+
 .session-welcome {
   text-align: center;
   margin: 0;
@@ -35,14 +83,14 @@
   letter-spacing: -1.6px;
 }
 
-.session-form-add-space {
-  padding: 10px;
-}
-
 .session-new-ideas {
   text-align: center;
   margin-bottom: 10px;
   margin-top: 5px;
+}
+
+.session-form-add-space {
+  padding: 10px;
 }
 
 .login-input {

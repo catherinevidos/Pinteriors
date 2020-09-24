@@ -6,6 +6,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import Modal from './modal/modal';
 import SplashContainer from '../components/splash_page/splash_container';
 import NavBar from '../components/navbar/navbar';
+import Footer from '../components/footer/footer';
 
 
 const App = () => (

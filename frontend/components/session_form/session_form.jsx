@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
+
 class SessionForm extends React.Component {
   constructor(props) {
     super(props);
@@ -57,9 +58,14 @@ class SessionForm extends React.Component {
   
     return (
       <div className="login-form-container">
-        <form onSubmit={this.handleSubmit} className="login-form-box">
+        <div className="session-messages">
           <h4 className="session-welcome">Welcome to Pinteriors</h4>
           <h6 className="session-new-ideas">Find new ideas to try</h6>
+        </div>
+    
+        <form onSubmit={this.handleSubmit} className="login-form-box">
+          {/* <h4 className="session-welcome">Welcome to Pinteriors</h4>
+          <h6 className="session-new-ideas">Find new ideas to try</h6> */}
           
           <div onClick={this.props.closeModal} className="close-x">X</div>
           
@@ -103,7 +109,7 @@ class SessionForm extends React.Component {
 
           </div>
           </form>
-          </div>
+        </div>
     );
   }
 }
