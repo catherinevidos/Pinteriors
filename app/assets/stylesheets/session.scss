@@ -28,41 +28,11 @@
   width: 30%;
   color: white;
   font-size: 70pt;
+  font-family: Arial, Helvetica, sans-serif;
   margin: auto 0;
+  letter-spacing: -2px;
   // marin-right: 
 }
-
-.footer-container {
-  position: absolute;
-  bottom: 0;
-  background-color: lawngreen;
-  width: 100%;
-  margin-top: 500px;
-}
-
-.footer-container > ul {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-// .footer-container {
-//   background-color: lawngreen;
-//   z-index: 50;
-// }
-
-// .session-center-form {
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: center;
-//   align-items: center;
-// }
-
-// .login-form-box {
-//   margin: 0px auto;
-//   position: relative;
-//   text-align: center;
-// }
 
 .login-form {
   width: calc(100% - 50px);
@@ -126,6 +96,16 @@
   font-weight: bold;
 }
 
+input[type="submit"i] {
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+}
+
+.session-submit:hover {
+  cursor: pointer;
+}
+
 .session-submit-demo {
   display: flex;
   justify-content: center;
@@ -138,6 +118,14 @@
   transition: background 0.5s;
   border-radius: 20px;
   font-weight: bold;
+}
+.session-submit-demo > button {
+  width: 100%;
+  text-align: center;
+}
+
+.session-submit-demo:hover > button {
+  cursor: pointer;
 }
 
 .switch-session-form {
@@ -157,6 +145,7 @@
 }
 .switch-session-form:hover {
   text-decoration: underline;
+  cursor: pointer;
 }
 
 .session-errors {
@@ -168,7 +157,7 @@
 .session-or-message {
   display: flex;
   justify-content: center;
-  font-weight: bold;
+  font-size: 10pt;
 }
 
 .close-x {
