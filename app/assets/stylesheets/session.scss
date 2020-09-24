@@ -117,6 +117,12 @@
   color: #E60122;
 }
 
+.session-or-message {
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+}
+
 .close-x {
   position: absolute;
   font-family: sans-serif;

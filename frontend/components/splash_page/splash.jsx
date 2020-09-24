@@ -1,5 +1,4 @@
 import React from 'react';
-import Modal from '../modal/modal';
 
 export default class Splash extends React.Component {
   constructor(props){
@@ -10,7 +9,9 @@ export default class Splash extends React.Component {
   render() {
     const { currentUser, logout, openModal } = this.props;
     return (
-      <button onClick={logout}>logout</button>
+      <div>
+        <button onClick={logout}>logout</button>
+      </div>
     )
   }
 }

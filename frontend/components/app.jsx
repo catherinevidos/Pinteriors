@@ -5,16 +5,17 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 import Modal from './modal/modal';
 import SplashContainer from '../components/splash_page/splash_container';
+import NavBar from '../components/navbar/navbar';
 
 
 const App = () => (
   <div className="app-component">
-    <Modal/>
-    <header>
-      <Link to="/" className="header-link">
-        <h1>nav bar goes here</h1>
-      </Link>
-    </header>
+    <Modal />
+      <header>
+        <NavBar/>
+        {/* <Link to="/" className="header-link">
+        </Link> */}
+      </header>
     <Switch>
       <Route exact path="/" component={SplashContainer} />
     </Switch>
