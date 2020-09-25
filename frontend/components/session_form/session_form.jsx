@@ -58,64 +58,79 @@ class SessionForm extends React.Component {
   
     return (
       <>
-       <div className="modal-child-text">
+        <div className="modal-child-text">
           <h1>Sign up to get your ideas</h1>
         </div>
-      <div className="login-form-container">
-
-        <div className="session-messages">
-          <h4 className="session-welcome">Welcome to Pinteriors</h4>
-          <h6 className="session-new-ideas">Find new ideas to try</h6>
-        </div>
-    
-        <form onSubmit={this.handleSubmit} className="login-form-box">
-          {/* <h4 className="session-welcome">Welcome to Pinteriors</h4>
-          <h6 className="session-new-ideas">Find new ideas to try</h6> */}
-          
-          <div onClick={this.props.closeModal} className="close-x">X</div>
-          
-          <div className="login-form">
-          
-            <label>
-              <input type="text"
-                value={this.state.email}
-                onChange={this.update('email')}
-                placeholder="email"
-                className="login-input"
-              />
-            </label>
-            <div className="session-form-add-space">
-            </div>
-        
-            <label>
-              <input type="password"
-                value={this.state.password}
-                onChange={this.update('password')}
-                placeholder="password"
-                className="login-input"
-              />
-            </label>
-            
-            <div className="session-submit">
-              <input type="submit" value={buttonMessage} />
-            </div>
-
-            <p className="session-or-message">OR</p>
-
-            <div className="session-submit-demo">
-              <button onClick={(e) => {this.demoUser(e)}}>Demo User</button>
-            </div>
-
-            {this.renderErrors()}
-
-            <p className="session-terms-message">By continuing, you agree to Pinterior's Terms of Service</p>
-            
-            <a className="switch-session-form" onClick={() => {this.props.switchForm()}}>{renderMessage}</a>
-
+        <div className="login-form-container">
+          <div className="session-messages">
+            <h4 className="session-welcome">Welcome to Pinteriors</h4>
+            <h6 className="session-new-ideas">Find new ideas to try</h6>
           </div>
+
+          <form onSubmit={this.handleSubmit} className="login-form-box">
+            {/* <h4 className="session-welcome">Welcome to Pinteriors</h4>
+          <h6 className="session-new-ideas">Find new ideas to try</h6> */}
+
+            <div onClick={this.props.closeModal} className="close-x">
+              X
+            </div>
+
+            <div className="login-form">
+              <label>
+                <input
+                  type="text"
+                  value={this.state.email}
+                  onChange={this.update('email')}
+                  placeholder="email"
+                  className="login-input"
+                />
+              </label>
+              <div className="session-form-add-space"></div>
+
+              <label>
+                <input
+                  type="password"
+                  value={this.state.password}
+                  onChange={this.update('password')}
+                  placeholder="password"
+                  className="login-input"
+                />
+              </label>
+
+              <div className="session-submit">
+                <input type="submit" value={buttonMessage} />
+              </div>
+
+              <p className="session-or-message">OR</p>
+
+              <div className="session-submit-demo">
+                <button
+                  onClick={(e) => {
+                    this.demoUser(e);
+                  }}
+                >
+                  Demo User
+                </button>
+              </div>
+
+              {this.renderErrors()}
+
+              <p className="session-terms-message">
+                By continuing, you agree to Pinterior's Terms of Service
+              </p>
+
+              <a
+                className="switch-session-form"
+                onClick={() => {
+                  this.props.switchForm();
+                }}
+              >
+                {renderMessage}
+              </a>
+            </div>
           </form>
         </div>
-        </>
+      </>
     );
   }
 }

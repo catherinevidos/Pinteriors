@@ -1,6 +1,5 @@
 .login-form-container {
   margin: 16px;
-  margin-top: 50px;
   max-width: 400px;
   width: 100%;
   min-height: 550px; 
@@ -21,18 +20,19 @@
 .modal-child-text {
   display: flex;
   justify-content: space-around;
-  width: calc(100% - 400px);
-  margin: auto;
+  // width: calc(100% - 400px);
+  width: 35vw;
+  // margin-right: 100px;
 }
 
 .modal-child-text > h1 {
   display: inline-block;
-  width: 35%;
+  width: 350px;
   color: white;
-  font-size: 70pt;
+  font-size: 60pt;
   font-family: Arial, Helvetica, sans-serif;
   margin: auto 0;
-  letter-spacing: -2px;
+  letter-spacing: -2.5px;
 }
 
 .login-form {
