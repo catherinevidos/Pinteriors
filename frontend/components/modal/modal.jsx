@@ -23,17 +23,9 @@ function Modal({ modal, closeModal }) {
   }
 
   return (
-    <div className="hey-eugene">
-      <div className="modal-background">
-        <div className="modal-child-text">
-          <h1>Sign up to get your ideas</h1>
-          {component}
-        </div>
-        <footer className="footer-container">
-          <Footer />
-        </footer>
-        {/* <div className="modal-child" onClick={e => e.stopPropagation()}> */}
-      </div>
+    <div className="modal-background">
+      {component}
+      {/* <div className="modal-child" onClick={e => e.stopPropagation()}> */}
     </div>
   );
 }

@@ -10,10 +10,8 @@ import {
 } from '../../actions/modal_actions';
 import Splash from './splash';
 
-const mapStateToProps = ({
-  session
-}) => ({
-  currentUser: session.currentUser
+const mapStateToProps = ({ session, entities }) => ({
+  currentUser: session && session.id && entities.users[session.id]
 });
 
 const mapDispatchToProps = dispatch => ({

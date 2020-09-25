@@ -57,7 +57,12 @@ class SessionForm extends React.Component {
     }
   
     return (
+      <>
+       <div className="modal-child-text">
+          <h1>Sign up to get your ideas</h1>
+        </div>
       <div className="login-form-container">
+
         <div className="session-messages">
           <h4 className="session-welcome">Welcome to Pinteriors</h4>
           <h6 className="session-new-ideas">Find new ideas to try</h6>
@@ -110,6 +115,7 @@ class SessionForm extends React.Component {
           </div>
           </form>
         </div>
+        </>
     );
   }
 }

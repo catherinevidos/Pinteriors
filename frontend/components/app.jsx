@@ -12,14 +12,17 @@ import Footer from '../components/footer/footer';
 const App = () => (
   <div className="app-component">
     <Modal />
-      <header>
-        <NavBar/>
-        {/* <Link to="/" className="header-link">
+    <header>
+      <NavBar />
+      {/* <Link to="/" className="header-link">
         </Link> */}
-      </header>
+    </header>
     <Switch>
       <Route exact path="/" component={SplashContainer} />
     </Switch>
+    <footer className="footer-container">
+        <Footer />
+    </footer>
   </div>
 );
 

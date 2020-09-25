@@ -11,10 +11,15 @@ export default class Splash extends React.Component {
 
 
   render() {
+    console.log(this.props);
     const { currentUser, logout, openModal } = this.props;
-    
+    if (!currentUser) {
+      return (
+        <div className="hey-eugene"></div>
+      )
+    }
     return (
-      <div className="splash-wrapper">
+      <div>
         <button onClick={() => { this.handleLogout() }}>logout</button>
       </div>
     )
