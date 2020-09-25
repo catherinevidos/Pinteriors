@@ -13,8 +13,10 @@
   overflow: hidden;
   background-color: #FFFFFF;
   font-family: Arial, Helvetica, sans-serif;
+  box-shadow: 0 0 5px 10px #555;
+  -webkit-box-shadow: 10px 10px 10px 4px black;
+  -moz-box-shadow: 10px 10px 10px 4px black;
 }
-
 
 .modal-child-text {
   display: flex;
@@ -25,13 +27,12 @@
 
 .modal-child-text > h1 {
   display: inline-block;
-  width: 30%;
+  width: 35%;
   color: white;
   font-size: 70pt;
   font-family: Arial, Helvetica, sans-serif;
   margin: auto 0;
   letter-spacing: -2px;
-  // marin-right: 
 }
 
 .login-form {

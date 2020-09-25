@@ -6,6 +6,7 @@ import SignupFormContainer from '../session_form/signup_form_container';
 import Footer from '../footer/footer';
 
 function Modal({ modal, closeModal }) {
+  
   if (!modal) {
     return null;
   }
@@ -20,18 +21,20 @@ function Modal({ modal, closeModal }) {
     default:
       return null;
   }
+
   return (
-    <div className="modal-background" >
-      <div className="modal-child-text">
-        <h1>Sign up to get your ideas</h1>
-        {component}
+    <div className="hey-eugene">
+      <div className="modal-background">
+        <div className="modal-child-text">
+          <h1>Sign up to get your ideas</h1>
+          {component}
+        </div>
+        <footer className="footer-container">
+          <Footer />
+        </footer>
+        {/* <div className="modal-child" onClick={e => e.stopPropagation()}> */}
       </div>
-      <footer className="footer-container">
-        <Footer />
-      </footer>
-      {/* <div className="modal-child" onClick={e => e.stopPropagation()}> */}
     </div>
-    // </div>
   );
 }
 
