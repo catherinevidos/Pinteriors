@@ -1,16 +1,30 @@
 class User < ApplicationRecord
 
+  #validations
 
   validates :password_digest, :session_token, :email, presence: true
-
   validates :email, :session_token, uniqueness: true
-
   validates :password, length: { minimum: 6, allow_nil: true }
 
   after_initialize :ensure_session_token
   
   attr_reader :password
 
+  #associations
+
+  has_one_attached :photo
+  
+  # a user has many pins that they own
+  has_many :own_pins,
+    foreign_key: :user_id,
+    class_name: :Pins,
+    dependent: :destroy
+
+  has_many :boards
+
+  has_many :pins,
+    through: :boards,
+    source: :pins
 
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email) 
