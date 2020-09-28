@@ -2,7 +2,7 @@ import {
   RECEIVE_BOARD,
   RECEIVE_BOARDS,
   REMOVE_BOARD
-} from '../actions/pin_actions';
+} from '../actions/board_actions';
 
 const BoardReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -14,7 +14,7 @@ const BoardReducer = (state = {}, action) => {
       })
     case RECEIVE_BOARDS:
       return Object.assign({}, state, action.boards)
-    case REMOVE_PIN:
+    case REMOVE_BOARD:
       let newState = Object.assign({}, state);
       delete newState[action.boardId];
       return newState;

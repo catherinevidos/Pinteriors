@@ -24,3 +24,5 @@ pin2.photo.attach(io: file, filename: 'backgroundImage.png')
 
 board1 = Board.create!(title: 'Living room ideas', description: 'MCM', user_id: user1.id)
 board2 = Board.create!(title: 'Kitchen plan', description: 'white/neutral kitchen plan', user_id: user1.id)
+
+pinboard1 = JoinPinsBoard.create!(pin_id: pin1.id, board_id: board1.id)
