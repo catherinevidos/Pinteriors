@@ -13,7 +13,7 @@ class Api::BoardsController < ApplicationController
   def show
     sleep 0.5
     @board = Board.find(params[:id])
-    # render :show #render show?
+    render "api/boards/show"
   end
 
   def index
@@ -40,6 +40,7 @@ class Api::BoardsController < ApplicationController
       render "api/boards/show"
     else
       render json: ["Cannot delete board"], status: 422
+    end
   end
 
   private
@@ -47,4 +48,5 @@ class Api::BoardsController < ApplicationController
   def board_params
     params.require(:board).permit(:title, :description)
   end
+
 end
