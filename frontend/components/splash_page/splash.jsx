@@ -1,4 +1,5 @@
 import React from 'react';
+import PinIndexContainer from '../pins/pin_index_container';
 
 export default class Splash extends React.Component {
   constructor(props){
@@ -11,7 +12,6 @@ export default class Splash extends React.Component {
 
 
   render() {
-    console.log(this.props);
     const { currentUser, logout, openModal } = this.props;
     if (!currentUser) {
       return (
@@ -20,6 +20,7 @@ export default class Splash extends React.Component {
     }
     return (
       <div>
+        <PinIndexContainer/>
         <button onClick={() => { this.handleLogout() }}>logout</button>
       </div>
     )

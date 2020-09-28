@@ -5,7 +5,9 @@ export const pinToBoard = (boardPin) => {
   return $.ajax({
     method: 'POST',
     url: '/api/joinspinsboards',
-    data: { boardPin }
+    data: { boardPin },
+    contentType: false,
+    processData: false
   })
 };
 

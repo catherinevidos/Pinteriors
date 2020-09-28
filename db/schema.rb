@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_25_181256) do
+ActiveRecord::Schema.define(version: 2020_09_28_211637) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,11 +45,14 @@ ActiveRecord::Schema.define(version: 2020_09_25_181256) do
     t.index ["user_id"], name: "index_boards_on_user_id"
   end
 
+  create_table "changes_to_joins_tables", force: :cascade do |t|
+  end
+
   create_table "join_pins_boards", force: :cascade do |t|
     t.integer "pin_id", null: false
     t.integer "board_id", null: false
-    t.index ["board_id"], name: "index_join_pins_boards_on_board_id", unique: true
-    t.index ["pin_id"], name: "index_join_pins_boards_on_pin_id", unique: true
+    t.index ["board_id"], name: "index_join_pins_boards_on_board_id"
+    t.index ["pin_id"], name: "index_join_pins_boards_on_pin_id"
   end
 
   create_table "pins", force: :cascade do |t|

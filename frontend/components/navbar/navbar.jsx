@@ -19,7 +19,7 @@ class NavBar extends React.Component {
           </div>
           <div>
             <ul>
-              {SplashNavItems.map((item, idx) => {
+              {HomeNavItems.map((item, idx) => {
                 return (
                   <li key={idx}>
                     <a className={item.cName} href={item.url}>{item.title}</a>
@@ -35,8 +35,8 @@ class NavBar extends React.Component {
   }
 }
 
-const mapStateToProps = ({ session }) => ({
-  currentUser: session.currentUser
+const mapStateToProps = state => ({
+  currentUser: state.entities.users[state.session.id]
 });
 
 const mapDispatchToProps = dispatch => {

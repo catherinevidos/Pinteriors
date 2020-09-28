@@ -7,6 +7,7 @@ import Modal from './modal/modal';
 import SplashContainer from '../components/splash_page/splash_container';
 import NavBar from '../components/navbar/navbar';
 import Footer from '../components/footer/footer';
+import PinIndexContainer from '../components/pins/pin_index_container';
 
 
 const App = () => (

@@ -29,7 +29,7 @@ export const fetchPins = () => dispatch => {
     .then(pins => dispatch(receivePins(pins)))
 }
 
-export const removePin = (pinId) => dispatch => {
+export const deletePin = (pinId) => dispatch => {
   return PinAPIUtil.deletePin(pinId)
     .then(pin => dispatch(removePin(pin.id)))
 }

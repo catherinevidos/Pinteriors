@@ -9,7 +9,9 @@ export const fetchBoards = () => {
 export const fetchBoard = boardId => {
   return $.ajax({
     method: 'GET',
-    url: `/api/boards/${boardId}`
+    url: `/api/boards/${boardId}`,
+    contentType: false,
+    processData: false
   })
 };
 
