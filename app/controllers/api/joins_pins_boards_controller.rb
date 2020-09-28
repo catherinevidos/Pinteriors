@@ -13,7 +13,7 @@ class Api::JoinsPinsBoardsController < ApplicationController
     @boardPin = JoinPinsBoard.new(boardPin_params) 
     if @boardPin.save
       @board = Board.find(@boardPin.board_id)
-      render: "api/boards/show"
+      render "api/boards/show"
     else
        render json: @board.errors.full_messages, status: 422
     end
@@ -26,7 +26,7 @@ class Api::JoinsPinsBoardsController < ApplicationController
     if @boardPin
       @boardPin.destroy
       @board = Board.find(@boardPin.board_id)
-      render: "api/boards/show"
+      render "api/boards/show"
     else
       render json: @board.errors.full_messages, status: 422
   end
