@@ -17,7 +17,7 @@ class User < ApplicationRecord
   # a user has many pins that they own
   has_many :own_pins,
     foreign_key: :user_id,
-    class_name: :Pins,
+    class_name: :Pin,
     dependent: :destroy
 
   has_many :boards

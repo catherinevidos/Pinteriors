@@ -13,7 +13,7 @@ class Api::BoardsController < ApplicationController
   def show
     sleep 0.5
     @board = Board.find(params[:id])
-    render :show #render show?
+    # render :show #render show?
   end
 
   def index

@@ -2,7 +2,7 @@ class Api::PinsController < ApplicationController
   before_action :require_user_owns_pin!, only: [:update]
 
   def create
-    @pin = current_user.pins.new(pin_params)
+    @pin = Pin.new(pin_params)
     @pin.user_id = current_user.id
 
     if @pin.save
