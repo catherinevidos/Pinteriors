@@ -37,7 +37,7 @@ class Api::BoardsController < ApplicationController
 
     if @board
        @board.destroy
-      render: "api/boards/show"
+      render "api/boards/show"
     else
       render json: ["Cannot delete board"], status: 422
   end
