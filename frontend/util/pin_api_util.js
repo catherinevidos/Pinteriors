@@ -1,28 +1,14 @@
 export const fetchPins = () => {
   return $.ajax({
-    method: 'PATCH',
-    url: '/api/pins/'
-  })
-};
-
-export const fetchUserPin = userId => {
-  return $.ajax({
     method: 'GET',
-    url: `/api/users/${userId}/pins`
+    url: '/api/pins/'
   })
 };
 
 export const fetchPin = pinId => {
   return $.ajax({
     method: 'GET',
-    url: `/api/pins/${pinId}/pins`
-  })
-};
-
-export const fetchBoardPins = boardId => {
-  return $.ajax({
-    method: 'GET',
-    url: `/api/boards/${boardId}/pins`
+    url: `/api/pins/${pinId}`
   })
 };
 
@@ -30,9 +16,9 @@ export const createPin = pin => {
   return $.ajax({
     method: 'POST',
     url: '/api/pins',
-    data: { pin },
-    contentType: false,
-    processData: false
+    data: { pin }
+    // contentType: false,
+    // processData: false
   })
 };
 
@@ -44,9 +30,9 @@ export const updatePin = pin => {
   })
 };
 
-export const deletePin = id => {
+export const deletePin = pinId => {
   return $.ajax({
     method: 'DELETE',
-    url: `/api/pins/${id}`
+    url: `/api/pins/${pinId}`
   })
 };
