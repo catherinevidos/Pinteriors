@@ -35,6 +35,18 @@
   letter-spacing: -2.5px;
 }
 
+.session-messages > div {
+  width: 100%;
+  height: 80px;
+  background-image: image_url('logo.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .login-form {
   width: calc(100% - 50px);
   margin: 0 auto;

@@ -63,6 +63,7 @@ class SessionForm extends React.Component {
         </div>
         <div className="login-form-container">
           <div className="session-messages">
+            <div className="session-logo"></div>
             <h4 className="session-welcome">Welcome to Pinteriors</h4>
             <h6 className="session-new-ideas">Find new ideas to try</h6>
           </div>
