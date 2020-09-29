@@ -3,6 +3,7 @@ import { Provider } from 'react-redux';
 import { Route, Redirect, Switch, Link, HashRouter } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
+
 import Modal from './modal/modal';
 import SplashContainer from '../components/splash_page/splash_container';
 import NavBar from '../components/navbar/navbar';

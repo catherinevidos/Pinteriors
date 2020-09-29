@@ -1,16 +1,70 @@
-.pin-index-container {
-  margin: 100px;
-}
+// .pin-index-container {
+//   column-count: 5;
+//   column-gap: 15px;
+// }
 
-.pin-index-ul {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 10px;
-  grid-auto-rows: minmax(50px, auto);
-}
+// .pin-grid {
+//   display: inline-block;
+//   width: 100%;
+// }
 
-.pin-index-ul img {
+// .test {
+//   max-width: 100%;
+//   padding: 5px;
+//   margin: 5px;
+// }
+
+// .masonry-pins {
+//   width: 200px;
+//   height: 350px;
+// }
+
+.test {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: 100%;
-  height: 100%;
-  border-radius: 5px;
 }
+
+.masonry-pins {
+  width: 90%;
+}
+
+.masonry-pins img {
+  width: 230px;
+  border-radius: 10px !important;
+  box-shadow: 0 1px 1px 2px grey(0, 0, 0, .10);
+  margin: 10px;
+}
+
+// .masonry-pins{
+//   border-radius: 10px;
+//   // padding: 10px;
+// }
+
+
+
+
+// .pin-grid-item {
+//   display: block;
+//   width: 100%
+// }
+
+
+// .pin-index-container {
+//   margin: 100px;
+// }
+
+// .pin-index-ul {
+//   display: grid;
+//   grid-template-columns: repeat(4, 1fr);
+//   grid-gap: 10px;
+//   grid-auto-rows: minmax(50px, auto);
+// }
+
+// .pin-index-ul img {
+//   width: 100%;
+//   height: 100%;
+//   border-radius: 5px;
+// }

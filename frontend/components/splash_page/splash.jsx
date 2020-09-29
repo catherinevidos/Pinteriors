@@ -19,9 +19,8 @@ export default class Splash extends React.Component {
       )
     }
     return (
-      <div>
+      <div className="splash-page-wrapper">
         <PinIndexContainer/>
-        <button onClick={() => { this.handleLogout() }}>logout</button>
       </div>
     )
   }

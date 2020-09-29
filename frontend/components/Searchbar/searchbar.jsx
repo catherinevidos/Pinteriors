@@ -1,43 +1,46 @@
 // need to figure out how to get pins to come in here and call my search function with the pins. this could be the wrong way. work in progress
 
-// export default class Searchbar extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       pins: [],
-//       searchPhrase: ''
-//     };
-//     this.handleChange = this.handleChange.bind(this);
-//   }
+import React from 'react';
 
-//   handleChange(e) {
-//     this.setState({ searchPhrase: e.target.value })
-//   }
+export default class Searchbar extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      pins: [],
+      searchPhrase: ''
+    };
+    this.handleChange = this.handleChange.bind(this);
+  }
 
-//   searchFunc = () => {
-//     return this.state.pins.filter(pin => pin.title.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
-//   }
+  handleChange(e) {
+    this.setState({ searchPhrase: e.target.value })
+  }
 
-//   onSubmit(e) {
-//     e.preventDefault();
-//   }
+  // searchFunc = () => {
+  //   return this.state.pins.filter(pin => pin.title.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
+  // }
 
-//   render() {
-//     <div className="searchbar-container">
-//       <div className="searchbar-child">
-//         <form onSubmit={this.onSubmit}>
-//           <input
-//             type="text"
-//             className="searchbar-input"
-//             onChange={this.handleChange}
-//             value={this.state.initialSearch}
-//             placeholder="Search"
-//           />
-//           <span>
-//             <button type="subimt" className="searchbar-submit-button"></button>
-//           </span>
-//         </form>
-//       </div>
-//     </div>;
-//   }
-// }
+  onSubmit(e) {
+    e.preventDefault();
+  }
+
+  render() {
+    return (
+    <div className="searchbar-container">
+        <form className="searchbar-form" onSubmit={this.onSubmit}>
+          <input
+            type="search"
+            className="searchbar-input"
+            onChange={this.handleChange}
+            value={this.state.initialSearch}
+            placeholder="Search"
+            results="0"
+          />
+          <span>
+            <button type="subimt" className="searchbar-submit-button"></button>
+          </span>
+        </form>
+      </div>
+    );
+  }
+}

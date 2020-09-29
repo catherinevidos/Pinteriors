@@ -29,8 +29,8 @@ class Footer extends React.Component {
   }
 }
 
-const mapStateToProps = ({ session }) => ({
-  currentUser: session.currentUser
+const mapStateToProps = (state) => ({
+  currentUser: state.entities.users[state.session.id]
 });
 
 

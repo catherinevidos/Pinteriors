@@ -1,5 +1,6 @@
 import React from 'react';
 import PinIndexItem from './pin_index_item';
+import Masonry from 'react-masonry-component';
 
 export default class PinIndex extends React.Component {
   constructor(props) {
@@ -13,9 +14,13 @@ export default class PinIndex extends React.Component {
   render() {
     const { currentUser, openModal, pins, fetchPins } = this.props;
     return (
-      <div className="pin-index-container">
-        <ul className="pin-index-ul">
-          {pins.map(pin => 
+      <div className="test">
+        <Masonry
+          className="masonry-pins"
+          elementType={'ul'}
+          onClick={this.handleClick}
+        >
+          {pins.map((pin) => (
             <PinIndexItem
               pin={pin}
               key={pin.id}
@@ -24,8 +29,8 @@ export default class PinIndex extends React.Component {
               currentUser={currentUser}
               openModal={openModal}
             />
-          )}
-        </ul>
+          ))}
+        </Masonry>
       </div>
     );
   }
