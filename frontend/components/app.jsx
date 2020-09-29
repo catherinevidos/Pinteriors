@@ -8,7 +8,8 @@ import Modal from './modal/modal';
 import SplashContainer from '../components/splash_page/splash_container';
 import NavBar from '../components/navbar/navbar';
 import Footer from '../components/footer/footer';
-import PinIndexContainer from '../components/pins/pin_index_container';
+
+import PinShowContainer from '../components/pins/pin_show_container';
 
 
 const App = () => (
@@ -21,9 +22,10 @@ const App = () => (
     </header>
     <Switch>
       <Route exact path="/" component={SplashContainer} />
+      <Route path="/pins/:pinId" component={PinShowContainer} />
     </Switch>
     <footer className="footer-container">
-        <Footer />
+      <Footer />
     </footer>
   </div>
 );

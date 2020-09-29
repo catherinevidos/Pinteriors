@@ -1,32 +1,26 @@
-// import {
-//   connect
-// } from 'react-redux';
+import {
+  connect
+} from 'react-redux';
 
-// import {
-//   openModal
-// } from '../../actions/modal_actions';
+import {
+  fetchPin
+} from '../../actions/pin_actions';
 
-// import {
-//   fetchPins
-// } from '../../actions/pin_actions';
-
-// import PinIndex from './pin_index';
+import PinShow from './pin_show';
 
 
-// const mapStateToProps = ({
-//   session,
-//   entities
-// }) => ({
-//   currentUser: session && session.id && entities.users[session.id],
-//   pins: Object.values(entities.pins)
-// });
+const mapStateToProps = (state, ownProps) => ({
+  currentUser: state.entities.users[state.session.id],
+  pins: Object.values(state.entities.pins),
+  pin: state.entities.pins[ownProps.match.params.pinId]
+});
 
-// const mapDispatchToProps = dispatch => ({
-//   openModal: modal => dispatch(openModal(modal)),
-//   fetchPins: () => dispatch(fetchPins())
-// });
+const mapDispatchToProps = dispatch => ({
+  openModal: modal => dispatch(openModal(modal)),
+  fetchPin: (pinId) => dispatch(fetchPin(pinId))
+});
 
-// export default connect(
-//   mapStateToProps,
-//   mapDispatchToProps
-// )(PinIndex);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(PinShow);

@@ -14,62 +14,80 @@ Pin.destroy_all
 JoinPinsBoard.destroy_all
 
 user1 = User.create!(email: 'pinteriors@catherine.com', password: 'welcome1')
+file = open('https://active-storage-pinteriors-seeds.s3.amazonaws.com/karsten-winegeart-Qb7D1xw28Co-unsplash.jpeg')
+user1.photo.attach(io: file, filename: 'karsten-winegeart-Qb7D1xw28Co-unsplash.jpeg')
+
+
 user2 = User.create!(email: 'jon@pinteriors.com', password: 'welcome1')
+file = open('https://active-storage-pinteriors-seeds.s3.amazonaws.com/karsten-winegeart-Qb7D1xw28Co-unsplash.jpeg')
+user2.photo.attach(io: file, filename: 'karsten-winegeart-Qb7D1xw28Co-unsplash.jpeg')
+
+
 user3 = User.create!(email: 'adel@pinteriors.com', password: 'welcome1')
+file = open('https://active-storage-pinteriors-seeds.s3.amazonaws.com/karsten-winegeart-Qb7D1xw28Co-unsplash.jpeg')
+user3.photo.attach(io: file, filename: 'karsten-winegeart-Qb7D1xw28Co-unsplash.jpeg')
+
+
 user4 = User.create(email: 'eugene@pinteriors.com', password: 'welcome1')
+file = open('https://active-storage-pinteriors-seeds.s3.amazonaws.com/karsten-winegeart-Qb7D1xw28Co-unsplash.jpeg')
+user4.photo.attach(io: file, filename: 'karsten-winegeart-Qb7D1xw28Co-unsplash.jpeg')
+
+
 user5 = User.create(email: 'patrick@pinteriors.com', password: 'welcome1')
+file = open('https://active-storage-pinteriors-seeds.s3.amazonaws.com/karsten-winegeart-Qb7D1xw28Co-unsplash.jpeg')
+user5.photo.attach(io: file, filename: 'karsten-winegeart-Qb7D1xw28Co-unsplash.jpeg')
 
 # PINS
 
 # USER ONE PINS
 
 pin1 = Pin.create!(title: 'Milking stool', description: 'poss option for steven''s renno', user_id: user1.id, source_link: 'www.dwr.com')
-file = File.open('https://active-storage-pinteriors-seeds.s3.amazonaws.com/pin1.jpg.jpg')
+file = open('https://active-storage-pinteriors-seeds.s3.amazonaws.com/pin1.jpeg')
 pin1.photo.attach(io: file, filename: 'pin1.jpeg')
 
 
 
 pin2 = Pin.create!(title: 'pin2', description: 'i am pin2', user_id: user1.id, source_link: 'www.pinterest.com')
-file = File.open('https://active-storage-pinteriors-seeds.s3.amazonaws.com/pin2.jpg.jpg')
+file = open('https://active-storage-pinteriors-seeds.s3.amazonaws.com/pin2.jpg')
 pin2.photo.attach(io: file, filename: 'pin2.jpg')
 
 # USER TWO PINS
 
 
 pin3 = Pin.create!(title: 'pin3', description: 'i am pin3', user_id: user2.id, source_link: 'www.pinterest.com')
-file = File.open('https://active-storage-pinteriors-seeds.s3.amazonaws.com/pin3.jpg.jpg')
+file = open('https://active-storage-pinteriors-seeds.s3.amazonaws.com/pin3.jpg')
 pin3.photo.attach(io: file, filename: 'pin3.jpg')
 
 
 
 pin4 = Pin.create!(title: 'pin4', description: 'i am pin4', user_id: user2.id, source_link: 'www.pinterest.com')
-file = File.open('https://active-storage-pinteriors-seeds.s3.amazonaws.com/pin4.jpg.jpg')
+file = open('https://active-storage-pinteriors-seeds.s3.amazonaws.com/pin4.jpg')
 pin4.photo.attach(io: file, filename: 'pin4.jpg')
 
 
 
 pin5 = Pin.create!(title: 'pin5', description: 'i am pin5', user_id: user2.id, source_link: 'www.pinterest.com')
-file = File.open('https://active-storage-pinteriors-seeds.s3.amazonaws.com/pin5.jpg.jpg')
+file = open('https://active-storage-pinteriors-seeds.s3.amazonaws.com/pin5.jpg')
 pin5.photo.attach(io: file, filename: 'pin5.jpg')
 
 
 
 
 pin6 = Pin.create!(title: 'pin6', description: 'i am pin6', user_id: user2.id, source_link: 'www.pinterest.com')
-file = File.open('https://active-storage-pinteriors-seeds.s3.amazonaws.com/pin6.jpg.jpg')
+file = open('https://active-storage-pinteriors-seeds.s3.amazonaws.com/pin6.jpg')
 pin6.photo.attach(io: file, filename: 'pin6.jpg')
 
 
 
 pin7 = Pin.create!(title: 'pin7', description: 'i am pin7', user_id: user2.id, source_link: 'www.pinterest.com')
-file = File.open('https://active-storage-pinteriors-seeds.s3.amazonaws.com/pin7.jpg.jpg')
+file = open('https://active-storage-pinteriors-seeds.s3.amazonaws.com/pin7.jpg')
 pin7.photo.attach(io: file, filename: 'pin7.jpg')
 
 
 
 
 pin8 = Pin.create!(title: 'pin8', description: 'i am pin8', user_id: user2.id, source_link: 'www.dwr.com')
-file = File.open('https://active-storage-pinteriors-seeds.s3.amazonaws.com/pin8.jpg.jpg')
+file = open('https://active-storage-pinteriors-seeds.s3.amazonaws.com/pin8.jpg')
 pin8.photo.attach(io: file, filename: 'pin8.jpg')
 
 
@@ -77,7 +95,7 @@ pin8.photo.attach(io: file, filename: 'pin8.jpg')
 
 
 pin9 = Pin.create!(title: 'pin9', description: 'i am pin9', user_id: user2.id, source_link: 'www.pinterest.com')
-file = File.open('https://active-storage-pinteriors-seeds.s3.amazonaws.com/pin9.jpg.jpg')
+file = open('https://active-storage-pinteriors-seeds.s3.amazonaws.com/pin9.jpg')
 pin9.photo.attach(io: file, filename: 'pin9.jpg')
 
 
@@ -85,59 +103,59 @@ pin9.photo.attach(io: file, filename: 'pin9.jpg')
 
 
 pin10 = Pin.create!(title: 'pin10', description: 'i am pin10', user_id: user2.id, source_link: 'www.pinterest.com')
-file = File.open('https://active-storage-pinteriors-seeds.s3.amazonaws.com/pin10.jpg.jpg')
+file = open('https://active-storage-pinteriors-seeds.s3.amazonaws.com/pin10.jpg')
 pin10.photo.attach(io: file, filename: 'pin10.jpg')
 
 
 # USER THREE PINS
 
 pin11 = Pin.create!(title: 'pin11', description: 'i am pin11', user_id: user3.id, source_link: 'www.pinterest.com')
-file = File.open('https://active-storage-pinteriors-seeds.s3.amazonaws.com/pin11.jpg.jpg')
+file = open('https://active-storage-pinteriors-seeds.s3.amazonaws.com/pin11.jpg')
 pin11.photo.attach(io: file, filename: 'pin11.jpg')
 
 
 pin12 = Pin.create!(title: 'pin12', description: 'i am pin12', user_id: user3.id, source_link: 'www.pinterest.com')
-file = File.open('https://active-storage-pinteriors-seeds.s3.amazonaws.com/pin12.jpg.jpg')
+file = open('https://active-storage-pinteriors-seeds.s3.amazonaws.com/pin12.jpg')
 pin12.photo.attach(io: file, filename: 'pin12.jpg')
 
 
 pin13 = Pin.create!(title: 'pin13', description: 'i am pin13', user_id: user3.id, source_link: 'www.pinterest.com')
-file = File.open('https://active-storage-pinteriors-seeds.s3.amazonaws.com/pin13.jpg.jpg')
+file = open('https://active-storage-pinteriors-seeds.s3.amazonaws.com/pin13.jpg')
 pin13.photo.attach(io: file, filename: 'pin13.jpg')
 
 
 pin14 = Pin.create!(title: 'pin14', description: 'i am pin14', user_id: user3.id, source_link: 'www.pinterest.com')
-file = File.open('https://active-storage-pinteriors-seeds.s3.amazonaws.com/pin14.jpg.jpg')
+file = open('https://active-storage-pinteriors-seeds.s3.amazonaws.com/pin14.jpg')
 pin14.photo.attach(io: file, filename: 'pin14.jpg')
 
 
 pin15 = Pin.create!(title: 'pin15', description: 'i am pin15', user_id: user3.id, source_link: 'www.pinterest.com')
-file = File.open('https://active-storage-pinteriors-seeds.s3.amazonaws.com/pin15.jpg.jpg')
+file = open('https://active-storage-pinteriors-seeds.s3.amazonaws.com/pin15.jpg')
 pin15.photo.attach(io: file, filename: 'pin15.jpg')
 
 
 pin16 = Pin.create!(title: 'pin16', description: 'i am pin16', user_id: user3.id, source_link: 'www.pinterest.com')
-file = File.open('https://active-storage-pinteriors-seeds.s3.amazonaws.com/pin16.jpg.jpg')
+file = open('https://active-storage-pinteriors-seeds.s3.amazonaws.com/pin16.jpg')
 pin16.photo.attach(io: file, filename: 'pin16.jpg')
 
 
 pin17 = Pin.create!(title: 'pin17', description: 'i am pin17', user_id: user3.id, source_link: 'www.pinterest.com')
-file = File.open('https://active-storage-pinteriors-seeds.s3.amazonaws.com/pin17.jpg.jpg')
+file = open('https://active-storage-pinteriors-seeds.s3.amazonaws.com/pin17.jpg')
 pin17.photo.attach(io: file, filename: 'pin17.jpg')
 
 
 pin18 = Pin.create!(title: 'pin18', description: 'i am pin18', user_id: user3.id, source_link: 'www.pinterest.com')
-file = File.open('https://active-storage-pinteriors-seeds.s3.amazonaws.com/pin18.jpg.jpg')
+file = open('https://active-storage-pinteriors-seeds.s3.amazonaws.com/pin18.jpg')
 pin18.photo.attach(io: file, filename: 'pin18.jpg')
 
 
 pin19 = Pin.create!(title: 'pin19', description: 'i am pin19', user_id: user3.id, source_link: 'www.pinterest.com')
-file = File.open('https://active-storage-pinteriors-seeds.s3.amazonaws.com/pin19.jpg.jpg')
+file = open('https://active-storage-pinteriors-seeds.s3.amazonaws.com/pin19.jpg')
 pin19.photo.attach(io: file, filename: 'pin19.jpg')
 
 
 pin20 = Pin.create!(title: 'pin20', description: 'i am pin20', user_id: user3.id, source_link: 'www.pinterest.com')
-file = File.open('https://active-storage-pinteriors-seeds.s3.amazonaws.com/pin20.jpg.jpg')
+file = open('https://active-storage-pinteriors-seeds.s3.amazonaws.com/pin20.jpg')
 pin20.photo.attach(io: file, filename: 'pin20.jpg')
 
 
