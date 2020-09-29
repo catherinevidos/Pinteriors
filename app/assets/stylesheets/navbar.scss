@@ -1,6 +1,7 @@
 .nav-container {
   height: 80px;
   overflow: hidden;
+  // position: fixed;
 }
 
 .nav-ul {
@@ -40,6 +41,7 @@
 .nav-lis > button {
   padding: 15px 10px 15px 10px;
   border-radius: 40px;
+  transition: background 0.5s;
   &:focus{
     background-color: black;
     color: white;
@@ -94,8 +96,3 @@ a.nav-link-home-logo {
   color: black;
 }
  
-.fas fa-search {
-  height: 1px;
-  width: 1px;
-  z-index: 10;
-}
