@@ -18,13 +18,19 @@ class NavBar extends React.Component {
 
   render() {
     const { currentUser, openModal, closeModal} = this.props;
+    
+       const profilePic = ((currentUser) && (currentUser.photoUrl)) ? (
+         <img className="nav-profile-image" src={currentUser.photoUrl} />
+       ) : (
+         <i class="fas fa-user-circle"></i>
+       );
+
     if (currentUser) {
       return (
         <div className="nav-container">
           <ul className="nav-ul">
             <li className="nav-lis">
-              <a key="1" className="nav-link-home-logo" href="#">     
-              </a>
+              <a key="1" className="nav-link-home-logo" href="#"></a>
               <a key="2" className="nav-link-home" href="#">
                 Home
               </a>
@@ -32,9 +38,16 @@ class NavBar extends React.Component {
                 Following
               </a>
               <SearchbarContainer />
-              <a key="4" className="nav-link-home" href="#">
-                Profile
-              </a>
+              <div className='icon-wrapper'>
+                <Link
+                  to={`/users/${currentUser.id}`}
+                  key="4"
+                  className="nav-link-home"
+                  href="#"
+                >
+                  {profilePic}
+                </Link>
+              </div>
               <button
                 onClick={() => {
                   this.handleClick();

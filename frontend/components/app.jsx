@@ -10,6 +10,7 @@ import NavBar from '../components/navbar/navbar';
 import Footer from '../components/footer/footer';
 
 import PinShowContainer from '../components/pins/pin_show_container';
+import UserProfileContainer from '../components/users/user_profile_container';
 
 
 const App = () => (
@@ -23,6 +24,7 @@ const App = () => (
     <Switch>
       <Route exact path="/" component={SplashContainer} />
       <Route path="/pins/:pinId" component={PinShowContainer} />
+      <Route path="/users/:userId" component={UserProfileContainer} />
     </Switch>
     <footer className="footer-container">
       <Footer />
