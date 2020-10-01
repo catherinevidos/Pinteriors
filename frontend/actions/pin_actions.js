@@ -40,6 +40,10 @@ export const updatePin = (pin) => dispatch => {
 }
 
 export const createPin = (pin) => dispatch => {
+  debugger
   return PinAPiUtil.createPin(pin)
-    .then(pin => dispatch(receivePin(pin)))
+    .then(pin => { 
+      debugger
+      return dispatch(receivePin(pin)) 
+    })
 }

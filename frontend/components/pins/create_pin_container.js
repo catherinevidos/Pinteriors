@@ -10,6 +10,10 @@ import {
   fetchBoards
 } from '../../actions/board_actions';
 
+import {
+  createPin
+} from '../../actions/pin_actions';
+
 import CreatePin from './create_pin';
 
 

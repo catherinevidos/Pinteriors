@@ -16,12 +16,12 @@ export default class Splash extends React.Component {
   //   this.props.logout().then(this.props.openModal('login'))
   // }
 
-  componentDidMount() {
-    // this.props.fetchBoards();
-    // this.setTimeout(() => {
-    //   this.setState({ loading: '' })
-    // }, 2000);
-  }
+  // componentDidMount() {
+  //   // this.props.fetchBoards();
+  //   // this.setTimeout(() => {
+  //   //   this.setState({ loading: '' })
+  //   // }, 2000);
+  // }
 
 
   render() {
@@ -37,8 +37,8 @@ export default class Splash extends React.Component {
       return (
         <div className="splash-page-wrapper">
           <PinIndexContainer />
-          <div>
-            <Link to="/pins">
+          <div className="plus">
+            <Link to="/pins/create">
               <i className="fas fa-plus"></i>
             </Link>
           </div>

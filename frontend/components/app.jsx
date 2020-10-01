@@ -11,7 +11,7 @@ import Footer from '../components/footer/footer';
 
 import PinShowContainer from '../components/pins/pin_show_container';
 import UserProfileContainer from '../components/users/user_profile_container';
-import CreatePinContainer from '../components/pins/pin_show_container';
+import CreatePinContainer from '../components/pins/create_pin_container';
 
 
 const App = () => (
@@ -22,12 +22,12 @@ const App = () => (
       {/* <Link to="/" className="header-link">
         </Link> */}
     </header>
-    {/* <Switch> */}
+    <Switch>
       <Route exact path="/" component={SplashContainer} />
       <Route exact path="/pins/:pinId" component={PinShowContainer} />
       <Route exact path="/users/:userId" component={UserProfileContainer} />
-      <Route exact path="/pins" component={CreatePinContainer} />
-    {/* </Switch> */}
+      <Route exact path="/pins/create" component={CreatePinContainer} />
+    </Switch>
     <footer className="footer-container">
       <Footer />
     </footer>

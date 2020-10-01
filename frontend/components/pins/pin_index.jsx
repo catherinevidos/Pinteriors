@@ -1,7 +1,7 @@
 import React from 'react';
 import PinIndexItem from './pin_index_item';
 import Masonry from 'react-masonry-component';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 export default class PinIndex extends React.Component {
   constructor(props) {
@@ -36,6 +36,11 @@ export default class PinIndex extends React.Component {
             />
           ))}
         </Masonry>
+        <div className='plus'>
+          <Link to="/pins">
+            <i className="fas fa-plus"></i>
+          </Link>
+        </div>
       </div>
     );
   }

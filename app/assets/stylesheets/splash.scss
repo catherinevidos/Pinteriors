@@ -1,0 +1,35 @@
+.plus {
+ position: absolute;
+ text-align: center;
+ bottom: 180px;
+ right: 20px;
+ height: 50px;
+ width: 50px;
+ box-sizing: border-box;
+ border-radius: 50px;
+ transition: background 0.5s;
+ opacity: 70%;
+
+ &:hover {
+   background-color: lightgrey;
+   cursor: pointer;
+ }
+ }
+
+.plus i {
+  display: flex;
+  font-size: 22pt;
+  color: black;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box;
+  border-radius: 50px;
+  background-color: whitesmoke;
+   &:hover {
+     background-color: lightgrey;
+     cursor: pointer;
+   }
+}
