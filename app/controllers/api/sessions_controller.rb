@@ -17,7 +17,6 @@ class Api::SessionsController < ApplicationController
   def destroy
     @user = current_user
     if @user
-      sleep 1.0
       logout!
       render "api/users/show"
     else

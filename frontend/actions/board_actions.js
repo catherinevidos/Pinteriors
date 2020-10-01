@@ -14,7 +14,7 @@ const receiveBoards = boards => ({
   boards
 });
 
-const removePin = boardId => ({
+const removeBoard = boardId => ({
   type: REMOVE_BOARD,
   boardId
 });
@@ -29,7 +29,7 @@ export const fetchBoards = () => dispatch => {
     .then(boards => dispatch(receiveBoards(boards)))
 }
 
-export const removeBoard = (boardId) => dispatch => {
+export const deleteBoard = (boardId) => dispatch => {
   return BoardAPIUtil.deleteBoard(boardId)
     .then(board => dispatch(removeBoard(board.id)))
 }

@@ -16,13 +16,13 @@ const removeBoardPin = boardPin => ({
 
 export const pinToBoard = boardPin => dispatch => {
   return BoardPinAPIUtil.pinToBoard(boardPin)
-  .then(board => dispatch(receiveBoard(board))
+  .then(board => dispatch(receiveBoardPin(board))
   )
 };
 
 export const deletePinOnBoard = boardPin => dispatch => {
   return BoardPinAPIUtil.deletePinOnBoard(boardPin)
-    .then(board => dispatch(receiveBoard(board)))
+    .then(board => dispatch(receiveBoardPin(board)))
 };
 
 
