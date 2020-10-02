@@ -97,7 +97,7 @@ export default class CreatePin extends React.Component {
         : null;
 
     const profilePic = currentUser.photoUrl ? (
-      <img className="nav-profile-image" src={currentUser.photoUrl} />
+      <img className="create-pin-profile-image" src={currentUser.photoUrl} />
     ) : (
       <i className="fas fa-user-circle"></i>
     );
@@ -106,40 +106,44 @@ export default class CreatePin extends React.Component {
       <div className="create-pin">
         <div className="create-pin-container">
           <form className="create-form" onSubmit={this.handleSubmit}>
-            <DropdownContainer />
-            <h1>
-              <input
-                className="create-pin-title"
-                type="text"
-                onChange={this.handleUpdate('title')}
-                placeholder="Add your title"
-              />
-            </h1>
-            <div>{profilePic}</div>
-            <p>{name}</p>
-            <p>
-              <input
-                className="create-pin-body"
-                type="text"
-                onChange={this.handleUpdate('description')}
-                placeholder="tell everyone what your Pin is about"
-              />
-            </p>
-            <p>
-              <input
-                className="create-pin-link"
-                type="text"
-                onChange={this.handleUpdate('sourceLink')}
-                placeholder="Add a destination link"
-              />
-            </p>
-            <div className="drop-area">
-                <p id='drop-text'>Drag and drop to upload</p>
-                <input
-                  id='pinFile'
-                  onChange={this.handleFile}
-                  type="file"
-                />
+            <div className="create-pin-dropdown">
+              <DropdownContainer />
+            </div>
+            <div className="create-pin-catherine">
+              <div className="create-text">
+                <h1>
+                  <input
+                    className="create-pin-title"
+                    type="text"
+                    onChange={this.handleUpdate('title')}
+                    placeholder="Add your title"
+                  />
+                </h1>
+                <div className='create-pin-image'>{profilePic}</div>
+                {/* <p>{name}</p> */}
+                <p className='create-pin-p'>
+                  <input
+                    className="create-pin-body"
+                    type="text"
+                    onChange={this.handleUpdate('description')}
+                    placeholder="tell everyone what your Pin is about"
+                  />
+                </p>
+                <p className='create-pin-p2'>
+                  <input
+                    className="create-pin-link"
+                    type="text"
+                    onChange={this.handleUpdate('sourceLink')}
+                    placeholder="Add a destination link"
+                  />
+                </p>
+              </div>
+              <div className="drop-area">
+                <div className='create-pin-fun'>
+                  <p id="drop-text">Drag and drop to upload</p>
+                  <input id="pinFile" onChange={this.handleFile} type="file" />
+                </div>
+              </div>
             </div>
           </form>
         </div>
