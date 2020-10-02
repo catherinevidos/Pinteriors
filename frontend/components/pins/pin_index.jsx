@@ -20,8 +20,8 @@ export default class PinIndex extends React.Component {
 
   render() {
     const { currentUser, openModal, pins, fetchPins, modal } = this.props;
-
-    if (modal !== 'pinboard') {
+    
+    if (modal === null) {
     return (
       <div className="test">
         <Masonry

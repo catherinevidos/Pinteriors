@@ -44,15 +44,15 @@
   &:hover.pin-index-save {
     filter: grayscale(30%);
     cursor: pointer;
-    visibility: visible !important;
-     z-index: 10;
+    visibility: visible;
+     z-index: 1;
   }
   &:hover &:focus.pin-index-save {
     filter: grayscale(30%);
     cursor: pointer;
-    visibility: visible !important;
+    visibility: visible;
     background-color: darkred;
-     z-index: 10;
+     z-index: 1;
   }
 }
 
@@ -74,12 +74,12 @@
   z-index: 1;
   // visibility: hidden;
   &:hover {
-    z-index: 1 !important;
-    visibility: visible !important;
+    z-index: 1;
+    visibility: visible;
   }
   &:focus {
-    z-index: 1 !important;
-    visibility: visible !important;
+    z-index: 1;
+    visibility: visible;
   }
 }
 

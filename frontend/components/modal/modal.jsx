@@ -7,7 +7,6 @@ import PinBoardContainer from '../boards/pin_board_container';
 import Footer from '../footer/footer';
 
 function Modal({ modal, closeModal }) {
-  // debugger
   if (!modal) {
     return null;
   }

@@ -19,7 +19,6 @@ import PinBoard from './pin_board';
 
 
 const mapStateToProps = (state) => {
-  // debugger
   return {
     currentUser: state.entities.users[state.session.id],
     boards: Object.values(state.entities.boards)

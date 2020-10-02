@@ -3,7 +3,6 @@ import {Link} from 'react-router-dom';
 
 export default class PinBoard extends React.Component {
   constructor(props) {
-    debugger
     super(props);
     this.state = {
       message: false
@@ -13,8 +12,11 @@ export default class PinBoard extends React.Component {
 
   handleClick(e) {
     e.preventDefault();
-    this.props.pinToBoard(boardPin)
-    this.setState(() => {message: true})
+    this.props.pinToBoard(boardPin).then(
+      this.setState(() => {
+        message: true;
+      }),
+    );
   }
 
   componentDidMount() {

@@ -4,7 +4,6 @@ import DropdownContainer from '../dropdown/dropdown_container';
 
 export default class CreatePin extends React.Component {
   constructor(props) {
-    debugger
     super(props);
     this.state = {
       pin: {
@@ -13,33 +12,46 @@ export default class CreatePin extends React.Component {
       sourceLink: '',
       userId: this.props.currentUser.id,
       photoFile: null,
-      photoUrl: null
+      photoUrl: null,
     }
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleFile = this.handleFile.bind(this);
     this.handleUpdate = this.handleUpdate.bind(this);
+    this.afterSubmit = this.afterSubmit.bind(this);
   }
+
 
   handleSubmit(e) {
     e.preventDefault();
     const formData = new FormData();
     formData.append('pin[title]', this.state.title);
     formData.append('pin[description]', this.state.description);
-    formData.append('pin[sourceLink]', this.state.sourceLink);
     formData.append('pin[userId]', this.state.userId);
     formData.append('pin[photoUrl]', this.state.photoFile);
-    this.props.createPin(formData)
+    formData.append('pin[sourceLink]', this.state.sourceLink);
+    this.props.createPin(formData).then(e.target.reset())
+    .then(() => this.afterSubmit())
   }
 
-  componentDidUpdate(prevProps) {
-    this.props.fetchPins();
-    if (prevProps.pins.length !== this.props.pins.length) {
-      this.props.pinToBoard(this.props.pins.slice(-1), this.props.boards[0])
+    afterSubmit() {
+    const boardPin = (this.props.pins.slice(-1), this.props.boards[0].id)
+    if (this.props.pins.length !== this.props.pins.length) {
+    this.props.pinToBoard(boardPin)
     } else {
-      return null;
+    return null;
     }
   }
+
+  // componentDidUpdate(prevProps) {
+  //   this.props.fetchPins();
+  //   // const boardPin = (this.props.pins.slice(-1), this.props.board.i)
+  //   if (prevProps.pins.length !== this.props.pins.length) {
+  //     this.props.pinToBoard(this.props.pins.slice(-1).id, this.props.boards[0].id)
+  //   } else {
+  //     return null;
+  //   }
+  // }
 
 
   handleFile(event) {
@@ -54,11 +66,27 @@ export default class CreatePin extends React.Component {
   }
 
   handleUpdate(field) {
-    debugger
     return e => {
       this.setState({[field]: e.currentTarget.value})
     }
   }
+
+//   dragAndDrop(e) {
+//     ['dragenter', 'dragover', 'dragleave', 'drop'].forEach((eventName) => {
+//       dropArea.addEventListener(eventName, preventDefaults, false);
+//     });
+//   }
+
+//   previewFile(file) {
+//     let reader = new FileReader()
+//     reader.readAsDataURL(file)
+//     reader.onloadend = function() {
+//       let photo = document.createElement('photo')
+//       photo.src = reader.result
+//       document.getElementById('gallery').appendChild(photo)
+//   }
+// }
+
 
   render() {
     const { currentUser } = this.props;
@@ -105,14 +133,14 @@ export default class CreatePin extends React.Component {
                 placeholder="Add a destination link"
               />
             </p>
-            <div className="create-pin-upload">
-              <input
-                className="create-pin-upload-child"
-                onChange={this.handleFile}
-                type="file"
-              />
+            <div className="drop-area">
+                <p id='drop-text'>Drag and drop to upload</p>
+                <input
+                  id='pinFile'
+                  onChange={this.handleFile}
+                  type="file"
+                />
             </div>
-            <button>submit</button>
           </form>
         </div>
         <Link className="back-arrow-create" to="/">
@@ -122,3 +150,4 @@ export default class CreatePin extends React.Component {
     );
   }
 }
+

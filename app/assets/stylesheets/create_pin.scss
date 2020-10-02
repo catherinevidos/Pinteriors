@@ -11,7 +11,7 @@
 
 .create-pin-container {
   display: flex;
-  flex-direction: row;
+  justify-content: right;
   height: 100%;
   width: 100%;
   padding: 10px;
@@ -20,16 +20,48 @@
 }
 
 .create-form {
-  display: flex;
   height: 100%;
   width: 100%;
 }
 
-.create-form .create-pin-upload{
+.create-form.title {
+  height: 100%;
+  width: 100%;
+  font-size: 48pt;
+  font-weight: bold;
+  padding: 10px;
+  letter-spacing: -2.5px;
+  color: grey;
+}
+
+.drop-area{
   display: flex;
-  height: 800px;
-  width: 500px;
-  background: yellow;
+  height: 500px;
+  width: 400px;
+  padding: 10px;
+  background: lightgray;
+  border: grey 3px dashed;
+  border-radius: 20px;
+  font-family: Arial,
+  Helvetica,
+  sans-serif;
+}
+
+#drop-text {
+  display: flex;
+  justify-content: center;
+  width: 400px;
+  height: 200px;
+}
+#pinFile {
+  visibility: hidden;
+  height: 500px;
+  width: 400px;
+}
+
+#file-upload-button {
+  position: absolute;
+  bottom: 20px;
 }
 
 .back-arrow-create {
