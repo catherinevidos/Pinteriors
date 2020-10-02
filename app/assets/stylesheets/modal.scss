@@ -22,6 +22,154 @@
   background-repeat: no-repeat;
 }
 
+.pinboard-container {
+  margin: 16px;
+  max-width: 400px;
+  width: 100%;
+  min-height: 550px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 20px;
+  padding: 16px;
+  overflow: hidden;
+  background-color: #FFFFFF;
+  font-family: Arial,
+  Helvetica,
+  sans-serif;
+  box-shadow: 0 0 5px 10px #555;
+  -webkit-box-shadow: 10px 10px 10px 4px black;
+  -moz-box-shadow: 10px 10px 10px 4px black;
+  z-index: 10;
+}
+
+.modal-pinboard-text {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 35vw;
+  font-size: 36px;
+  letter-spacing: -1.6px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+// .pinboard-container {
+//   text-align: left;
+//   vertical-align: top;
+//   margin-bottom: 10px;
+//   margin-top: 5px;
+// }
+
+.modal-pinboard-list {
+  width: 90%;
+  height: 80px;
+  justify-content: space-around;
+}
+
+.modal-pinboard-list button {
+  margin-left: 20px;
+  width: 80px;
+  background-color: #E52B21;
+  color: white;
+  height: 100%;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+}
+
+.modal-pinboard-list > li {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 8px;
+  text-align: left;
+  align-items: center;
+  justify-content: center;
+  &:hover { 
+    background-color: lightgrey;
+    cursor: pointer;
+    border-radius: 50px;
+  }
+  &:hover.pinboard-button {
+    display: contents;
+    cursor: pointer;
+    background-color:darkred;
+  }
+  &:focus.pinboard-button {
+    display: contents;
+    cursor: pointer;
+    background-color: darkred;
+  }
+}
+
+// .pinboard-button {
+//   display: none;
+//   width: 50px;
+//   height: 30px;
+//   border-radius: 0 12px 12px 0;
+//   text-align: center;
+// }
+
+
+
+.back-arrow-modal {
+  position: absolute;
+  text-align: center;
+  top: 90px;
+  left: 10px;
+  height: 40px;
+  width: 40px;
+  box-sizing: border-box;
+  border-radius: 50px;
+  transition: background 0.5s;
+  z-index: 1;
+
+  &:hover {
+    background-color: lightgrey;
+    cursor: pointer;
+  }
+}
+
+.back-arrow-modal i {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  font-size: 18pt;
+  color: black;
+}
+
+.close-x {
+  position: absolute;
+  text-align: center;
+  top: 90px;
+  right: 10px;
+  height: 40px;
+  width: 40px;
+  box-sizing: border-box;
+  border-radius: 50px;
+  transition: background 0.5s;
+  z-index: 1;
+  &:hover {
+    background-color: lightgrey;
+    cursor: pointer;
+  }
+}
+
+.close-x i {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  font-size: 18pt;
+  color: black;
+}
+
 
 // .modal-login {
 //    position: fixed;

@@ -41,6 +41,46 @@
     filter: grayscale(60%);
     cursor: zoom-out;
   }
+  &:hover.pin-index-save {
+    filter: grayscale(30%);
+    cursor: pointer;
+    visibility: visible !important;
+     z-index: 10;
+  }
+  &:hover &:focus.pin-index-save {
+    filter: grayscale(30%);
+    cursor: pointer;
+    visibility: visible !important;
+    background-color: darkred;
+     z-index: 10;
+  }
+}
+
+.pin-index-save {
+  position: absolute;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10pt;
+  font-weight: bold;
+  top: 15px;
+  right: 20px;
+  height: 30px;
+  width: 40px;
+  background-color: #E52B21;
+  color: white;
+  border-radius: 15px;
+  text-align: center;
+  opacity: 67%;
+  cursor: pointer;
+  z-index: 1;
+  // visibility: hidden;
+  &:hover {
+    z-index: 1 !important;
+    visibility: visible !important;
+  }
+  &:focus {
+    z-index: 1 !important;
+    visibility: visible !important;
+  }
 }
 
 

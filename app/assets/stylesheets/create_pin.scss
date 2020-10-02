@@ -9,9 +9,9 @@
   margin-top: 30px;
 }
 
-.create-pin-child {
+.create-pin-container {
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
   height: 100%;
   width: 100%;
   padding: 10px;
@@ -19,62 +19,24 @@
   box-shadow: lightgray;
 }
 
-.pin-show-image {
-  height: 900px;
-  width: 480px;
-}
-
-.pin-show-item {
-  height: 700px;
-  width: 100%;
-  margin: 0 auto;
-  border-radius: 50px;
-  padding-top: 10px;
-  padding-right: 15px;
-}
-
-.pin-show-text {
+.create-form {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-bottom: 30px;
-  height: 900px;
-  width: 480px;
-  padding-left: 40px;
-  font-family: Arial, Helvetica, sans-serif;
-  letter-spacing: -1.4px;
+  height: 100%;
+  width: 100%;
 }
 
-.pin-show-text>h1 {
-  font-size: 48pt;
-  font-weight: bold;
-  padding: 10px;
-  letter-spacing: -2.5px;
+.create-form .create-pin-upload{
+  display: flex;
+  height: 800px;
+  width: 500px;
+  background: yellow;
 }
 
-.pin-show-text>a {
-  cursor: pointer;
-  text-decoration: underline;
-  font-size: 14pt;
-  padding: 10px;
-}
-
-.pin-show-text>p {
-  font-size: 18pt;
-  font-weight: normal;
-  padding: 10px;
-}
-
-
-.arrow-wrapper {
-  position: relative;
-}
-
-.back-arrow {
+.back-arrow-create {
   position: absolute;
   text-align: center;
-  top: 8px;
-  left: 8px;
+  top: 90px;
+  left: 15px;
   height: 40px;
   width: 40px;
   box-sizing: border-box;
@@ -88,7 +50,7 @@
   }
 }
 
-.back-arrow i {
+.back-arrow-create i {
   display: flex;
   justify-content: center;
   align-items: center;

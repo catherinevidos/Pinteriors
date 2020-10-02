@@ -1,3 +1,11 @@
+.loading-container {
+  background-color: white;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+}
+
+
 .loader {
   margin: 100px auto;
   font-size: 25px;

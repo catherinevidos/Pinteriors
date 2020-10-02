@@ -73,7 +73,6 @@ class SessionForm extends React.Component {
           <h6 className="session-new-ideas">Find new ideas to try</h6> */}
 
             <div onClick={this.props.closeModal} className="close-x">
-              X
             </div>
 
             <div className="login-form">

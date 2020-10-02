@@ -1,15 +1,14 @@
-export const START_LOADING = 'START_LOADING';
-export const STOP_LOADING = 'STOP_LOADING';
+export const FETCHING = 'FETCHING';
+export const FETCHED = 'FETCHED';
 
-export const startLoading = loading => {
+export const fetching = () => {
   return {
-    type: START_LOADING,
-    loading
+    type: FETCHING
   };
 };
 
-export const stopLoading = () => {
+export const fetched = () => {
   return {
-    type: STOP_LOADING
+    type: FETCHED
   };
 };

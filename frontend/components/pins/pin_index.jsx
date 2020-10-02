@@ -9,7 +9,9 @@ export default class PinIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchPins();
+    this.props.startLoading()
+    this.props.fetchPins()
+    .then(() => setTimeout((this.props.stopLoading), 5000))
   }
 
   // handleClick() {
@@ -17,13 +19,14 @@ export default class PinIndex extends React.Component {
   // }
 
   render() {
-    const { currentUser, openModal, pins, fetchPins } = this.props;
+    const { currentUser, openModal, pins, fetchPins, modal } = this.props;
+
+    if (modal !== 'pinboard') {
     return (
       <div className="test">
         <Masonry
           className="masonry-pins"
           elementType={'ul'}
-          // onClick={this.handleClick}
         >
           {pins.map((pin) => (
             <PinIndexItem
@@ -43,6 +46,9 @@ export default class PinIndex extends React.Component {
         </div>
       </div>
     );
+  } else {
+    return null;
+  }
   }
 }
 

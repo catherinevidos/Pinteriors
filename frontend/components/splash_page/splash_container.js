@@ -8,10 +8,6 @@ import {
 import {
   openModal
 } from '../../actions/modal_actions';
-import {
-  startLoading,
-  stopLoading
-} from '../../actions/loading_actions';
 
 import {fetchBoards} from '../../actions/board_actions';
 
@@ -25,8 +21,6 @@ const mapStateToProps = ({ session, entities }) => ({
 const mapDispatchToProps = dispatch => ({
   logout: () => dispatch(logoutUser()),
   openModal: modal => dispatch(openModal(modal)),
-  startLoading: (loading) => dispatch(startLoading(loading)),
-  stopLoading: () => dispatch(stopLoading()),
   fetchBoards: () => dispatch(fetchBoards())
 });
 

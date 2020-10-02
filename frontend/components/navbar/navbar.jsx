@@ -13,7 +13,7 @@ class NavBar extends React.Component {
   }
 
   handleClick() {
-    this.props.logout().then(this.props.openModal('login'));
+    this.props.logout().then(this.props.openModal({modal: 'login'}));
   }
 
   render() {
@@ -71,7 +71,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => {
   return {
-    openModal: (modal) => dispatch(openModal('login')),
+    openModal: (modal) => dispatch(openModal({modal: 'login'})),
     closeModal: () => dispatch(closeModal()),
     logout: () => dispatch(logoutUser()),
   };

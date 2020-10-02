@@ -10,9 +10,7 @@ export default class Dropdown extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  // handleClick(){
 
-  // }
 
   componentDidMount() {
     this.props.fetchBoards() 
@@ -26,7 +24,7 @@ export default class Dropdown extends React.Component {
 
   handleClick(e) {
     e.preventDefault();
-    this.setState({clicked: true, }, () => {
+    this.setState({clicked: true }, () => {
       document.addEventListener("click", this.closeDropdown);
     })
   }

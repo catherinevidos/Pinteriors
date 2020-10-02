@@ -14,6 +14,8 @@ import {
   createPin
 } from '../../actions/pin_actions';
 
+import {withRouter} from 'react-router-dom';
+
 import CreatePin from './create_pin';
 
 
@@ -28,7 +30,7 @@ const mapDispatchToProps = dispatch => ({
   createPin: (pin) => dispatch(createPin(pin))
 });
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(CreatePin);
+)(CreatePin));

@@ -1,5 +1,5 @@
 .nav-container {
-  height: 80px;
+  height: 90px;
   overflow: hidden;
   // position: fixed;
 }
@@ -108,15 +108,20 @@ a.nav-link-home-logo {
   &:focus:hover {
     background-color: lightgrey;
     color: transparent;
+    transition: background 0.9s;
   }
 }
 
 .searchbar-container {
   width: 70%;
-  height: 40px;
+  height: 45px;
   background-color: whitesmoke;
   border-radius: 30px;
   overflow: hidden;
+  &:hover{
+    background-color: lightgray;
+    transition: background 0.8s;
+  }
 }
 
 .searchbar-form {

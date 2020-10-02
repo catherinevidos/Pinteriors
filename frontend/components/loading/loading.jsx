@@ -1,31 +1,31 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { startLoading, stopLoading} from '../../actions/loading_actions';
+import { fetching, fetched} from '../../actions/loading_actions';
 
-function Loading({loading}) {
-  if (!loading) {
+function Loading({loading, startLoading, stopLoading}) {
+
+  if (loading === true) {
+    return (
+      <div className="loading-container">
+        <div className="loader">
+        </div>
+      </div>
+    )
+  } else {
     return null;
   }
-
-
-  return (
-    <div className="loading-container">
-      <div className="loader">
-      </div>
-    </div>
-  );
 }
 
 const mapStateToProps = (state) => {
   return {
-    loading: state.ui.loading,
+    loading: state.ui.loading
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    startLoading: (loading) => dispatch(startLoading(loading)),
-    stopLoading: () => dispatch(stopLoading())
+    startLoading: () => dispatch(fetching()),
+    stopLoading: () => dispatch(fetched())
   };
 };
 

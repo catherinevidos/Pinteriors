@@ -6,6 +6,7 @@ class Api::PinsController < ApplicationController
     @pin.user_id = current_user.id
 
     if @pin.save
+      debugger
       render "api/pins/show"
     else
       render json: @pin.errors.full_messages, status: 422

@@ -3,20 +3,27 @@ import { openModal, closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import LoginFormContainer from '../session_form/login_form_container';
 import SignupFormContainer from '../session_form/signup_form_container';
+import PinBoardContainer from '../boards/pin_board_container';
 import Footer from '../footer/footer';
 
 function Modal({ modal, closeModal }) {
-  
+  // debugger
   if (!modal) {
     return null;
   }
   let component;
-  switch (modal) {
+  switch (modal.modal) {
     case 'login':
       component = <LoginFormContainer />;
       break;
     case 'signup':
       component = <SignupFormContainer />;
+      break;
+    case ('pinboard'):
+      component = 
+      <PinBoardContainer 
+        pinId={modal.pinId} 
+      />;
       break;
     default:
       return null;
