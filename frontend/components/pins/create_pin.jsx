@@ -46,6 +46,15 @@ export default class CreatePin extends React.Component {
   //   }
   // }
 
+  // componentDidMount() {
+  //   document.addEventListener("dragenter", function(event) {
+  //     if ( event.target.className == "upload-space" ) {
+  //       event.target.style.border = "none"; 
+  //       event.target.style.backgroundColor = 'grey';
+  //     }
+  //   });
+  // }
+
    handleDragOver(e) {
         e.preventDefault();
         e.stopPropagation();
@@ -60,8 +69,16 @@ export default class CreatePin extends React.Component {
         e.preventDefault();
         e.stopPropagation();
         let file = e.dataTransfer.files[0];
-        this.setState({ photoFile: file });
-    }
+        const fileReader = new FileReader();
+        fileReader.onloadend = () => {
+          this.setState({ photoFile: file, photoUrl: fileReader.result });
+        };
+        if (file) { 
+          fileReader.readAsDataURL(file) 
+        }
+    };
+  
+
  
 
   // componentDidUpdate(prevProps) {
@@ -112,12 +129,12 @@ export default class CreatePin extends React.Component {
 
   render() {
     const { currentUser } = this.props;
-    const preview = this.state.photoUrl ? <img className='testing' src={this.state.photoUrl}/> : null;
+
+    const preview = this.state.photoUrl ? <img className='testing' src={this.state.photoUrl}/> :  <label><i className="fas fa-arrow-circle-up"></i>
+    Drag and drop or click to upload
+    <input id="pinFile" onChange={this.handleFile} type="file"/></label>
   
-    const name =
-      currentUser.firstName && currentUser.lastName
-        ? 'currentUser.fname currentUser.lname'
-        : null;
+    const name = currentUser.firstName && currentUser.lastName ? 'currentUser.fname currentUser.lname' : null;
 
     const profilePic = currentUser.photoUrl ? (
       <img className="create-pin-profile-image" src={currentUser.photoUrl} />
@@ -166,13 +183,8 @@ export default class CreatePin extends React.Component {
                     onDrop={this.handleDrop}
                     onDragEnter={this.handleDragEnter}
                     onDragOver={this.handleDragOver}>
-                      {preview}
-                   <label>
-                     <i className="fas fa-arrow-circle-up"></i>
-                     Drag and drop or click to upload
-                    <input id="pinFile" onChange={this.handleFile} type="file"/>
-                  </label>
-            </div>
+                    {preview}
+               </div>
               </div>
               {/* <div className='create-pin-fun'> */}
           <Link className="back-arrow-create" to="/">
