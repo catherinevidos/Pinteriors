@@ -1,7 +1,7 @@
-# json.set! pin.id do 
-#     json.extract! pin, :id, :title, :description, :source_link
-#     json.photoUrl url_for(pin.photo)
-#     json.userId pin.user_id
-# end
+json.id pin.id
+json.title pin.title
+json.description pin.description
+json.sourceLink pin.source_link 
+json.userId pin.user_id 
+json.photoUrl url_for(pin.photo) if pin.photo.attached?
 
-json.extract! pin, :id, :title, :description,:source_link, :user_id

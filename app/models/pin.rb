@@ -1,6 +1,6 @@
 class Pin < ApplicationRecord
   validates :title, presence: { message: "Please enter a valid title" }
-  validates :photo, presence: true
+  # validates :photo, presence: true
   
   has_one_attached :photo
   # api board pins routes needs a post and a delete 
