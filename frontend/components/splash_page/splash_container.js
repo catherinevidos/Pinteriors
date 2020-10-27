@@ -10,6 +10,7 @@ import {
 } from '../../actions/modal_actions';
 
 import {fetchBoards} from '../../actions/board_actions';
+import {fetching, fetched} from '../../actions/loading_actions';
 
 import Splash from './splash';
 
@@ -21,7 +22,9 @@ const mapStateToProps = ({ session, entities }) => ({
 const mapDispatchToProps = dispatch => ({
   logout: () => dispatch(logoutUser()),
   openModal: modal => dispatch(openModal(modal)),
-  fetchBoards: () => dispatch(fetchBoards())
+  fetchBoards: () => dispatch(fetchBoards()),
+  startLoading: () => dispatch(fetching()),
+  stopLoading: () => dispatch(fetched())
 });
 
 export default connect(

@@ -8,6 +8,13 @@
   width: fit-content;
 }
 
+#dropdown-pin-show {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 20px;
+  margin-top: 10px;
+}
+
 .dropdown-child {
   position: relative;
   display: flex;
@@ -21,17 +28,22 @@
   sans-serif;
   font-size: 10pt;
   font-weight: bold;
-  overflow: hidden;
   letter-spacing: -1.4px;
 }
 
-.dropdown-button1 {
+#dropdown-button1 {
   position: relative;
   width: 70%;
   height: 100%;
   text-align: center;
   color: black;
-  overflow: hidden;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+#dropdown-button1 i{
+  margin-left: 5px;
 }
 
 .dropdown-button2{
@@ -40,7 +52,7 @@
   height: 100%;
 }
 
-.dropdown-child2 {
+#dropdown-child2 {
   // display: flex;
   // position: relative;
   width: 30%;
@@ -49,6 +61,17 @@
   color: white;
   border-radius: 0 12px 12px 0;
   text-align: center;
+}
+
+.dropdown-ul {
+  height: 450px;
+  width: 350px;
+  z-index: 900;
+  top: 55px;
+  left: -50px;
+  background-color: lightgreen;
+  position: absolute;
+  border-radius: 20px;
 }
 
 

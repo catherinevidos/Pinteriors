@@ -2,16 +2,19 @@ import React from 'react';
 import PinIndexItem from './pin_index_item';
 import Masonry from 'react-masonry-component';
 import { Link, withRouter } from 'react-router-dom';
+import LoadingIcon from '../loading/loading';
 
 export default class PinIndex extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      loading: true
+    }
   }
 
   componentDidMount() {
-    this.props.startLoading()
     this.props.fetchPins()
-    .then(() => setTimeout((this.props.stopLoading), 5000))
+    .then(() => this.setState({loading: false}))
   }
 
   // handleClick() {
@@ -20,6 +23,10 @@ export default class PinIndex extends React.Component {
 
   render() {
     const { currentUser, openModal, pins, fetchPins, modal } = this.props;
+
+    if (this.state.loading) {
+      return <LoadingIcon />;
+    }
     
     if (modal === null) {
     return (

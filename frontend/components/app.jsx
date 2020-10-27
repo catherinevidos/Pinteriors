@@ -12,12 +12,11 @@ import Footer from '../components/footer/footer';
 import PinShowContainer from '../components/pins/pin_show_container';
 import UserProfileContainer from '../components/users/user_profile_container';
 import CreatePinContainer from '../components/pins/create_pin_container';
-import Loading from './loading/loading';
+
 
 
 const App = () => (
   <div className="app-component">
-    <Loading/>
     <Modal />
     <header>
       <NavBar />

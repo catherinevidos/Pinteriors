@@ -16,7 +16,7 @@ class Footer extends React.Component {
               {FooterItems.map((item, idx) => {
                 return (
                   <li key={idx}>
-                    <a className={item.cName} href={item.url}>{item.title}</a>
+                    <a target="_blank" className={item.cName} href={item.url}>{item.title}</a>
                   </li>
                 );
               })}

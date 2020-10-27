@@ -8,19 +8,19 @@ export const FooterItems = [
   {
     id: 2,
     title: 'Github',
-    url: '#',
+    url: 'https://github.com/catherinevidos',
     cName: 'footer-link'
   },
   {
     id: 3,
-    title: 'Link',
-    url: '#',
+    title: 'LinkedIn',
+    url: 'https://www.linkedin.com/in/catherine-vidos-03163684/',
     cName: 'footer-link'
   },
   {
     id: 4,
-    title: 'Link',
-    url: '#',
+    title: 'Portfolio Site',
+    url: 'https://catherinevidos.github.io/',
     cName: 'footer-link'
 
   },

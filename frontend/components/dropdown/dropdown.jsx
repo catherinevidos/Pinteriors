@@ -19,6 +19,8 @@ export default class Dropdown extends React.Component {
   closeDropdown() {
     this.setState({clicked: false }, () => {
       document.removeEventListener('click', this.closeDropdown);
+      document.getElementById("dropdown-child2").style.width = '';
+      document.getElementById("dropdown-button1").style.width = '';
     })
   }
 
@@ -26,8 +28,11 @@ export default class Dropdown extends React.Component {
     e.preventDefault();
     this.setState({clicked: true }, () => {
       document.addEventListener("click", this.closeDropdown);
-    })
+      document.getElementById("dropdown-child2").style.width = '0px';
+      document.getElementById("dropdown-button1").style.width = '250px';
+    });
   }
+
 
   render(){
     const { currentUser, boards } = this.props;
@@ -39,18 +44,18 @@ export default class Dropdown extends React.Component {
     return (
       <div className="dropdown">
         <div className="dropdown-child">
-          <button className="dropdown-button1" onClick={this.handleClick}>
-            {currentUserBoards[0].title}
+          <button id="dropdown-button1" onClick={this.handleClick}>
+            <span>{currentUserBoards[0].title}<i className="fas fa-chevron-down"></i></span>
             {this.state.clicked ? (
               <ul onClick={(e) => e.stopPropagation()} className="dropdown-ul">
-                {currentUserBoards.slice(1).map((board) => (
+                {currentUserBoards.map((board) => (
                   <li key={board.id}>{board.title}</li>
                 ))}
               </ul>
             ) : null}
           </button>
-          <div className="dropdown-child2">
-            <button className="dropdown-button2">Save</button>
+          <div id="dropdown-child2">
+            <button className="dropdown-button2" value={currentUserBoards[0].id}>Save</button>
           </div>
         </div>
       </div>

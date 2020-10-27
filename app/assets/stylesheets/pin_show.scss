@@ -33,33 +33,48 @@
   padding-right: 15px;
 }
 
-.pin-show-text {
+// .pin-show-text {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: flex-start; 
+//   margin-bottom: 30px;
+//   height: 900px;
+//   width: 480px;
+//   padding-left: 40px;
+//   font-family: Arial, Helvetica, sans-serif;
+//   letter-spacing: -1.4px;
+// }
+
+#pin-show-details {
   display: flex;
   flex-direction: column;
-  align-items: flex-start; 
+  align-items: flex-start;
   margin-bottom: 30px;
   height: 900px;
   width: 480px;
   padding-left: 40px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial,
+  Helvetica,
+  sans-serif;
   letter-spacing: -1.4px;
+  margin-top: 20px;
 }
 
-.pin-show-text > h1 {
+#pin-show-details > h1 {
   font-size: 48pt;
   font-weight: bold;
   padding: 10px;
   letter-spacing: -2.5px;
 }
 
-.pin-show-text > a {
+#pin-show-details > a {
   cursor: pointer;
   text-decoration: underline;
   font-size: 14pt;
   padding: 10px;
 }
 
-.pin-show-text > p {
+#pin-show-details > p {
   font-size: 18pt;
   font-weight: normal;
   padding: 10px;

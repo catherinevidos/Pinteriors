@@ -2,16 +2,23 @@ import React from 'react';
 import PinIndexContainer from '../pins/pin_index_container';
 import {Link, withRouter} from 'react-router-dom';
 import CreatePinContainer from '../pins/create_pin_container';
+import LoadingIcon from '../loading/loading';
 
  class Splash extends React.Component {
   constructor(props){
     super(props)
-    // this.handlelogout = this.handleLogout.bind(this);
+    // this.state = {
+    //   loading: true
+    // }
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   // handleLogout() {
   //   this.props.logout().then(this.props.openModal('login'))
+  // }
+
+  // componentDidMount() {
+  //   this.setState({loading: false})
   // }
 
   handleSubmit(e) {
@@ -21,6 +28,10 @@ import CreatePinContainer from '../pins/create_pin_container';
 
   render() {
     const { currentUser, logout, openModal, pins, startLoading } = this.props;
+
+    // if (this.state.loading) {
+    //   return <LoadingIcon />;
+    // }
 
     if (!currentUser) {
       return (
