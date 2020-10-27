@@ -20,7 +20,7 @@ export default class PinShow extends React.Component {
         <div className="pin-show-wrapper">
           <div className="pin-show-container">
             <div className="pin-show-text">
-              <div id='dropdown-pin-show'><DropdownContainer /></div>
+              <div id='dropdown-pin-show'><DropdownContainer pinId={pin.id}/></div>
               <div id='pin-show-details'>
                 <a href={pin.sourceLink}>{pin.sourceLink}</a>
                 <h1>{pin.title}</h1>

@@ -37,9 +37,16 @@
   height: 100%;
   text-align: center;
   color: black;
+  justify-content: center;
+  display: flex;
+  align-items: center;
   &:hover {
     cursor: pointer;
   }
+}
+
+#dropdown-button1 span{
+  letter-spacing: .2px;
 }
 
 #dropdown-button1 i{
@@ -69,9 +76,16 @@
   z-index: 900;
   top: 55px;
   left: -50px;
-  background-color: lightgreen;
+  background-color: white;
   position: absolute;
   border-radius: 20px;
+  text-align: left;
+  font-size: 14pt;
+  box-shadow: 0px 0px 20px 12px rgba(244, 244, 244, 1);
+}
+
+.dropdown-ul li {
+  padding: 20px;
 }
 
 

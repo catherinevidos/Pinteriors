@@ -33,6 +33,11 @@ export default class Dropdown extends React.Component {
     });
   }
 
+  pinboard(e) {
+    e.preventDefault();
+    this.props.pinToBoard(this.props.pinId, e.target.value)
+  }
+
 
   render(){
     const { currentUser, boards } = this.props;
@@ -44,16 +49,20 @@ export default class Dropdown extends React.Component {
     return (
       <div className="dropdown">
         <div className="dropdown-child">
-          <button id="dropdown-button1" onClick={this.handleClick}>
+          <div id="dropdown-button1" onClick={this.handleClick}>
             <span>{currentUserBoards[0].title}<i className="fas fa-chevron-down"></i></span>
             {this.state.clicked ? (
               <ul onClick={(e) => e.stopPropagation()} className="dropdown-ul">
+                <p id='all-boards'>All boards</p>
                 {currentUserBoards.map((board) => (
+                  <>
                   <li key={board.id}>{board.title}</li>
+                  <button value={board.id} onClick={this.pinboard}>save</button>
+                  </>
                 ))}
               </ul>
             ) : null}
-          </button>
+          </div>
           <div id="dropdown-child2">
             <button className="dropdown-button2" value={currentUserBoards[0].id}>Save</button>
           </div>
