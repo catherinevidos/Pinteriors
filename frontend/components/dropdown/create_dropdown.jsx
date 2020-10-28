@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class Dropdown extends React.Component {
+export default class CreateDropdown extends React.Component {
   constructor(props){
     super(props);
     this.state = {
@@ -39,19 +39,7 @@ export default class Dropdown extends React.Component {
   pinboard(e) {
     e.preventDefault();
 
-    const alreadyPinned = this.props.boards.filter(board => (board.pinIds.includes(this.props.pinId)))
-
-    // console.log(alreadyPinned)
-    const onBoard = alreadyPinned.filter(board => {
-      return (board.id == e.target.value)
-    })
-
-    if (onBoard.length === 0) {
-      this.props.pinToBoard({pinId: this.props.pinId, boardId: e.target.value})
-      this.setState({toggleSelect: 'successfully saved!'})
-    } else {
-      this.setState({toggleSelect: 'pin already exists on your board!'})
-    }
+    this.props.createPin()
   
   }
 

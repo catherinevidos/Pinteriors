@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import DropdownContainer from '../dropdown/dropdown_container';
+import CreateDropdownContainer from '../dropdown/create_dropdown_container';
 
 export default class CreatePin extends React.Component {
   constructor(props) {
@@ -34,7 +34,7 @@ export default class CreatePin extends React.Component {
     formData.append('pin[photo]', this.state.photoFile);
     formData.append('pin[source_link]', this.state.sourceLink);
     this.props.createPin(formData)
-    // .then((newPin) => this.afterSubmit(newPin))
+    
   }
 
   //   afterSubmit() {
@@ -149,7 +149,8 @@ export default class CreatePin extends React.Component {
             <div className="create-pin-catherine">
               <div className="create-text">
                 <div className="create-pin-dropdown">
-                <DropdownContainer />
+                <CreateDropdownContainer
+                  />
               </div>
                 <h1>
                   <input

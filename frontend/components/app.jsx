@@ -26,6 +26,7 @@ const App = () => (
       <Route exact path="/pins/:pinId" component={PinShowContainer} />
       <Route exact path="/users/:userId" component={UserProfileContainer} />
       <Route exact path="/pins" component={CreatePinContainer} />
+      <Route exact path="/boards" component={CreateBoardContainer} />
     </Switch>
     <footer className="footer-container">
       <Footer />

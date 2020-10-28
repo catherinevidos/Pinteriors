@@ -37,7 +37,7 @@
   height: 100%;
   text-align: center;
   color: black;
-  justify-content: center;
+  justify-content: space-between;
   display: flex;
   align-items: center;
   &:hover {
@@ -47,16 +47,23 @@
 
 #dropdown-button1 span{
   letter-spacing: .2px;
+  margin-left: 10px;
 }
 
 #dropdown-button1 i{
-  margin-left: 5px;
+  margin-right: 15px;
 }
 
 .dropdown-button2{
   position: relative;
   width: 100%;
   height: 100%;
+  border-radius: 0 12px 12px 0;
+   &:hover {
+     transition: all .3s;
+     cursor: pointer;
+     background-color: darkred;
+   }
 }
 
 #dropdown-child2 {
@@ -68,24 +75,64 @@
   color: white;
   border-radius: 0 12px 12px 0;
   text-align: center;
+  // &:hover {
+  //   cursor: pointer;
+  //   background-color: darkred;
+  // }
 }
 
 .dropdown-ul {
-  height: 450px;
-  width: 350px;
+  height: 400px;
+  width: 300px;
   z-index: 900;
   top: 55px;
-  left: -50px;
+  left: -25px;
   background-color: white;
   position: absolute;
   border-radius: 20px;
   text-align: left;
   font-size: 14pt;
-  box-shadow: 0px 0px 20px 12px rgba(244, 244, 244, 1);
+  box-shadow: 0px 0px 15px 3px lightgrey;
+  overflow: scroll;
+  scroll-behavior: smooth;
+}
+
+.dropdown-ul button {
+  padding: 10px;
+  background-color: #E52B21;
+  border-radius: 20px;
+  color: white;
+  &:hover {
+    cursor: pointer;
+    background-color: darkred;
+  }
+}
+
+#dropdown-list-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+   &:hover {
+     transition: all .2s;
+     background-color: whitesmoke;
+   }
+}
+
+#all-boards {
+  font-weight: normal;
+  font-size: 12pt;
+  margin-left: 20px;
+  margin-bottom: 8px;
+  margin-top: 10px;
 }
 
 .dropdown-ul li {
-  padding: 20px;
+  margin: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-left: 2px;
+  padding-right: 2px;
 }
 
 
