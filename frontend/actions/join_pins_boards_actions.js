@@ -4,9 +4,9 @@ import { receiveBoard } from './board_actions';
 export const RECEIVE_BOARD_PIN = 'RECEIVE_BOARD_PIN';
 export const REMOVE_BOARD_PIN = 'REMOVE_BOARD_PIN';
 
-const receiveBoardPin = boardPin => ({
+const receiveBoardPin = board => ({
   type: RECEIVE_BOARD_PIN,
-  boardPin
+  board
 });
 
 const removeBoardPin = boardPin => ({

@@ -2,12 +2,11 @@
 // #info will point to pin_id and board_id, info will come from the react presentational component. pin index should be informed by what board we're on 
 
 export const pinToBoard = (boardPin) => {
+  console.log(boardPin);
   return $.ajax({
     method: 'POST',
     url: '/api/joinspinsboards',
-    data: { boardPin },
-    contentType: false,
-    processData: false
+    data: { boardPin: {pin_id: boardPin.pinId, board_id: boardPin.boardId} }
   })
 };
 

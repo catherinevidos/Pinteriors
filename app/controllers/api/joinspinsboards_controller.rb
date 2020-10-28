@@ -1,4 +1,4 @@
-class Api::JoinsPinsBoardsController < ApplicationController
+class Api::JoinspinsboardsController < ApplicationController
 
 # not sure if i should do something like this??? 
 #im doing the controllers work inside the console but i need to make a controller so that i can do these associations on the front end

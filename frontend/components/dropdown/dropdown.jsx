@@ -39,7 +39,7 @@ export default class Dropdown extends React.Component {
 
   pinboard(e) {
     e.preventDefault();
-    this.props.pinToBoard(this.props.pinId, e.target.value)
+    this.props.pinToBoard({pinId: this.props.pinId, boardId: e.target.value})
   }
 
   toggleSelect(board) {
