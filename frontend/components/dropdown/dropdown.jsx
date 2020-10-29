@@ -41,7 +41,7 @@ export default class Dropdown extends React.Component {
 
     const alreadyPinned = this.props.boards.filter(board => (board.pinIds.includes(this.props.pinId)))
 
-    // console.log(alreadyPinned)
+ 
     const onBoard = alreadyPinned.filter(board => {
       return (board.id == e.target.value)
     })

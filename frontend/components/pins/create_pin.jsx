@@ -12,7 +12,7 @@ export default class CreatePin extends React.Component {
       sourceLink: '',
       userId: this.props.currentUser.id,
       photoFile: null,
-      photoUrl: null,
+      photoUrl: null
     }
     }
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -34,7 +34,6 @@ export default class CreatePin extends React.Component {
     formData.append('pin[photo]', this.state.photoFile);
     formData.append('pin[source_link]', this.state.sourceLink);
     this.props.createPin(formData)
-    
   }
 
   //   afterSubmit() {
@@ -77,20 +76,6 @@ export default class CreatePin extends React.Component {
           fileReader.readAsDataURL(file) 
         }
     };
-  
-
- 
-
-  // componentDidUpdate(prevProps) {
-  //   this.props.fetchPins();
-  //   // const boardPin = (this.props.pins.slice(-1), this.props.board.i)
-  //   if (prevProps.pins.length !== this.props.pins.length) {
-  //     this.props.pinToBoard(this.props.pins.slice(-1).id, this.props.boards[0].id)
-  //   } else {
-  //     return null;
-  //   }
-  // }
-
 
   handleFile(e) {
     const file = e.target.files[0];
@@ -108,24 +93,6 @@ export default class CreatePin extends React.Component {
       this.setState({[field]: e.currentTarget.value})
     }
   }
-
-
-//   dragAndDrop(e) {
-//     ['dragenter', 'dragover', 'dragleave', 'drop'].forEach((eventName) => {
-//       dropArea.addEventListener(eventName, preventDefaults, fals e);
-//     });
-//   }
-
-//   previewFile(file) {
-//     let reader = new FileReader()
-//     reader.readAsDataURL(file)
-//     reader.onloadend = function() {
-//       let photo = document.createElement('photo')
-//       photo.src = reader.result
-//       document.getElementById('gallery').appendChild(photo)
-//   }
-// }
-
 
   render() {
     const { currentUser } = this.props;
@@ -150,6 +117,7 @@ export default class CreatePin extends React.Component {
               <div className="create-text">
                 <div className="create-pin-dropdown">
                 <CreateDropdownContainer
+                  pin={pin}
                   />
               </div>
                 <h1>

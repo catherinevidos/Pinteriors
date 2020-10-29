@@ -1,0 +1,33 @@
+#board-list {
+  display: flex;
+}
+
+#board-show-list {
+  width: fit-content;
+}
+
+#pin-image-wrapper {
+  height: 160px;
+  width: 250px;
+  background-color: blue;
+  border-radius: 10px;
+  border: 2px solid black;
+  margin: 25px;
+  margin-bottom: 10px;
+}
+
+#board-text {
+  width: 100%;
+  margin-left: 28px;
+}
+
+#board-show-list li {
+  font-weight: bold;
+  letter-spacing: .4px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#board-show-list p {
+  font-size: 12pt;
+  color: grey;
+}
