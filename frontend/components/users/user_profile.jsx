@@ -38,7 +38,7 @@ render() {
 
 
   const currentUserBoards = boards.filter(board => (board.userId === currentUser.id))
-  // console.log(currentUserBoards)
+  
 
   if (boards.length > 0) {
   return (

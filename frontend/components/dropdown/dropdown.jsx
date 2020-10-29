@@ -61,7 +61,6 @@ export default class Dropdown extends React.Component {
 
   handleButton(e) {
     e.preventDefault();
-    console.log(e.target.value);
     this.pinboard(e);
   }
 

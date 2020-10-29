@@ -49,7 +49,7 @@ export default class CreateDropdown extends React.Component {
 
   handleButton(e) {
     e.preventDefault();
-    console.log(e.target.value);
+
     this.pinboard(e);
   }
 
