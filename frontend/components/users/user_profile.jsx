@@ -3,13 +3,16 @@ import React from 'react';
 export default class UserProfile extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      pins: ''
+    }
     // this.pins = this.pins.bind(this);
     // this.filterPins = this.filterPins.bind(this);
   }
 
 componentDidMount() {
   this.props.fetchBoards();
-  this.props.fetchPins();
+  this.props.fetchPins().then(() => this.setState({pins: 'fetched'}))
 }
 
 // pins() {
@@ -39,10 +42,10 @@ render() {
   const currentUserBoards = boards.filter(board => (board.userId === currentUser.id))
   
   
-  if (boards.length > 0 && pins.length > 0) {
+  if (boards.length > 0 && this.state.pins === 'fetched') {
   return (
     <ul id='board-list'>
-        {currentUserBoards.map(board => {
+        {currentUserBoards.map((board, idx) => {
             let pinArr;
             let allPins;
             let imageTag =   
@@ -66,10 +69,10 @@ render() {
             }
           }
           return (
-          <div id='board-show-list'>
+          <div key={board.id} id='board-show-list'>
               {imageTag}
             <div id='board-text'>
-              <li key={board.id}>{board.title}</li>
+              <li>{board.title}</li>
               <p>{board.pinIds.length} Pins</p>
             </div>
           </div>
