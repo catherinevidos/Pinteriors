@@ -12,8 +12,10 @@ export default class CreatePin extends React.Component {
       sourceLink: '',
       userId: this.props.currentUser.id,
       photoFile: null,
-      photoUrl: null
-    }
+      photoUrl: null,
+      flag: false
+    },
+    completePin: {}
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleFile = this.handleFile.bind(this);
@@ -33,7 +35,8 @@ export default class CreatePin extends React.Component {
     formData.append('pin[userId]', this.state.userId);
     formData.append('pin[photo]', this.state.photoFile);
     formData.append('pin[source_link]', this.state.sourceLink);
-    this.props.createPin(formData)
+    this.props.createPin(formData).then((action) => console.log(action))
+    // this.props.createPin(formData).then(() => this.setState({completePin: this.props.pins[this.props.pins.length - 1]}))
   }
 
   //   afterSubmit() {
@@ -53,6 +56,11 @@ export default class CreatePin extends React.Component {
   //     }
   //   });
   // }
+
+
+  componentDidMount() {
+    this.props.fetchPins();
+  }
 
    handleDragOver(e) {
         e.preventDefault();
@@ -90,8 +98,11 @@ export default class CreatePin extends React.Component {
 
   handleUpdate(field) {
     return e => {
-      this.setState({[field]: e.currentTarget.value})
-    }
+      debugger
+      this.setState({[field]: e.currentTarget.value}).then(() => {
+      debugger
+      return (this.state.photoUrl !== null && this.state.title !== '') ? this.handleSubmit(e) && this.setState({flag: true}) : this.setState({flag: false})
+    })}
   }
 
   render() {
@@ -117,7 +128,6 @@ export default class CreatePin extends React.Component {
               <div className="create-text">
                 <div className="create-pin-dropdown">
                 <CreateDropdownContainer
-                  pin={pin}
                   />
               </div>
                 <h1>

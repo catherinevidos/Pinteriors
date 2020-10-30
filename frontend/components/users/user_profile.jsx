@@ -39,23 +39,40 @@ render() {
 
   const currentUserBoards = boards.filter(board => (board.userId === currentUser.id))
   
-
-  if (boards.length > 0) {
+  debugger
+  if (boards.length > 0 && pins !== {}) {
   return (
     <ul id='board-list'>
-        {currentUserBoards.map(board => (
+        {currentUserBoards.map(board => {
+            let imageTag =   
+              <div id='pin-image-wrapper1'>
+                <div className='pin-noimg'></div>
+              </div>
+            if (board.pinIds.length > 0) {
+              const pinArr = board.pinIds.map(pinId => {
+              return this.props.pins[pinId]
+            })
+            if (pinArr.length > 0) {
+             const allPins = pinArr.map(pin => {
+                return <img id='pin-image1' src={pin.photoUrl}/>
+              })
+              imageTag = 
+              <div id='pin-image-wrapper'>
+                {allPins}
+              </div>
+            }
+          }
+          console.log(pinArr)
+          return (
           <div id='board-show-list'>
-            <div id='pin-image-wrapper'>
-              <div id='pin-image1'></div>
-              <div id='pin-image2'></div>
-              <div id='pin-image3'></div>
-            </div>
+              {imageTag}
             <div id='board-text'>
               <li key={board.id}>{board.title}</li>
               <p>{board.pinIds.length} Pins</p>
             </div>
           </div>
-        ))}
+          )
+        })}
     </ul> 
   )} else {
     return (

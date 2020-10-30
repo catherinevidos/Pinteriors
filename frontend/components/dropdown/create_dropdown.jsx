@@ -16,7 +16,8 @@ export default class CreateDropdown extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchBoards()
+    this.props.fetchBoards();
+    this.props.fetchPins();
   }
 
   closeDropdown() {
@@ -39,8 +40,8 @@ export default class CreateDropdown extends React.Component {
   pinboard(e) {
     e.preventDefault();
 
-    this.props.createPin()
-  
+    this.props.createPin(this.props.pin)
+    .then(() => this.props.pinToBoard({pinId: this.props.completePin.id, boardId: e.target.value}))
   }
 
   toggleSelect(board) {

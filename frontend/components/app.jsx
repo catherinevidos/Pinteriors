@@ -24,9 +24,9 @@ const App = () => (
     </header>
     <Switch>
       <Route exact path="/" component={SplashContainer} />
-      <Route exact path="/pins/:pinId" component={PinShowContainer} />
-      <Route exact path="/users/:userId" component={UserProfileContainer} />
-      <Route exact path="/pins" component={CreatePinContainer} />
+      <ProtectedRoute exact path="/pins/:pinId" component={PinShowContainer} />
+      <ProtectedRoute exact path="/users/:userId" component={UserProfileContainer} />
+      <ProtectedRoute exact path="/pins" component={CreatePinContainer} />
       {/* <Route exact path="/boards" component={CreateBoardContainer} /> */}
     </Switch>
     <footer className="footer-container">
