@@ -9,16 +9,15 @@ export default class UserProfile extends React.Component {
 
 componentDidMount() {
   this.props.fetchBoards();
-  this.props.fetchPins()
+  this.props.fetchPins();
 }
 
-pins() {
-  const currentUserBoards = this.props.boards.filter(board => (board.userId === this.props.currentUser.id))
-  
-  // if (currentUserBoards.length > 0) {
-  //   this.filterPins(currentUserBoards)
-  // }
-}
+// pins() {
+//   this.props.fetchPins()
+//   // if (currentUserBoards.length > 0) {
+//   //   this.filterPins(currentUserBoards)
+//   // }
+// }
 
 // filterPins(currentUserBoards) {
 //   // console.log(currentUserBoards);
@@ -39,22 +38,26 @@ render() {
 
   const currentUserBoards = boards.filter(board => (board.userId === currentUser.id))
   
-  debugger
-  if (boards.length > 0 && pins !== {}) {
+  
+  if (boards.length > 0 && pins.length > 0) {
   return (
     <ul id='board-list'>
         {currentUserBoards.map(board => {
+            let pinArr;
+            let allPins;
             let imageTag =   
               <div id='pin-image-wrapper1'>
                 <div className='pin-noimg'></div>
               </div>
             if (board.pinIds.length > 0) {
-              const pinArr = board.pinIds.map(pinId => {
-              return this.props.pins[pinId]
+              pinArr = board.pinIds.map(pinId => {
+              return pins[pinId]
             })
             if (pinArr.length > 0) {
-             const allPins = pinArr.map(pin => {
-                return <img id='pin-image1' src={pin.photoUrl}/>
+              allPins = pinArr.map((pin, idx) => {
+                if (idx < 3) {
+                  return <img id='pin-image1' src={pin.photoUrl}/>
+                }
               })
               imageTag = 
               <div id='pin-image-wrapper'>
@@ -62,7 +65,6 @@ render() {
               </div>
             }
           }
-          console.log(pinArr)
           return (
           <div id='board-show-list'>
               {imageTag}

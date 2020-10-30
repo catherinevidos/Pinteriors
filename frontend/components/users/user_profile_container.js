@@ -18,7 +18,7 @@ import UserProfile from './user_profile';
 const mapStateToProps = (state) => ({
   currentUser: state.entities.users[state.session.id],
   boards: Object.values(state.entities.boards),
-  pins: state.entities.pins
+  pins: Object.values(state.entities.pins)
 });
 
 const mapDispatchToProps = dispatch => ({

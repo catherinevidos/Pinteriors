@@ -35,7 +35,7 @@ export default class CreatePin extends React.Component {
     formData.append('pin[userId]', this.state.userId);
     formData.append('pin[photo]', this.state.photoFile);
     formData.append('pin[source_link]', this.state.sourceLink);
-    this.props.createPin(formData).then((action) => console.log(action))
+    // this.props.createPin(formData).then((action) => console.log(action))
     // this.props.createPin(formData).then(() => this.setState({completePin: this.props.pins[this.props.pins.length - 1]}))
   }
 
@@ -98,9 +98,7 @@ export default class CreatePin extends React.Component {
 
   handleUpdate(field) {
     return e => {
-      debugger
       this.setState({[field]: e.currentTarget.value}).then(() => {
-      debugger
       return (this.state.photoUrl !== null && this.state.title !== '') ? this.handleSubmit(e) && this.setState({flag: true}) : this.setState({flag: false})
     })}
   }
