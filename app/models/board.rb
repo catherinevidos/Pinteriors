@@ -1,5 +1,7 @@
 class Board < ApplicationRecord
-  validates :title, presence: { message: "Please enter a valid title" }
+  validates :title, presence: true
+  
+  # { message: "Please enter a valid title" }
   
 has_many :associated_pins,
   class_name: :JoinPinsBoard,

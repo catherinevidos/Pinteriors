@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import LoginFormContainer from '../session_form/login_form_container';
 import SignupFormContainer from '../session_form/signup_form_container';
 import PinBoardContainer from '../boards/pin_board_container';
+import CreateBoardContainer from '../boards/create_board_container';
 import Footer from '../footer/footer';
 
 function Modal({ modal, closeModal }) {
@@ -23,6 +24,10 @@ function Modal({ modal, closeModal }) {
       <PinBoardContainer 
         pinId={modal.pinId} 
       />;
+      break;
+    case ('createboard'):
+      component = <CreateBoardContainer
+       currentUser={modal.currentUser} />;
       break;
     default:
       return null;

@@ -17,11 +17,7 @@ export const createBoard = board => {
   return $.ajax({
     method: 'POST',
     url: '/api/boards',
-    data: {
-      board
-    },
-    contentType: false,
-    processData: false
+    data: { board }
   })
 };
 

@@ -6,8 +6,7 @@ export default class UserProfile extends React.Component {
     this.state = {
       pins: ''
     }
-    // this.pins = this.pins.bind(this);
-    // this.filterPins = this.filterPins.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
 componentDidMount() {
@@ -15,25 +14,10 @@ componentDidMount() {
   this.props.fetchPins().then(() => this.setState({pins: 'fetched'}))
 }
 
-// pins() {
-//   this.props.fetchPins()
-//   // if (currentUserBoards.length > 0) {
-//   //   this.filterPins(currentUserBoards)
-//   // }
-// }
+handleClick() {
+  this.props.openModal({modal: 'createboard', currentUser: this.props.currentUser})
+}
 
-// filterPins(currentUserBoards) {
-//   // console.log(currentUserBoards);
-//   // const boardPins = this.props.pins.filter(pin => (currentUserBoards.pinIds.includes(pin.id)))
-
-//   let filtered = [];
-//   for(let i = 0; i < currentUserBoards.length; i++) {
-//     filtered = currentUserBoards.filter(board => (
-//       (board.pinIds.includes(this.props.pins[i].id))
-//     ))
-//   }
-//   console.log(filtered)
-// }
 
 render() {
   const { currentUser, boards, pins } = this.props;
@@ -60,7 +44,7 @@ render() {
               allPins = pinArr.map((pin, idx) => {
                 if (idx < 3) {
                   return <img id='pin-image1' src={pin.photoUrl}/>
-                }
+                } 
               })
               imageTag = 
               <div id='pin-image-wrapper'>
@@ -75,6 +59,14 @@ render() {
               <li>{board.title}</li>
               <p>{board.pinIds.length} Pins</p>
             </div>
+            <div>
+            <button
+              className="plus"
+               onClick={this.handleClick}
+            >
+              <i className="fas fa-plus"></i>
+            </button>
+          </div>
           </div>
           )
         })}
