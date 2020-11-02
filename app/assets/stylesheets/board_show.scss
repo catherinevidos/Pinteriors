@@ -1,0 +1,71 @@
+#board-show-wrapper h1 {
+  font-size: 40px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  width: fit-content;
+}
+
+#board-show-header {
+  display: flex;
+  margin-top: 50px;
+  text-align: center;
+  justify-content: center;
+  letter-spacing: -2px;
+}
+
+#board-list-wrap {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 250px 250px 250px 250px;
+  margin-top: 50px;
+  row-gap: 1em;
+  align-items: center;
+  justify-content: center;
+  grid-gap: 20px;
+}
+
+.board-show-item {
+  background-color: #EFEFEF;
+  border-radius: 15px;
+  margin-bottom: 10px;
+  margin: auto;
+  height: 300px;
+  width: 250px;
+}
+
+.pin-item {
+  height: 100%;
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 10px 10px 29px 16px #f4f4f4;
+}
+
+.back-arrow-board {
+  position: fixed;
+  top: 100px;
+  margin-left: 20px;
+  font-size: 16pt;
+  color: black;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  box-sizing: border-box;
+  border-radius: 50px;
+  transition: background 0.5s;
+  opacity: 70%;
+  text-align: center;
+  &:hover {
+    background-color: lightgrey;
+    cursor: pointer;
+  }
+}
+
+#pin-title-board {
+  font-family: Arial,
+  Helvetica,
+  sans-serif;
+  font-weight: bold;
+  font-size: 12pt;
+  margin-top: 5px;
+}

@@ -7,8 +7,7 @@
 }
 
 #board-show-list {
-  // width: fit-content;
-  // height: 250px;
+  z-index: 20;
 }
 
 #pin-image-wrapper {
@@ -59,6 +58,12 @@
 }
 
 #pin-image-wrapper img{
+  height: 100%;
+  width: 40%;
+  border: 1px solid white;
+}
+
+#pin-image-wrapper1 img {
   height: 100%;
   width: 40%;
   border: 1px solid white;

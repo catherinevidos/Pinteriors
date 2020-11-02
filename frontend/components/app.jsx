@@ -12,6 +12,7 @@ import Footer from '../components/footer/footer';
 import PinShowContainer from '../components/pins/pin_show_container';
 import UserProfileContainer from '../components/users/user_profile_container';
 import CreatePinContainer from '../components/pins/create_pin_container';
+import BoardShowContainer from '../components/boards/board_show_container';
 // import CreateBoardContainer from '../components/boards/create_board_container';
 
 
@@ -27,7 +28,7 @@ const App = () => (
       <ProtectedRoute exact path="/pins/:pinId" component={PinShowContainer} />
       <ProtectedRoute exact path="/users/:userId" component={UserProfileContainer} />
       <ProtectedRoute exact path="/pins" component={CreatePinContainer} />
-      {/* <Route exact path="/boards" component={CreateBoardContainer} /> */}
+      <ProtectedRoute exact path='/boards/:boardId' component={BoardShowContainer}/>
     </Switch>
     <footer className="footer-container">
       <Footer />

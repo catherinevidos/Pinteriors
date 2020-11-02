@@ -1,27 +1,57 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import BoardShowContainer from '../boards/board_show_container';
+import LoadingIcon from '../loading/loading';
+import {Redirect} from 'react-router-dom';
 
 export default class UserProfile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      pins: ''
+      pins: '',
+      loading: true,
+      openBoard: false,
+      openBoardId: null
     }
     this.handleClick = this.handleClick.bind(this);
+    this.handleButton = this.handleButton.bind(this)
   }
 
 componentDidMount() {
-  this.props.fetchBoards();
-  this.props.fetchPins().then(() => this.setState({pins: 'fetched'}))
+  this.props.fetchBoards()
+  this.props.fetchPins().then(() => this.setState({pins: 'fetched', loading: false}))
+
+}
+
+handleButton(e) {
+  let board = (e.currentTarget);
+  const boardId = (board.getAttribute('value'))
+  if (boardId) {
+    this.setState({openBoard: true, openBoardId: boardId})
+  }
 }
 
 handleClick() {
   this.props.openModal({modal: 'createboard', currentUser: this.props.currentUser})
 }
 
+componentDidUpdate(prevProps) {
+  if (prevProps.boards.length != this.props.boards.length) {
+    this.props.fetchBoards();
+  }
+}
+
 
 render() {
   const { currentUser, boards, pins } = this.props;
 
+   if (this.state.loading) {
+      return <LoadingIcon />;
+    }
+
+  if (this.state.openBoard == true && this.state.openBoardId) {
+    return <Redirect to={`/boards/${this.state.openBoardId}`}/>
+  }
 
   const currentUserBoards = boards.filter(board => (board.userId === currentUser.id))
   
@@ -32,7 +62,7 @@ render() {
         {currentUserBoards.map((board, idx) => {
             let pinArr;
             let allPins;
-            let imageTag =   
+            let imageTag = 
               <div id='pin-image-wrapper1'>
                 <div className='pin-noimg'></div>
               </div>
@@ -53,7 +83,7 @@ render() {
             }
           }
           return (
-          <div key={board.id} id='board-show-list'>
+          <div value={board.id} id='board-show-list' onClick={this.handleButton}>
               {imageTag}
             <div id='board-text'>
               <li>{board.title}</li>
