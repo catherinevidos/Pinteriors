@@ -36,6 +36,17 @@ export default class BoardShow extends React.Component {
       return <LoadingIcon />;
     }
 
+    if (board.pinIds.length == 0) {
+      return (
+      <div>
+        <p id='no-pins-yet'>this board has no pins yet!</p>
+        <Link className="back-arrow-board" to={`/users/${currentUser.id}`}>
+              <i className="fas fa-arrow-left"></i>
+          </Link>
+        </div>
+      )
+    }
+
     let pinArr = [];
     if (this.state.fetched == true && board.pinIds.length > 0) {
       board.pinIds.map(pinId => {
