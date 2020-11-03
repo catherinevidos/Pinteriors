@@ -10,12 +10,26 @@ export default class CreateBoard extends React.Component {
     }
     this.handleUpdate = this.handleUpdate.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.renderErrors = this.renderErrors.bind(this);
   }
 
    handleUpdate(field) {
     return e => {
       this.setState({[field]: e.currentTarget.value})
     }
+  }
+
+  renderErrors() {
+    return (
+      <ul>
+        {this.props.errors.map((error, i) => (
+          <li className="session-errors" 
+              key={`error-${i}`}>
+            {error}
+          </li>
+        ))}
+      </ul>
+    );
   }
 
   handleSubmit(e) {
@@ -27,14 +41,15 @@ export default class CreateBoard extends React.Component {
     return (
       <>
         <div className="create-board-container">
-          <div onClick={this.props.closeModal} className="close-x">
+          <div onClick={this.props.closeModal} className="close-x-board">
             <i className="fas fa-times"></i>
           </div>
           <div className="modal-pinboard-text">
             <h1>Create board</h1>
           </div>
-          <div>
-              <h1>
+          <div className='create-board-inputs'>
+            <span>Name</span>
+              <h1 id='board-name'>
                 <input
                 className="create-board-title"
                 type="text"
@@ -43,7 +58,8 @@ export default class CreateBoard extends React.Component {
                 placeholder='Like "Places to Go" or "Recipes to Make"'
                 />
               </h1>
-              <p className='create-board-p'>
+              <span>Details</span>
+              <p id='board-details'>
                   <input
                     className="create-board-link"
                     type="text"
@@ -52,7 +68,8 @@ export default class CreateBoard extends React.Component {
                     placeholder='Optional additional info about your new board'
                   />
               </p>
-            <button onClick={this.handleSubmit}>Create</button>
+              <button id='submit-board' onClick={this.handleSubmit}>Create</button>
+              {this.renderErrors()}
           </div>
         </div>
       </>

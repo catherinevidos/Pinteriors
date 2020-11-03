@@ -22,7 +22,8 @@ import CreateBoard from './create_board';
 const mapStateToProps = (state) => ({
   currentUser: state.entities.users[state.session.id],
   pins: Object.values(state.entities.pins),
-  boards: Object.values(state.entities.boards)
+  boards: Object.values(state.entities.boards),
+  errors: state.errors.session
 });
 
 const mapDispatchToProps = dispatch => ({

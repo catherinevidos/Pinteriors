@@ -8,7 +8,8 @@
  box-sizing: border-box;
  border-radius: 50px;
  transition: background 0.5s;
- opacity: 70%;
+ opacity: .80;
+ z-index: 40;
 
  &:hover {
    background-color: lightgrey;

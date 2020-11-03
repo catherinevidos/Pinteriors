@@ -89,7 +89,10 @@ render() {
               <li>{board.title}</li>
               <p>{board.pinIds.length} Pins</p>
             </div>
-            <div>
+          </div>
+          )
+        })}
+        <div>
             <button
               className="plus"
                onClick={this.handleClick}
@@ -97,9 +100,6 @@ render() {
               <i className="fas fa-plus"></i>
             </button>
           </div>
-          </div>
-          )
-        })}
     </ul> 
   )} else {
     return (

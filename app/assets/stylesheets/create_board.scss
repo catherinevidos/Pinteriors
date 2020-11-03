@@ -1,0 +1,100 @@
+.close-x-board {
+  // position: absolute;
+  // text-align: center;
+  // top: 90px;
+  // right: 10px;
+  height: 40px;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 50px;
+  transition: background 0.5s;
+  z-index: 1;
+}
+
+.close-x-board i {
+    display: flex;
+    width: 40px;
+    font-size: 18pt;
+    color: black;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  &:hover {
+    background-color: lightgrey;
+    border-radius: 50px;
+    cursor: pointer;
+  }
+}
+
+.modal-pinboard-text {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 400px;
+  font-size: 36px;
+  letter-spacing: -1.6px;
+  margin-bottom: 20px;
+}
+
+.create-board-inputs {
+  width: calc(100% - 50px)
+
+}
+
+.create-board-inputs span {
+  font-size: 10pt;
+}
+
+#board-name {
+  position: relative;
+  justify-content: center;
+  width: 100%;
+  min-height: 48px;
+  padding: 8px 16px;
+  background-color: whitesmoke;
+  border: solid 2px;
+  border-color: lightgrey;
+  border-radius: 16px;
+  margin-bottom: 30px;
+  margin-top: 5px;
+}
+
+
+#board-details {
+  position: relative;
+  justify-content: center;
+  width: 100%;
+  min-height: 48px;
+  padding: 8px 16px;
+  background-color: whitesmoke;
+  border: solid 2px;
+  border-color: lightgrey;
+  border-radius: 16px;
+  margin-top: 5px;
+}
+
+input[type="text"] {
+  width: 100%;
+  height: 100%;
+  font-size: 12pt;
+}
+
+#submit-board {
+  min-height: 48px;
+  padding: 8px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 24px;
+  font-weight: bold;
+  font-size: 12pt;
+  background-color: #EFEFEF;
+  color: grey;
+  float: right;
+  margin-top: 15px;
+  &:hover {
+    filter: grayscale(40%);
+    cursor: pointer;
+  }
+}
