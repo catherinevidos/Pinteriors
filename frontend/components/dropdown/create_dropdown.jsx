@@ -61,7 +61,7 @@ export default class CreateDropdown extends React.Component {
 
     const currentUserBoards = boards.filter(board => (board.userId === currentUser.id))
 
-    if (boards.length > 0) {
+    if (currentUserBoards.length > 0) {
     return (
       <div className="dropdown">
         <div className="dropdown-child">

@@ -14,6 +14,7 @@ export default class PinShow extends React.Component {
 
   render(){
     const { pins, pin, currentUser, board } = this.props;
+
     if (!pin) return null;
     return (
       <div className="arrow-wrapper">
@@ -22,9 +23,9 @@ export default class PinShow extends React.Component {
             <div className="pin-show-text">
               <div id='dropdown-pin-show'><DropdownContainer pinId={pin.id}/></div>
               <div id='pin-show-details'>
-                <a href={pin.sourceLink}>{pin.sourceLink}</a>
+                {pin.sourceLink != "undefined" ? <a href={pin.sourceLink}>{pin.sourceLink}</a> : null}
                 <h1>{pin.title}</h1>
-                <p>{pin.description}</p>
+                {pin.description != "undefined" ? <p>{pin.description}</p> : null}
               </div>
             </div>
             <div className="pin-show-image">
