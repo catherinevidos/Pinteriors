@@ -5,6 +5,7 @@ import LoginFormContainer from '../session_form/login_form_container';
 import SignupFormContainer from '../session_form/signup_form_container';
 import PinBoardContainer from '../boards/pin_board_container';
 import CreateBoardContainer from '../boards/create_board_container';
+import RecentPinContainer from '../pins/recent_pin_container';
 import Footer from '../footer/footer';
 
 function Modal({ modal, closeModal }) {
@@ -29,6 +30,9 @@ function Modal({ modal, closeModal }) {
       component = <CreateBoardContainer
        currentUser={modal.currentUser} />;
       break;
+    case ('successPin'):
+      component = <RecentPinContainer boardId={modal.boardId}
+      pinId={modal.pinId}/>
     default:
       return null;
   }

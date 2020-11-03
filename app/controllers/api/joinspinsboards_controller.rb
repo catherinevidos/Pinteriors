@@ -11,7 +11,6 @@ class Api::JoinspinsboardsController < ApplicationController
 
   def create
     @boardPin = JoinPinsBoard.new(boardPin_params) 
-    debugger
     if @boardPin.save
       @board = Board.find(@boardPin.board_id)
       render "api/boards/show"

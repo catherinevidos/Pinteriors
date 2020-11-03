@@ -17,6 +17,8 @@ export default class CreatePin extends React.Component {
     clicked: false,
     toggleSelect: 'Choose a board',
     currentBoard: 0,
+    boardId: 0,
+    pinned: false
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleFile = this.handleFile.bind(this);
@@ -43,8 +45,8 @@ export default class CreatePin extends React.Component {
     formData.append('pin[userId]', this.state.userId);
     formData.append('pin[photo]', this.state.photoFile);
     formData.append('pin[source_link]', this.state.sourceLink);
-    this.props.createPin(formData).then((pin) => this.props.pinToBoard({pinId: pin.id, boardId: e.currentTarget.value}))
-    console.log(e.currentTarget.value)
+    this.setState({boardId: e.currentTarget.value})
+    this.props.createPin(formData).then((action) => this.props.pinToBoard({pinId: action.pin.id, boardId: this.state.boardId}) && this.setState({pinned: true}))
   }
 
   closeDropdown() {
@@ -128,6 +130,11 @@ export default class CreatePin extends React.Component {
   
     const name = currentUser.firstName && currentUser.lastName ? 'currentUser.fname currentUser.lname' : null;
 
+    const pinMessage = (this.state.pinned == true) ?
+      // this.props.openModal({modal: 'successPin', boardId: this.state.boardId, pinId: this.props.pins[pins.length - 1]})
+      <p id='success-message-pin'>Your pin was successfully saved!</p>
+    : null;
+
     const profilePic = currentUser.photoUrl ? (
       <img className="create-pin-profile-image" src={currentUser.photoUrl} />
     ) : (
@@ -135,7 +142,6 @@ export default class CreatePin extends React.Component {
     );
 
     const currentUserBoards = boards.filter(board => (board.userId === currentUser.id))
-    console.log(currentUserBoards.length)
 
     const dropdown = (currentUserBoards.length > 0) ? (
       <div className="dropdown">
@@ -173,6 +179,7 @@ export default class CreatePin extends React.Component {
                 <div className="create-pin-dropdown">
                 {dropdown}
               </div>
+              {pinMessage}
                 <h1>
                   <input
                     className="create-pin-title"
