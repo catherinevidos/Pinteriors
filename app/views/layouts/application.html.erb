@@ -4,16 +4,24 @@
     <title>Pinteriors</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <meta property="og:title" content="Pinteriors" />
+      <meta property='og:image' content="<%= image_url('pinteriors.png') %>"/>
+      <meta property="og:description"
+        content="A pinterest clone tailored for interior designers."
+      />
+      <meta property="og:url"
+        content="https://pinteriors.herokuapp.com/#/"
+      />
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <script src="https://kit.fontawesome.com/a5666e50f9.js" crossorigin="anonymous"></script>
+    <%= favicon_link_tag asset_path('logo.png') %>
      <script type="text/javascript">
       window.images = {
         backgroundImage: "<%= image_url("backgroundImage.png") %>",
         backgroundImage: "<%= image_url("backgroundImage2.png") %>",
-        logo: "<%= image_url("logo.png") %>"
-        
+        logo: "<%= image_url("logo.png") %>",
+        pinteriors: "<%= image_url("pinteriors.png") %>"
       }
     </script>
   </head>
