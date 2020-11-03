@@ -13,17 +13,25 @@ export default class CreatePin extends React.Component {
       userId: this.props.currentUser.id,
       photoFile: null,
       photoUrl: null,
-      flag: false
     },
-    completePin: {}
+    clicked: false,
+    toggleSelect: 'Choose a board',
+    currentBoard: 0,
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleFile = this.handleFile.bind(this);
-    this.handleUpdate = this.handleUpdate.bind(this);
-    // this.afterSubmit = this.afterSubmit.bind(this);
     this.handleDrop = this.handleDrop.bind(this);
     this.handleDragEnter = this.handleDragEnter.bind(this);
     this.handleDragOver = this.handleDragOver.bind(this);
+     this.closeDropdown = this.closeDropdown.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+    this.toggleSelect = this.toggleSelect.bind(this);
+    this.handleButton = this.handleButton.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.fetchBoards();
+    this.props.fetchPins();
   }
 
 
@@ -35,31 +43,40 @@ export default class CreatePin extends React.Component {
     formData.append('pin[userId]', this.state.userId);
     formData.append('pin[photo]', this.state.photoFile);
     formData.append('pin[source_link]', this.state.sourceLink);
-    // this.props.createPin(formData).then((action) => console.log(action))
-    // this.props.createPin(formData).then(() => this.setState({completePin: this.props.pins[this.props.pins.length - 1]}))
+    this.props.createPin(formData).then((pin) => this.props.pinToBoard({pinId: pin.id, boardId: e.currentTarget.value}))
+    console.log(e.currentTarget.value)
   }
 
-  //   afterSubmit() {
-  //   const boardPin = (this.props.pins.slice(-1), this.props.boards[0].id)
-  //   if (this.props.pins.length !== this.props.pins.length) {
-  //   this.props.pinToBoard(boardPin)
-  //   } else {
-  //   return null;
-  //   }
+  closeDropdown() {
+    this.setState({clicked: false }, () => {
+      document.removeEventListener('click', this.closeDropdown);
+      document.getElementById("dropdown-child2").style.width = '';
+      document.getElementById("dropdown-button1").style.width = '';
+    })
+  }
+
+  handleClick(e) {
+    e.preventDefault();
+    this.setState({clicked: true }, () => {
+      document.addEventListener("click", this.closeDropdown);
+      document.getElementById("dropdown-child2").style.width = '0px';
+      document.getElementById("dropdown-button1").style.width = '250px';
+    });
+  }
+
+  // pinboard(e) {
+  //   e.preventDefault();
+  //   this.props.createPin(this.props.pin).then(() => this.props.pinToBoard({pinId: this.props.completePin.id, boardId: e.target.value}))
   // }
 
-  // componentDidMount() {
-  //   document.addEventListener("dragenter", function(event) {
-  //     if ( event.target.className == "upload-space" ) {
-  //       event.target.style.border = "none"; 
-  //       event.target.style.backgroundColor = 'grey';
-  //     }
-  //   });
-  // }
+  toggleSelect(board) {
+    this.setState({toggleSelect: board.title, currentBoard: board.id})
+  }
 
+  handleButton(e) {
+    e.preventDefault();
 
-  componentDidMount() {
-    this.props.fetchPins();
+    this.handleSubmit(e);
   }
 
    handleDragOver(e) {
@@ -98,13 +115,12 @@ export default class CreatePin extends React.Component {
 
   handleUpdate(field) {
     return e => {
-      this.setState({[field]: e.currentTarget.value}).then(() => {
-      return (this.state.photoUrl !== null && this.state.title !== '') ? this.handleSubmit(e) && this.setState({flag: true}) : this.setState({flag: false})
-    })}
+      this.setState({[field]: e.currentTarget.value})
+    }
   }
 
   render() {
-    const { currentUser } = this.props;
+    const { currentUser, boards } = this.props;
 
     const preview = this.state.photoUrl ? <img className='testing' src={this.state.photoUrl}/> :  <label><i className="fas fa-arrow-circle-up"></i>
     Drag and drop or click to upload
@@ -118,6 +134,36 @@ export default class CreatePin extends React.Component {
       <i className="fas fa-user-circle"></i>
     );
 
+    const currentUserBoards = boards.filter(board => (board.userId === currentUser.id))
+    console.log(currentUserBoards.length)
+
+    const dropdown = (currentUserBoards.length > 0) ? (
+      <div className="dropdown">
+      <div className="dropdown-child">
+        <div id="dropdown-button1" onClick={this.handleClick}>
+          <span id='selected-dropdown'>{this.state.toggleSelect}</span><i className="fas fa-chevron-down"></i>
+          {this.state.clicked ? (
+            <ul onClick={(e) => e.stopPropagation()} className="dropdown-ul">
+              <p id='all-boards'>All boards</p>
+              {currentUserBoards.map((board, idx) => (
+                <div key={idx} id='dropdown-list-wrapper'>
+                  <li onClick={() => this.toggleSelect(board)}>{board.title}</li>
+                  <button value={board.id} onClick={(e) => this.handleButton(e)}>save</button>
+                </div>
+              ))}
+            </ul>
+      ) : null}
+      </div>
+      <div id="dropdown-child2">
+        {(this.state.toggleSelect !== 'Choose a board') ? (
+          <button className="dropdown-button2" value={this.state.currentBoard} onClick={(e) => this.handleSubmit(e)}>Save</button>
+        ) : <button className="dropdown-button2" value={this.state.currentBoard} onClick={(e) => this.handleSubmit(e)}>Save</button>}
+      </div>
+      </div>
+    </div>
+     ) : null;
+  
+
     return (
       <div className="create-pin">
         <div className="create-pin-container">
@@ -125,8 +171,7 @@ export default class CreatePin extends React.Component {
             <div className="create-pin-catherine">
               <div className="create-text">
                 <div className="create-pin-dropdown">
-                <CreateDropdownContainer
-                  />
+                {dropdown}
               </div>
                 <h1>
                   <input
@@ -154,7 +199,7 @@ export default class CreatePin extends React.Component {
                     placeholder="Add a destination link"
                   />
                 </p>
-                <button onClick={this.handleSubmit}>submit</button>
+                {/* <button onClick={this.handleSubmit}>submit</button> */}
                 </div>
                 <div id="upload-space"
                     onDrop={this.handleDrop}
@@ -163,7 +208,6 @@ export default class CreatePin extends React.Component {
                     {preview}
                </div>
               </div>
-              {/* <div className='create-pin-fun'> */}
           <Link className="back-arrow-create" to="/">
             <i className="fas fa-arrow-left"></i>
           </Link>
