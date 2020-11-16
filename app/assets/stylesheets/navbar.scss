@@ -1,6 +1,7 @@
 .nav-container {
   height: 90px;
   overflow: hidden;
+  width: 100%;
   // position: fixed;
 }
 
@@ -73,12 +74,6 @@
 }
 
 
-
-
-
-
-
-
 .nav-lis > button {
   padding: 15px 10px 15px 10px;
   border-radius: 40px;
@@ -118,17 +113,23 @@ a.nav-link-home-logo {
   background-color: whitesmoke;
   border-radius: 30px;
   overflow: hidden;
+  display: flex;
   &:hover{
     background-color: lightgray;
     transition: background 0.8s;
   }
 }
 
+#searchbar-submit-button {
+  height: 50px;
+  width: 50px;
+}
+
 .searchbar-form {
   height: 100%;
 }
 
-.searchbar-input {
+#searchbar-input {
   width: 98%;
   height: 100%;
   margin-left: 10px;
@@ -140,5 +141,12 @@ a.nav-link-home-logo {
   background-position: left;
   font-weight: normal;
   color: black;
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  -webkit-appearance: none;
 }
  

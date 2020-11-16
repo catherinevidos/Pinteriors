@@ -3,7 +3,7 @@ import {
 } from 'react-redux';
 
 import {
-  fetchPin
+  fetchPin, fetchPins
 } from '../../actions/pin_actions';
 
 import {
@@ -22,7 +22,8 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = dispatch => ({
   openModal: modal => dispatch(openModal(modal)),
   fetchPin: (pinId) => dispatch(fetchPin(pinId)),
-  fetchBoards: () => dispatch(fetchBoards())
+  fetchBoards: () => dispatch(fetchBoards()),
+  fetchPins: () => dispatch(fetchPins())
 });
 
 export default connect(

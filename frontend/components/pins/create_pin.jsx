@@ -1,6 +1,5 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import CreateDropdownContainer from '../dropdown/create_dropdown_container';
 
 export default class CreatePin extends React.Component {
   constructor(props) {
@@ -131,7 +130,6 @@ export default class CreatePin extends React.Component {
     const name = currentUser.firstName && currentUser.lastName ? 'currentUser.fname currentUser.lname' : null;
 
     const pinMessage = (this.state.pinned == true) ?
-      // this.props.openModal({modal: 'successPin', boardId: this.state.boardId, pinId: this.props.pins[pins.length - 1]})
       <p id='success-message-pin'>Your pin was successfully saved!</p>
     : null;
 
@@ -206,7 +204,6 @@ export default class CreatePin extends React.Component {
                     placeholder="Add a destination link"
                   />
                 </p>
-                {/* <button onClick={this.handleSubmit}>submit</button> */}
                 </div>
                 <div id="upload-space"
                     onDrop={this.handleDrop}

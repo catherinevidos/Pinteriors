@@ -2,8 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
-
-class PinIndexItem extends React.Component {
+class PinIndexSearchItem extends React.Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
@@ -25,4 +24,4 @@ handleClick(e) {
   }
 }
 
-export default withRouter(PinIndexItem);
+export default withRouter(PinIndexSearchItem);

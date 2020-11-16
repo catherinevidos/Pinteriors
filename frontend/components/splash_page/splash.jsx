@@ -7,9 +7,9 @@ import LoadingIcon from '../loading/loading';
  class Splash extends React.Component {
   constructor(props){
     super(props)
-    // this.state = {
-    //   loading: true
-    // }
+    this.state = {
+      loading: true
+    }
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -17,9 +17,9 @@ import LoadingIcon from '../loading/loading';
   //   this.props.logout().then(this.props.openModal('login'))
   // }
 
-  // componentDidMount() {
-  //   this.setState({loading: false})
-  // }
+ componentDidMount() {
+    setTimeout(this.setState({loading: false}), 10000);
+  }
 
   handleSubmit(e) {
     e.preventDefault();
@@ -29,9 +29,9 @@ import LoadingIcon from '../loading/loading';
   render() {
     const { currentUser, logout, openModal, pins, startLoading } = this.props;
 
-    // if (this.state.loading) {
-    //   return <LoadingIcon />;
-    // }
+    if (this.state.loading) {
+      return <LoadingIcon />;
+    }
 
     if (!currentUser) {
       return (
@@ -39,8 +39,9 @@ import LoadingIcon from '../loading/loading';
       )
     } else {
       return (
+
         <div className="splash-page-wrapper">
-          <PinIndexContainer />
+         <PinIndexContainer/>
           <div>
             <button
               className="plus"
@@ -54,5 +55,5 @@ import LoadingIcon from '../loading/loading';
     }
   }
 }
-// #have an onload callback for my images. 
+
 export default withRouter(Splash);

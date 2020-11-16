@@ -1,9 +1,9 @@
 import React from 'react';
-import PinIndexItem from './pin_index_item';
+import PinIndexSearchItem from './pin_index_item';
 import Masonry from 'react-masonry-css';
 import { Link, withRouter } from 'react-router-dom';
 import LoadingIcon from '../loading/loading';
-import Navbar from '../navbar/navbar';
+
 
 export default class PinIndex extends React.Component {
   constructor(props) {
@@ -15,8 +15,8 @@ export default class PinIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchPins();
-    setTimeout(this.setState({loading: false}), 10000);
+   this.props.fetchPins();
+   setTimeout(this.setState({loading: false}), 10000);
   }
 
 
@@ -28,16 +28,16 @@ export default class PinIndex extends React.Component {
     if (this.state.loading) {
       return <LoadingIcon />;
     }
-    if (this.props.pins.length > 0) {
+    if (this.props.searchPins !== undefined && this.props.searchPins.length > 0) {
     return (
-      <>
+      <div className="splash-page-wrapper">
         <Masonry
           className="masonry-pins"
           columnClassName="masonry-pins_column"
           breakpointCols={5}
         >
-          {this.props.pins.map((pin) => (
-            <PinIndexItem
+          {this.props.searchPins.map((pin) => (
+            <PinIndexSearchItem
               pin={pin}
               key={pin.id}
               photo={pin.photoUrl}
@@ -52,10 +52,12 @@ export default class PinIndex extends React.Component {
             <i className="fas fa-plus"></i>
           </Link>
       </div>
-    </>
+    </div>
     );
   } else {
-    return null;
+    return (
+      <p>No pins match this search</p>
+    )
   }
   }
 }

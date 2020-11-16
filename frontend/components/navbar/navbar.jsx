@@ -34,10 +34,10 @@ class NavBar extends React.Component {
               <a key="2" className="nav-link-home" href="#">
                 Home
               </a>
-              <a key="3" className="nav-link-home" href="#">
-                Following
+              <a key="3" className="nav-link-home" target="_blank" href="https://catherinevidos.github.io/">
+                Portfolio Site
               </a>
-              <SearchbarContainer />
+                <SearchbarContainer />
               <div className='icon-wrapper'>
                 <Link
                   to={`/users/${currentUser.id}`}

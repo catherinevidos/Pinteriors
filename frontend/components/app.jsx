@@ -13,6 +13,7 @@ import PinShowContainer from '../components/pins/pin_show_container';
 import UserProfileContainer from '../components/users/user_profile_container';
 import CreatePinContainer from '../components/pins/create_pin_container';
 import BoardShowContainer from '../components/boards/board_show_container';
+import PinIndexSearchContainer from '../components/pins/pin_index_search_container';
 // import CreateBoardContainer from '../components/boards/create_board_container';
 
 
@@ -25,6 +26,7 @@ const App = () => (
     </header>
     <Switch>
       <Route exact path="/" component={SplashContainer} />
+      <Route exact path="/search" component={PinIndexSearchContainer}/>
       <ProtectedRoute exact path="/pins/:pinId" component={PinShowContainer} />
       <ProtectedRoute exact path="/users/:userId" component={UserProfileContainer} />
       <ProtectedRoute exact path="/pins" component={CreatePinContainer} />
