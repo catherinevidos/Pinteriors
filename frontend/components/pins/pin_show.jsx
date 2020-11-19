@@ -25,7 +25,7 @@ class PinShow extends React.Component {
             <div className="pin-show-text">
               <div id='dropdown-pin-show'><DropdownContainer pinId={pin.id}/></div>
               <div id='pin-show-details'>
-                {pin.sourceLink != "undefined" ? <a href={pin.sourceLink}>{pin.sourceLink}</a> : null}
+                {pin.sourceLink != "undefined" ? <a href={`http://${pin.sourceLink}`} target='_blank'>{pin.sourceLink}</a> : null}
                 <h1>{pin.title}</h1>
                 {pin.description != "undefined" ? <p>{pin.description}</p> : null}
               </div>

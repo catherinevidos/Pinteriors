@@ -16,7 +16,9 @@ export default class PinIndex extends React.Component {
 
   componentDidMount() {
    this.props.fetchPins();
-   setTimeout(this.setState({loading: false}), 10000);
+   const timer = setTimeout(() => {
+     this.setState({loading: false}) 
+    }, 4000);
   }
 
 

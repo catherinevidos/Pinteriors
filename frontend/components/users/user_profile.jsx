@@ -15,6 +15,7 @@ export default class UserProfile extends React.Component {
     }
     this.handleClick = this.handleClick.bind(this);
     this.handleButton = this.handleButton.bind(this)
+    this.handleEdit = this.handleEdit.bind(this)
   }
 
 componentDidMount() {
@@ -35,6 +36,10 @@ handleClick() {
   this.props.openModal({modal: 'createboard', currentUser: this.props.currentUser})
 }
 
+handleEdit() {
+  this.props.openModal({modal: 'editprofile', currentUser: this.props.currentUser})
+}
+
 componentDidUpdate(prevProps) {
   if (prevProps.boards.length != this.props.boards.length) {
     this.props.fetchBoards();
@@ -53,11 +58,28 @@ render() {
     return <Redirect to={`/boards/${this.state.openBoardId}`}/>
   }
 
+const name = currentUser.firstName && currentUser.lastName ? <div><span>{currentUser.firstName}</span><span>{currentUser.lastName}</span></div> : <span>Add Your Name</span>;
+
+  const profilePic = currentUser.photoUrl ? (
+      <img className="create-pin-profile-image" src={currentUser.photoUrl} />
+    ) : (
+      <i className="fas fa-user-circle"></i>
+    );
+
   const currentUserBoards = boards.filter(board => (board.userId === currentUser.id))
   
   
   if (boards.length > 0 && this.state.pins === 'fetched') {
   return (
+    <>
+    <div id='user-header'>
+      <div id='user-photo'>
+        {profilePic}
+      </div>
+      <div id='user-text'>
+        {name}
+      </div>
+    </div>
     <ul id='board-list'>
         {currentUserBoards.map((board, idx) => {
             let pinArr;
@@ -99,8 +121,13 @@ render() {
             >
               <i className="fas fa-plus"></i>
             </button>
+            <button id="edit"
+              onClick={this.handleEdit}>
+              <i class="fas fa-pencil-alt"></i>
+            </button>
           </div>
     </ul> 
+    </>
   )} else {
     return (
     <p>You don't have any boards yet!</p>

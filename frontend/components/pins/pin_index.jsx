@@ -1,8 +1,10 @@
 import React from 'react';
 import PinIndexItem from './pin_index_item';
 import Masonry from 'react-masonry-css';
+import StackGrid, { transitions } from "react-stack-grid";
 import { Link, withRouter } from 'react-router-dom';
 import LoadingIcon from '../loading/loading';
+import imagesloaded from 'imagesloaded'
 import Navbar from '../navbar/navbar';
 
 export default class PinIndex extends React.Component {
@@ -16,25 +18,31 @@ export default class PinIndex extends React.Component {
 
   componentDidMount() {
     this.props.fetchPins();
-    setTimeout(this.setState({loading: false}), 10000);
+    const timer = setTimeout(() => {
+     this.setState({loading: false}) 
+    }, 4000);
   }
+  
 
-
-  // handleClick() {
-  //   <Link to='/api/pins/${this.props.match.params.id}'/>
-  // }
 
   render() {
+    const { scaleDown } = transitions;
+
     if (this.state.loading) {
       return <LoadingIcon />;
     }
     if (this.props.pins.length > 0) {
     return (
       <>
-        <Masonry
+        <StackGrid
           className="masonry-pins"
-          columnClassName="masonry-pins_column"
-          breakpointCols={5}
+          columnWidth={250}
+          appear={scaleDown.appear}
+          appeared={scaleDown.appeared}
+          enter={scaleDown.enter}
+          entered={scaleDown.entered}
+          leaved={scaleDown.leaved}
+          monitorImagesLoaded={true}
         >
           {this.props.pins.map((pin) => (
             <PinIndexItem
@@ -46,7 +54,7 @@ export default class PinIndex extends React.Component {
               openModal={this.props.openModal}
             />
           ))}
-        </Masonry>
+        </StackGrid>
         <div className='plus'>
           <Link to="/pins">
             <i className="fas fa-plus"></i>

@@ -1,16 +1,17 @@
-export const updateProfile = user => (
+export const updateUser = (user) => (
   $.ajax({
     method: 'PATCH',
     url:  `/api/users/${user.id}`,
-    data: {
-      user
-    }
+    data: user,
+    contentType: false,
+    processData: false
   })
 );
 
-export const showProfile = userId => (
+export const fetchUser = userId => (
   $.ajax({
     method: 'GET',
     url: `/api/users/${userId}`
   })
 );
+

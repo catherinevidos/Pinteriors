@@ -13,7 +13,7 @@ Board.destroy_all
 Pin.destroy_all 
 JoinPinsBoard.destroy_all
 
-user1 = User.create!(email: 'pinteriors@catherine.com', password: 'welcome1')
+user1 = User.create!(email: 'pinteriors@catherine.com', password: 'welcome1', first_name: 'Demo', last_name: 'User')
 file = open('https://active-storage-pinteriors-seeds.s3.amazonaws.com/karsten-winegeart-Qb7D1xw28Co-unsplash.jpeg')
 user1.photo.attach(io: file, filename: 'karsten-winegeart-Qb7D1xw28Co-unsplash.jpeg')
 

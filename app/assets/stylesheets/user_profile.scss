@@ -2,12 +2,31 @@
   display: grid;
   justify-content: center;
   grid-template-columns: 280px 280px 280px 280px;
-  margin-top: 100px;
+  margin-top: 30px;
   row-gap: 1em;
 }
 
 #board-show-list {
   z-index: 20;
+}
+
+#user-header {
+  height: 150px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+#user-photo {
+  height: fit-content;
+  width: fit-content;
+}
+
+#user-text {
+  height: fit-content;
+  width: fit-content;
 }
 
 #pin-image-wrapper {
@@ -67,4 +86,8 @@
   height: 100%;
   width: 40%;
   border: 1px solid white;
+}
+
+#edit {
+  
 }
