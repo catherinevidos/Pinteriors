@@ -22,7 +22,7 @@ class NavBar extends React.Component {
        const profilePic = ((currentUser) && (currentUser.photoUrl)) ? (
          <img className="nav-profile-image" src={currentUser.photoUrl} />
        ) : (
-         <i class="fas fa-user-circle"></i>
+         <div className='nav-profile-image'><i className="fas fa-user-circle"></i></div>
        );
 
     if (currentUser) {

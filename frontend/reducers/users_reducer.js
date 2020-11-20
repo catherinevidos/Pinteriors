@@ -13,7 +13,7 @@ const usersReducer = (state = {}, action) => {
     case LOGOUT_CURRENT_USER:
       return {};
     case RECEIVE_USER:
-      return {[action.user.id]: action.user}
+      return Object.assign({}, state, action.user.user);
     default:
       return state;
   }

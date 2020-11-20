@@ -1,9 +1,10 @@
 #board-list {
   display: grid;
   justify-content: center;
-  grid-template-columns: 280px 280px 280px 280px;
+  grid-template-columns: repeat(auto-fill, 250px);
   margin-top: 30px;
   row-gap: 1em;
+  column-gap: 1em;
 }
 
 #board-show-list {
@@ -21,12 +22,30 @@
 
 #user-photo {
   height: fit-content;
-  width: fit-content;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  margin-top: 20px;
 }
 
 #user-text {
   height: fit-content;
-  width: fit-content;
+  width: 200px;
+  font-size: 16pt;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+#user-text div {
+  width: 200px;
+  text-overflow: clip;
+}
+
+#user-text span {
+  margin: 2px;
+  text-overflow: clip;
 }
 
 #pin-image-wrapper {
@@ -88,6 +107,59 @@
   border: 1px solid white;
 }
 
-#edit {
-  
+.create-pin-profile-image i {
+  font-size: 75pt;
+  color: grey;
 }
+
+.edit-create-button-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  height: fit-content;
+  position: absolute;
+  right: 5px;
+}
+
+
+.plus-board {
+text-align: center;
+bottom: 20px;
+right: 20px;
+height: 50px;
+width: 50px;
+box-sizing: border-box;
+border-radius: 50px;
+transition: background 0.5s;
+opacity: .80;
+z-index: 40;
+margin: 10px;
+&:hover {
+  background-color: lightgrey;
+  cursor: pointer;
+}
+}
+
+.plus-board i {
+  display: flex;
+  font-size: 22pt;
+  color: black;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box;
+  border-radius: 50px;
+  background-color: whitesmoke;
+
+  &:hover {
+    background-color: lightgrey;
+    cursor: pointer;
+  }
+}
+
+// #board-list-wrap {
+//   width: calc(100% - 80px);
+//   height: 100%;
+// }

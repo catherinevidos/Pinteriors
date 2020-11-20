@@ -63,7 +63,7 @@ const name = currentUser.firstName && currentUser.lastName ? <div><span>{current
   const profilePic = currentUser.photoUrl ? (
       <img className="create-pin-profile-image" src={currentUser.photoUrl} />
     ) : (
-      <i className="fas fa-user-circle"></i>
+      <div className="create-pin-profile-image"><i className="fas fa-user-circle"></i></div>
     );
 
   const currentUserBoards = boards.filter(board => (board.userId === currentUser.id))
@@ -114,23 +114,45 @@ const name = currentUser.firstName && currentUser.lastName ? <div><span>{current
           </div>
           )
         })}
-        <div>
+        <div className='edit-create-button-wrapper'>
             <button
-              className="plus"
+              className="plus-board"
                onClick={this.handleClick}
             >
               <i className="fas fa-plus"></i>
             </button>
-            <button id="edit"
+            <button className="plus-board"
               onClick={this.handleEdit}>
-              <i class="fas fa-pencil-alt"></i>
+              <i className="fas fa-pencil-alt"></i>
             </button>
           </div>
-    </ul> 
+      </ul> 
     </>
   )} else {
     return (
-    <p>You don't have any boards yet!</p>
+      <>
+        <div id='user-header'>
+        <div id='user-photo'>
+          {profilePic}
+        </div>
+        <div id='user-text'>
+          {name}
+        </div>
+      </div>
+      <p>You don't have any boards yet!</p>
+      <div className='edit-create-button-wrapper'>
+            <button
+              className="plus-board"
+               onClick={this.handleClick}
+            >
+              <i className="fas fa-plus"></i>
+            </button>
+            <button className="plus-board"
+              onClick={this.handleEdit}>
+              <i className="fas fa-pencil-alt"></i>
+            </button>
+          </div>
+    </>
     );
   }
   }

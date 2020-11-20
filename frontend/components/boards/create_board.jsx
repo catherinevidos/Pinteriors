@@ -34,7 +34,7 @@ export default class CreateBoard extends React.Component {
 
   handleSubmit(e) {
     const board = Object.assign({}, this.state)
-    this.props.createBoard(board).then(this.props.closeModal);
+    this.props.createBoard(board).then((this.props.closeModal) && window.location.reload());
   }
 
   render() {

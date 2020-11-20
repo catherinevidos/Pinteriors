@@ -45,7 +45,7 @@ export default class CreatePin extends React.Component {
     formData.append('pin[photo]', this.state.photoFile);
     formData.append('pin[source_link]', this.state.sourceLink);
     this.setState({boardId: e.currentTarget.value})
-    this.props.createPin(formData).then((action) => this.props.pinToBoard({pinId: action.pin.id, boardId: this.state.boardId}) && this.setState({pinned: true}))
+    this.props.createPin(formData).then((action) => this.props.pinToBoard({pinId: action.pin.id, boardId: this.state.boardId}) && this.props.history.push(`/pins/${action.pin.id}`))
   }
 
   closeDropdown() {
@@ -129,9 +129,9 @@ export default class CreatePin extends React.Component {
   
     const name = currentUser.firstName && currentUser.lastName ? 'currentUser.fname currentUser.lname' : null;
 
-    const pinMessage = (this.state.pinned == true) ?
-      <p id='success-message-pin'>Your pin was successfully saved!</p>
-    : null;
+    // const pinMessage = (this.state.pinned == true) ?
+    //   <p id='success-message-pin'>Your pin was successfully saved!</p>
+    // : null;
 
     const profilePic = currentUser.photoUrl ? (
       <img className="create-pin-profile-image" src={currentUser.photoUrl} />
@@ -165,7 +165,7 @@ export default class CreatePin extends React.Component {
       </div>
       </div>
     </div>
-     ) : null;
+     ) : <button className='link-board-modal' onClick={() => this.props.openModal({modal: 'createboard', currentUser: this.props.currentUser})}>You don't have any boards to pin to yet! Click to create one now</button>;
   
 
     return (
@@ -177,7 +177,7 @@ export default class CreatePin extends React.Component {
                 <div className="create-pin-dropdown">
                 {dropdown}
               </div>
-              {pinMessage}
+              {/* {pinMessage} */}
                 <h1>
                   <input
                     className="create-pin-title"

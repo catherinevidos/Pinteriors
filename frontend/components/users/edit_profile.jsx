@@ -1,4 +1,5 @@
 import React from 'react';
+import AvatarEditor from 'react-avatar-editor';
 
 
 export default class EditProfile extends React.Component {
@@ -10,6 +11,7 @@ export default class EditProfile extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
     this.currentState = this.currentState.bind(this);
+    this.handleFile = this.handleFile.bind(this);
   }
 
    handleUpdate(field) {
@@ -20,21 +22,16 @@ export default class EditProfile extends React.Component {
 
    currentState() {
         const initialState = Object.assign({}, {
-            photoFile: null,
             photoUrl: null,
-            firstName: this.props.currentUser.firstName || '',
-            lastName: this.props.currentUser.lastName || '',
+            photoFile: null,
+            first_name: this.props.currentUser.firstName || '',
+            last_name: this.props.currentUser.lastName || '',
             username: this.props.currentUser.username ||'',
-            id: this.props.currentUser.id,
-            photoPreview: null
+            id: this.props.currentUser.id
         });
 
         return initialState
     }
-
-  // componentDidMount() {
-  //   this.props.fetchUser(this.props.currentUser.id)
-  // }
 
   renderErrors() {
     return (
@@ -52,25 +49,18 @@ export default class EditProfile extends React.Component {
 
     handleSubmit(e) {
     e.preventDefault();
-
     const details = Object.assign({}, this.state);
     delete details["id"];
-    delete details["photoPreview"];
-    if (!this.state.photoPreview) {
-        delete details["photoUrl"];
+    delete details["photoUrl"];
+    if (this.state.photoFile === null) {
+      delete details["photoFile"];
     }
-    // const formData = new FormData();
-    // formData.append('user[photo]', this.state.photoFile);
-    // formData.append('user[firstName]', this.state.firstName);
-    // formData.append('user[lastName]', this.state.lastName);
-    // formData.append('user[username]', this.state.username);
-
-    // this.props.updateUser(formData).then(this.props.closeModal)
+    
     const formData = new FormData();
         for (let key in details) {
             formData.append(`user[${key}]`, details[key])
         }
-        this.props.updateUser(formData, this.state.id).then(
+        this.props.updateUser(formData, this.props.currentUser.id).then(
             () => location.reload(false)
         )
   }
@@ -98,18 +88,19 @@ export default class EditProfile extends React.Component {
         let file = e.dataTransfer.files[0];
         const fileReader = new FileReader();
         fileReader.onloadend = () => {
-          this.setState({ photoFile: file, photoUrl: fileReader.result });
+          this.setState({ photoFile: file, photoUrl: fileReader.result});
         };
         if (file) { 
           fileReader.readAsDataURL(file) 
         }
     };
 
+
   handleFile(e) {
     const file = e.target.files[0];
     const fileReader = new FileReader();
     fileReader.onloadend = () => {
-      this.setState({ photoFile: file, photoUrl: fileReader.result });
+      this.setState({ photoFile: file, photoUrl: fileReader.result});
     };
     if (file) {
       fileReader.readAsDataURL(file);
@@ -119,15 +110,43 @@ export default class EditProfile extends React.Component {
   render() {
      const { currentUser} = this.props;
 
-     const profilePic = currentUser.photoUrl ? (
-      <img className="create-pin-profile-image" src={currentUser.photoUrl} />
-    ) : (
-      <i className="fas fa-user-circle"></i>
-    );
+     let handleImg;
+      if (this.props.currentUser.photoUrl) {
+      handleImg =  
+      <div>
+        {/* <label><i className="fas fa-arrow-circle-up"></i>
+        <span>Drag and drop or click to upload</span> */}
+        <input id="pinFile" onChange={this.handleFile} type="file"/>
+        <AvatarEditor 
+          image={this.props.photoUrl}
+          width={250}
+          height={250}
+          border={50}
+          color={[255, 255, 255, 0.6]} // RGBA
+          scale={1.2}
+          rotate={0}/>
+      </div>
+    } else if (this.state.photoUrl) {
+      handleImg =  <AvatarEditor 
+          image={this.state.photoUrl}
+          width={250}
+          height={250}
+          border={50}
+          color={[255, 255, 255, 0.6]} // RGBA
+          scale={1.2}
+          rotate={0}/>
+    } else {
+      handleImg = 
+      <label><i className="fas fa-arrow-circle-up"></i>
+      <span>Drag and drop or click to upload</span>
+      <input id="pinFile" onChange={this.handleFile} type="file"/></label>
+    }
 
-    const preview = this.state.photoUrl ? <img className='testing' src={this.state.photoUrl}/> :  <label><i className="fas fa-arrow-circle-up"></i>
-    Drag and drop or click to upload
-    <input id="pinFile" onChange={this.handleFile} type="file"/></label>
+    //  const profilePic = currentUser.photoUrl ? (
+    //   <img className="create-pin-profile-image" src={currentUser.photoUrl} />
+    // ) : (
+    //   <i className="fas fa-user-circle"></i>
+    // );
 
     return (
       <>
@@ -143,15 +162,17 @@ export default class EditProfile extends React.Component {
                     onDrop={this.handleDrop}
                     onDragEnter={this.handleDragEnter}
                     onDragOver={this.handleDragOver}>
-                  {preview}
+                {handleImg}
                </div>
             <span>First name</span>
               <h1 id='board-name'>
                 <input
                 className="create-board-title"
                 type="text"
-                onChange={this.handleUpdate('firstName')}
+                onChange={this.handleUpdate('first_name')}
                 placeholder='Like "Places to Go" or "Recipes to Make"'
+                value={this.state.first_name}
+                placeholder='Enter your first name'
                 />
               </h1>
               <span>Last name</span>
@@ -159,8 +180,9 @@ export default class EditProfile extends React.Component {
                 <input
                 className="create-board-title"
                 type="text"
-                onChange={this.handleUpdate('lastName')}
-                placeholder='Like "Places to Go" or "Recipes to Make"'
+                onChange={this.handleUpdate('last_name')}
+                value={this.state.last_name}
+                placeholder='Enter your last name'
                 />
               </h1>
               <span>Username</span>
@@ -169,7 +191,8 @@ export default class EditProfile extends React.Component {
                     className="create-board-link"
                     type="text"
                     onChange={this.handleUpdate('username')}
-                    placeholder='Choose an optional username'
+                    value={this.state.username}
+                    placeholder='Choose a username'
                   />
               </p>
               <button id='submit-board' onClick={this.handleSubmit}>Create</button>

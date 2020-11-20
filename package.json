@@ -9,6 +9,7 @@
     "imagesloaded": "^4.1.4",
     "masonry-layout": "^4.2.2",
     "react": "^16.13.1",
+    "react-avatar-editor": "^11.0.13",
     "react-dom": "^16.13.1",
     "react-masonry-component": "^6.2.1",
     "react-masonry-css": "^1.0.14",

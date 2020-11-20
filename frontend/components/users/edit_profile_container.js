@@ -30,7 +30,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = dispatch => ({
   openModal: modal => dispatch(openModal(modal)),
   closeModal: () => dispatch(closeModal()),
-  updateUser: user => dispatch(updateUser(user)),
+  updateUser: (user, id) => dispatch(updateUser(user, id)),
   fetchUser: userId => dispatch(fetchUser(userId))
 });
 
