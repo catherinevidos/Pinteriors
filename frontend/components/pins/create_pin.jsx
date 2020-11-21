@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import LoadingIcon from '../loading/loading';
 
 export default class CreatePin extends React.Component {
   constructor(props) {
@@ -38,6 +39,7 @@ export default class CreatePin extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    this.setState({loading: true})
     const formData = new FormData();
     formData.append('pin[title]', this.state.title);
     formData.append('pin[description]', this.state.description);
@@ -123,6 +125,10 @@ export default class CreatePin extends React.Component {
   render() {
     const { currentUser, boards } = this.props;
 
+    if (this.state.loading) {
+      return <LoadingIcon />;
+    }
+
     const preview = this.state.photoUrl ? <img className='testing' src={this.state.photoUrl}/> :  <label><i className="fas fa-arrow-circle-up"></i>
     Drag and drop or click to upload
     <input id="pinFile" onChange={this.handleFile} type="file"/></label>
@@ -130,7 +136,7 @@ export default class CreatePin extends React.Component {
     const name = currentUser.firstName && currentUser.lastName ? 'currentUser.fname currentUser.lname' : null;
 
     // const pinMessage = (this.state.pinned == true) ?
-    //   <p id='success-message-pin'>Your pin was successfully saved!</p>
+    //   <p id='success-message-pin'>Redirecting to your new pin...pleasebe patient ;)</p>
     // : null;
 
     const profilePic = currentUser.photoUrl ? (

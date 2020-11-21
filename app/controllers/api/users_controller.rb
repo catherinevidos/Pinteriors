@@ -25,9 +25,10 @@ class Api::UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    file = open(params[:user][:photoFile])
-    
-    
+
+    if (params[:user][:photoFile])
+      file = open(params[:user][:photoFile])
+    end
     
     if (params[:user][:photoFile]) && @user.photo.attached?
       @user.photo.destroy 

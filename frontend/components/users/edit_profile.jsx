@@ -1,5 +1,5 @@
 import React from 'react';
-
+import LoadingIcon from '../loading/loading';
 
 export default class EditProfile extends React.Component {
   constructor(props){
@@ -26,7 +26,8 @@ export default class EditProfile extends React.Component {
             first_name: this.props.currentUser.firstName || '',
             last_name: this.props.currentUser.lastName || '',
             username: this.props.currentUser.username ||'',
-            id: this.props.currentUser.id
+            id: this.props.currentUser.id,
+            loading: false
         });
 
         return initialState
@@ -51,6 +52,8 @@ export default class EditProfile extends React.Component {
     const details = Object.assign({}, this.state);
     delete details["id"];
     delete details["photoUrl"];
+    delete details["loading"];
+    this.setState({loading: true})
     if (this.state.photoFile === null) {
       delete details["photoFile"];
     }
@@ -60,7 +63,7 @@ export default class EditProfile extends React.Component {
             formData.append(`user[${key}]`, details[key])
         }
         this.props.updateUser(formData, this.props.currentUser.id).then(
-            () => location.reload(false)
+            () => location.reload(false) && this.setState({loading: false})
         )
   }
     
@@ -108,6 +111,10 @@ export default class EditProfile extends React.Component {
 
   render() {
      const { currentUser} = this.props;
+
+    if (this.state.loading) {
+    return <LoadingIcon />;
+    }
 
       
     let preview = (this.state.photoUrl) ? <img className="edit-user-profile-image" src={this.state.photoUrl}></img> : <label><i className="fas fa-arrow-circle-up"></i><span>Drag and drop or click to upload</span><input id="pinFile" onChange={this.handleFile} type="file"/></label>
