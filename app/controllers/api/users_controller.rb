@@ -26,12 +26,11 @@ class Api::UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     file = open(params[:user][:photoFile])
-    debugger
+    
     
     
     if (params[:user][:photoFile]) && @user.photo.attached?
       @user.photo.destroy 
-      debugger
       @user.photo.attach(io: file, filename: 'hello')
       if @user.update(profile_params)
         render "api/users/show"
