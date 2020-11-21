@@ -1,5 +1,4 @@
 import React from 'react';
-import AvatarEditor from 'react-avatar-editor';
 
 
 export default class EditProfile extends React.Component {
@@ -110,43 +109,10 @@ export default class EditProfile extends React.Component {
   render() {
      const { currentUser} = this.props;
 
-     let handleImg;
-      if (this.props.currentUser.photoUrl) {
-      handleImg =  
-      <div>
-        {/* <label><i className="fas fa-arrow-circle-up"></i>
-        <span>Drag and drop or click to upload</span> */}
-        <input id="pinFile" onChange={this.handleFile} type="file"/>
-        <AvatarEditor 
-          image={this.props.photoUrl}
-          width={250}
-          height={250}
-          border={50}
-          color={[255, 255, 255, 0.6]} // RGBA
-          scale={1.2}
-          rotate={0}/>
-      </div>
-    } else if (this.state.photoUrl) {
-      handleImg =  <AvatarEditor 
-          image={this.state.photoUrl}
-          width={250}
-          height={250}
-          border={50}
-          color={[255, 255, 255, 0.6]} // RGBA
-          scale={1.2}
-          rotate={0}/>
-    } else {
-      handleImg = 
-      <label><i className="fas fa-arrow-circle-up"></i>
-      <span>Drag and drop or click to upload</span>
-      <input id="pinFile" onChange={this.handleFile} type="file"/></label>
-    }
+      
+    let preview = (this.state.photoUrl) ? <img className="edit-user-profile-image" src={this.state.photoUrl}></img> : <label><i className="fas fa-arrow-circle-up"></i><span>Drag and drop or click to upload</span><input id="pinFile" onChange={this.handleFile} type="file"/></label>
 
-    //  const profilePic = currentUser.photoUrl ? (
-    //   <img className="create-pin-profile-image" src={currentUser.photoUrl} />
-    // ) : (
-    //   <i className="fas fa-user-circle"></i>
-    // );
+     let current = (currentUser.photoUrl) ? <img className="edit-user-profile-image" src={currentUser.photoUrl}></img> : null;
 
     return (
       <>
@@ -158,12 +124,15 @@ export default class EditProfile extends React.Component {
             <h1>Edit Profile</h1>
           </div>
           <div className='create-board-inputs'>
-             <div id="upload-space"
+            <div id='upload-space-wrapper'>
+             <div id="upload-space-edit"
                     onDrop={this.handleDrop}
                     onDragEnter={this.handleDragEnter}
                     onDragOver={this.handleDragOver}>
-                {handleImg}
-               </div>
+                 {preview}
+            </div>
+               {current}
+            </div>
             <span>First name</span>
               <h1 id='board-name'>
                 <input
