@@ -6,15 +6,6 @@ import {
   openModal, closeModal
 } from '../../actions/modal_actions';
 
-import {
-  fetchPins
-} from '../../actions/pin_actions';
-
-import {
-  fetchBoards
-} from '../../actions/board_actions';
-
-import {createBoard} from '../../actions/board_actions';
 
 import EditProfile from './edit_profile';
 import { updateUser, fetchUser } from '../../actions/user_actions';
