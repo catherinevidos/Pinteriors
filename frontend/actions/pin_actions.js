@@ -3,7 +3,7 @@ import * as PinAPIUtil from '../util/pin_api_util';
 export const RECEIVE_PIN = 'RECEIVE_PIN';
 export const RECEIVE_PINS = 'RECEIVE_PINS';
 export const REMOVE_PIN = 'REMOVE_PIN';
-export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
+export const RECEIVE_PIN_ERRORS = 'RECEIVE_PIN_ERRORS';
 
 const receivePin = pin => ({
   type: RECEIVE_PIN,
@@ -20,8 +20,8 @@ const removePin = pinId => ({
   pinId
 });
 
-const receiveSessionErrors = errors => ({
-  type: RECEIVE_SESSION_ERRORS,
+const receivePinErrors = errors => ({
+  type: RECEIVE_PIN_ERRORS,
   errors
 });
 
@@ -37,7 +37,8 @@ export const fetchPins = () => dispatch => {
 
 export const deletePin = (pinId) => dispatch => {
   return PinAPIUtil.deletePin(pinId)
-    .then(pin => dispatch(removePin(pin.id)))
+    .then(pin => dispatch(removePin(pin.id)),
+    err => dispatch(receivePinErrors(err.responseJSON)))
 }
 
 export const updatePin = (pin) => dispatch => {
@@ -49,6 +50,6 @@ export const createPin = (pin) => dispatch => (
   PinAPIUtil.createPin(pin).then(pin => (
     dispatch(receivePin(pin)) 
     ), err => (
-    dispatch(receiveSessionErrors(err.responseJSON))
+    dispatch(receivePinErrors(err.responseJSON))
   ))
 );

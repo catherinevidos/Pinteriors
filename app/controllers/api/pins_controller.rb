@@ -1,5 +1,5 @@
 class Api::PinsController < ApplicationController
-  before_action :require_user_owns_pin!, only: [:update]
+  before_action :require_user_owns_pin!, only: [:update, :destroy]
 
   def create
     @pin = Pin.new(pin_params)

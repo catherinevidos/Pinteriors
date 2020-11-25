@@ -3,7 +3,7 @@ import {
 } from 'react-redux';
 
 import {
-  fetchPin, fetchPins
+  fetchPin, fetchPins, deletePin
 } from '../../actions/pin_actions';
 
 import {
@@ -16,14 +16,16 @@ import PinShow from './pin_show';
 const mapStateToProps = (state, ownProps) => ({
   currentUser: state.entities.users[state.session.id],
   pins: Object.values(state.entities.pins),
-  pin: state.entities.pins[ownProps.match.params.pinId]
+  pin: state.entities.pins[ownProps.match.params.pinId],
+  errors: state.errors.pin
 });
 
 const mapDispatchToProps = dispatch => ({
   openModal: modal => dispatch(openModal(modal)),
   fetchPin: (pinId) => dispatch(fetchPin(pinId)),
   fetchBoards: () => dispatch(fetchBoards()),
-  fetchPins: () => dispatch(fetchPins())
+  fetchPins: () => dispatch(fetchPins()),
+  deletePin: (pinId) => dispatch(deletePin(pinId))
 });
 
 export default connect(

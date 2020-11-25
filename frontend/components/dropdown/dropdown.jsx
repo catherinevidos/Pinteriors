@@ -1,6 +1,7 @@
 import React from 'react';
+import {withRouter} from 'react-router-dom';
 
-export default class Dropdown extends React.Component {
+class Dropdown extends React.Component {
   constructor(props){
     super(props);
     this.state = {
@@ -48,7 +49,8 @@ export default class Dropdown extends React.Component {
 
     if (onBoard.length === 0) {
       this.props.pinToBoard({pinId: this.props.pinId, boardId: e.target.value})
-      this.setState({toggleSelect: 'successfully saved!'})
+      console.log(e.target.value)
+      this.props.history.push(`/boards/${e.target.value}`);
     } else {
       this.setState({toggleSelect: 'pin already exists on your board!'})
     }
@@ -61,7 +63,7 @@ export default class Dropdown extends React.Component {
 
   handleButton(e) {
     e.preventDefault();
-    this.pinboard(e);
+    this.pinboard(e)
   }
 
 
@@ -101,4 +103,6 @@ export default class Dropdown extends React.Component {
     }
   }
 }
+
+export default withRouter(Dropdown);
 

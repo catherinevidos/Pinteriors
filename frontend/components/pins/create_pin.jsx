@@ -37,6 +37,7 @@ export default class CreatePin extends React.Component {
   }
 
 
+
   handleSubmit(e) {
     e.preventDefault();
     this.setState({loading: true})
@@ -66,11 +67,6 @@ export default class CreatePin extends React.Component {
       document.getElementById("dropdown-button1").style.width = '250px';
     });
   }
-
-  // pinboard(e) {
-  //   e.preventDefault();
-  //   this.props.createPin(this.props.pin).then(() => this.props.pinToBoard({pinId: this.props.completePin.id, boardId: e.target.value}))
-  // }
 
   toggleSelect(board) {
     this.setState({toggleSelect: board.title, currentBoard: board.id})
@@ -218,9 +214,13 @@ export default class CreatePin extends React.Component {
                     {preview}
                </div>
               </div>
-          <Link className="back-arrow-create" to="/">
-            <i className="fas fa-arrow-left"></i>
-          </Link>
+          <div className='pin-show-button-wrapper'>
+            <Link to='/'>
+              <div className='plus-board'>
+                <i className="fas fa-arrow-left"></i>
+              </div>
+            </Link>
+          </div>
         </form>
       </div>
     </div>

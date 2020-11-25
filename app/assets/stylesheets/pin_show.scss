@@ -80,37 +80,10 @@
   padding: 10px;
 }
 
-
-.arrow-wrapper {
-  position: relative;
-}
-
-.back-arrow {
-  position: absolute;
-  text-align: center;
-  top: 8px;
+.pin-show-button-wrapper {
+  position: fixed;
+  top: 110px;
   left: 8px;
-  height: 40px;
-  width: 40px;
-  box-sizing: border-box;
-  border-radius: 50px;
-  transition: background 0.5s;
-  opacity: 70%;
-  &:hover {
-    background-color: lightgrey;
-    cursor: pointer;
-  }
-}
-
-.back-arrow i {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  height: 100%;
-  width: 100%;
-  font-size: 16pt;
-  color: black;
 }
 
 
