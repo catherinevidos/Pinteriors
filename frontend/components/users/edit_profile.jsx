@@ -171,7 +171,7 @@ export default class EditProfile extends React.Component {
                     placeholder='Choose a username'
                   />
               </p>
-              <button id='submit-board' onClick={this.handleSubmit}>Create</button>
+              <button className='submit-board' onClick={this.handleSubmit}>Create</button>
               {this.renderErrors()}
           </div>
         </div>

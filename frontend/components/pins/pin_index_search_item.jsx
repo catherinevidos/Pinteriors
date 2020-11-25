@@ -19,6 +19,7 @@ handleClick(e) {
     return (
       <Link to={`pins/${pin.id}`}>
         <img className="masonry-pin-item" src={pin.photoUrl} />
+        <p className='pin-index-title'>{pin.title}</p>
       </Link>
     );
   }

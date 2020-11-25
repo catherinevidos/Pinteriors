@@ -22,6 +22,8 @@ export default class PinIndex extends React.Component {
   }
 
   render() {
+    const { scaleDown } = transitions;
+    
     if (this.state.loading) {
       return <LoadingIcon />;
     }

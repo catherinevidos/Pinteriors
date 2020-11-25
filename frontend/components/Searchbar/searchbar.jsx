@@ -48,7 +48,6 @@ class Searchbar extends React.Component {
       e.preventDefault();
       this.props.history.push('/search');
       this.props.updateSearch(this.state.filtered);
-      this.clearForm();
     } else {
       this.props.history.push('/');
       this.clearForm();
@@ -64,7 +63,6 @@ class Searchbar extends React.Component {
     return (
       <>
     <div className="searchbar-container">
-        {/* <form className="searchbar-form" onSubmit={this.handleSubmit}> */}
           <input
             type="search"
             id="searchbar-input"
@@ -73,12 +71,7 @@ class Searchbar extends React.Component {
             placeholder="Search for a pin by title"
             onKeyPress={this.handleKey}
           />
-          {/* <span>
-            <Link to='/' id="searchbar-submit-button">X</Link>
-          </span> */}
-        {/* </form> */}
       </div>
-      {/* {pinSearch} */}
     </>
     );
   }

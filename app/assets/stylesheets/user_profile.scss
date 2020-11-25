@@ -27,6 +27,7 @@
   justify-content: center;
   margin-bottom: 10px;
   margin-top: 20px;
+  vertical-align: middle;
 }
 
 #user-text {
@@ -173,6 +174,10 @@ margin: 10px;
   background-color: whitesmoke;
   padding: 3px;
   border: 2px dashed grey;
+  &:hover {
+    cursor: pointer;
+    background-color: lightgray;
+  }
 }
 
 #upload-space-edit label i {
@@ -195,6 +200,9 @@ margin: 10px;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 

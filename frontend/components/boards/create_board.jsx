@@ -68,7 +68,7 @@ export default class CreateBoard extends React.Component {
                     placeholder='Optional additional info about your new board'
                   />
               </p>
-              <button id='submit-board' onClick={this.handleSubmit}>Create</button>
+              <button className='submit-board' onClick={this.handleSubmit}>Create</button>
               {this.renderErrors()}
           </div>
         </div>

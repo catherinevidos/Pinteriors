@@ -36,6 +36,7 @@
   width: 230px;
   border-radius: 10px !important;
   margin: 10px;
+  margin-bottom: 5px;
   transition: opacity .6s ease-in-out;
   &:hover {
     filter: grayscale(60%);
@@ -141,4 +142,15 @@
   .masonry-pins_column>div {
     margin-bottom: 15px;
   }
+}
+
+.pin-links {
+  height: 0;
+}
+
+.pin-index-title {
+  font-weight: bold;
+  font-size: 10pt;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-left: 10px;
 }
