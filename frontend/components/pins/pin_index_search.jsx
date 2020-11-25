@@ -1,6 +1,6 @@
 import React from 'react';
 import PinIndexSearchItem from './pin_index_item';
-import Masonry from 'react-masonry-css';
+import StackGrid, { transitions } from "react-stack-grid";
 import { Link, withRouter } from 'react-router-dom';
 import LoadingIcon from '../loading/loading';
 
@@ -21,11 +21,6 @@ export default class PinIndex extends React.Component {
     }, 4000);
   }
 
-
-  // handleClick() {
-  //   <Link to='/api/pins/${this.props.match.params.id}'/>
-  // }
-
   render() {
     if (this.state.loading) {
       return <LoadingIcon />;
@@ -33,10 +28,15 @@ export default class PinIndex extends React.Component {
     if (this.props.searchPins !== undefined && this.props.searchPins.length > 0) {
     return (
       <div className="splash-page-wrapper">
-        <Masonry
+        <StackGrid
           className="masonry-pins"
-          columnClassName="masonry-pins_column"
-          breakpointCols={5}
+          columnWidth={250}
+          appear={scaleDown.appear}
+          appeared={scaleDown.appeared}
+          enter={scaleDown.enter}
+          entered={scaleDown.entered}
+          leaved={scaleDown.leaved}
+          monitorImagesLoaded={true}
         >
           {this.props.searchPins.map((pin) => (
             <PinIndexSearchItem
@@ -48,7 +48,7 @@ export default class PinIndex extends React.Component {
               openModal={this.props.openModal}
             />
           ))}
-        </Masonry>
+         </StackGrid>
         <div className='plus'>
           <Link to="/pins">
             <i className="fas fa-plus"></i>
@@ -58,7 +58,10 @@ export default class PinIndex extends React.Component {
     );
   } else {
     return (
-      <p>No pins match this search</p>
+      <>
+        <br></br>
+        <p>No pins match this search</p>
+      </>
     )
   }
   }

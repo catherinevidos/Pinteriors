@@ -4,8 +4,6 @@ import Masonry from 'react-masonry-css';
 import StackGrid, { transitions } from "react-stack-grid";
 import { Link, withRouter } from 'react-router-dom';
 import LoadingIcon from '../loading/loading';
-import imagesloaded from 'imagesloaded'
-import Navbar from '../navbar/navbar';
 
 export default class PinIndex extends React.Component {
   constructor(props) {
