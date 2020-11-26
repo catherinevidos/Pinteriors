@@ -8,29 +8,38 @@ class PinShow extends React.Component {
     super(props);
     this.state = {
       success: '',
-      ask: ''
+      ask: '',
+      deleted: false
     }
     this.deletePin = this.deletePin.bind(this);
     this.deleteForSure = this.deleteForSure.bind(this);
+    this.checkPin = this.checkPin.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchBoards();
     this.props.fetchPins();
     this.props.fetchPin(this.props.match.params.pinId);
+    this.props.clearPinErrors();
   }
 
-  deletePin() {
+  deletePin(e) {
+    // e.preventDefault();
     if (this.state.ask === 'Are you sure?') {
-      this.deleteForSure()
+      this.deleteForSure(e)
     } else {
       this.setState({ask: 'Are you sure?'})
     }
   }
 
-  deleteForSure() {
-  if (this.props.deletePin(this.props.pin.id) && this.props.errors.length === 0) {
-    this.props.history.push('/')
+  deleteForSure(e) {
+  // e.preventDefault();
+  this.props.deletePin(this.props.pin.id).then(() => this.checkPin())
+  }
+
+  checkPin() {
+  if (this.props.errors.length === 0) {
+    this.props.history.push('/');
   } else {
     this.setState({ask: ''})
   }

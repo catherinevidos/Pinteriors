@@ -1,5 +1,5 @@
 class Api::PinsController < ApplicationController
-  before_action :require_user_owns_pin!, only: [:update, :destroy]
+  # before_action :require_user_owns_pin!, only: [:update, :destroy]
 
   def create
     @pin = Pin.new(pin_params)
@@ -34,7 +34,7 @@ class Api::PinsController < ApplicationController
   end
 
   def destroy 
-    @pin = Pin.find(params[:id])
+    @pin = current_user.pins.find_by(id: params[:id])
 
     if @pin && @pin.destroy
       render "api/pins/show"
@@ -45,10 +45,10 @@ class Api::PinsController < ApplicationController
 
   private
 
-  def require_user_owns_pin!
-    return if current_user.pins.find_by(id: params[:id])
-    render json: ["This pin could not be deleted."], status: 422
-  end
+  # def require_user_owns_pin!
+  #   return if current_user.pins.find_by(id: params[:id])
+  #   render json: ["This pin could not be deleted."], status: 422
+  # end
 
   def pin_params
     params.require(:pin).permit(:title, :description, :source_link, :photo)

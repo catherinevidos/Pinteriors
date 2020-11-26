@@ -3,7 +3,7 @@ import {
 } from 'react-redux';
 
 import {
-  fetchPin, fetchPins, deletePin
+  fetchPin, fetchPins, deletePin, clearPinErrors
 } from '../../actions/pin_actions';
 
 import {
@@ -25,7 +25,8 @@ const mapDispatchToProps = dispatch => ({
   fetchPin: (pinId) => dispatch(fetchPin(pinId)),
   fetchBoards: () => dispatch(fetchBoards()),
   fetchPins: () => dispatch(fetchPins()),
-  deletePin: (pinId) => dispatch(deletePin(pinId))
+  deletePin: (pinId) => dispatch(deletePin(pinId)),
+  clearPinErrors: () => dispatch(clearPinErrors())
 });
 
 export default connect(

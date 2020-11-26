@@ -1,5 +1,5 @@
 import {
-  RECEIVE_PIN_ERRORS
+  RECEIVE_PIN_ERRORS, CLEAR_PIN_ERRORS
 } from '../actions/pin_actions';
 
 import { CLOSE_MODAL, OPEN_MODAL } from '../actions/modal_actions';
@@ -12,6 +12,8 @@ const pinErrorsReducer = (state = [], action) => {
     case CLOSE_MODAL:
       return [];
     case OPEN_MODAL:
+      return [];
+    case CLEAR_PIN_ERRORS:
       return [];
     default:
       return state;
