@@ -49,7 +49,6 @@ class Dropdown extends React.Component {
 
     if (onBoard.length === 0) {
       this.props.pinToBoard({pinId: this.props.pinId, boardId: e.target.value})
-      console.log(e.target.value)
       this.props.history.push(`/boards/${e.target.value}`);
     } else {
       this.setState({toggleSelect: 'pin already exists on your board!'})
