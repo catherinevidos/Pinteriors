@@ -17,7 +17,7 @@ const mapStateToProps = (state, ownProps) => ({
   currentUser: state.entities.users[state.session.id],
   pins: Object.values(state.entities.pins),
   pin: state.entities.pins[ownProps.match.params.pinId],
-  errors: state.errors.pin
+  errors: state.errors.pinErrors
 });
 
 const mapDispatchToProps = dispatch => ({

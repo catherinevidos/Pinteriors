@@ -36,8 +36,7 @@ class Api::PinsController < ApplicationController
   def destroy 
     @pin = Pin.find(params[:id])
 
-    if @pin
-      @pin.destroy
+    if @pin && @pin.destroy
       render "api/pins/show"
     else
       render json: ["This pin could not be deleted."], status: 422
@@ -48,7 +47,7 @@ class Api::PinsController < ApplicationController
 
   def require_user_owns_pin!
     return if current_user.pins.find_by(id: params[:id])
-    render json: 'Forbidden', status: :forbidden
+    render json: ["This pin could not be deleted."], status: 422
   end
 
   def pin_params

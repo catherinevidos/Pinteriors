@@ -7,9 +7,11 @@ class PinShow extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      success: ''
+      success: '',
+      ask: ''
     }
     this.deletePin = this.deletePin.bind(this);
+    this.deleteForSure = this.deleteForSure.bind(this);
   }
 
   componentDidMount() {
@@ -19,7 +21,19 @@ class PinShow extends React.Component {
   }
 
   deletePin() {
-    this.props.deletePin(this.props.pin.id).then(this.setState({success: "Your pin was successfully deleted!"}) && this.props.history.push('/'))
+    if (this.state.ask === 'Are you sure?') {
+      this.deleteForSure()
+    } else {
+      this.setState({ask: 'Are you sure?'})
+    }
+  }
+
+  deleteForSure() {
+  if (this.props.deletePin(this.props.pin.id) && this.props.errors.length === 0) {
+    this.props.history.push('/')
+  } else {
+    this.setState({ask: ''})
+  }
   }
 
   renderErrors() {
@@ -73,6 +87,7 @@ class PinShow extends React.Component {
               <i className='fas fa-trash-alt'></i>
             </button>
             : null}
+            {this.state.ask === 'Are you sure?' ? <p className='are-you-sure'>{this.state.ask}</p> : null}
           </div>
       </div>
     );

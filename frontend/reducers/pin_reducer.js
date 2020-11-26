@@ -1,8 +1,7 @@
 import {
   RECEIVE_PIN,
   RECEIVE_PINS,
-  REMOVE_PIN,
-  RECEIVE_PIN_ERRORS
+  REMOVE_PIN
 } from '../actions/pin_actions';
 
 const PinReducer = (state = {}, action) => {
@@ -17,8 +16,6 @@ const PinReducer = (state = {}, action) => {
       let newState = Object.assign({}, state);
       delete newState[action.pinId];
       return newState;
-    case RECEIVE_PIN_ERRORS:
-      return action.errors;
     default:
       return state;
   }
