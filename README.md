@@ -13,12 +13,12 @@ Pinteriors is a <a href='https://www.pinterest.com' target='_blank'>Pinterest</a
     * pin that image to one of their existing boards 
     * view their profile page which includes a preview of the top three pins on their current boards
     * edit their profile information and avatar photo
-    * <img className='readme-img' src='./app/assets/images/profile_edit.png' height='600' />
+    * <img src='./app/assets/images/profile_edit.png' height='400' />
     * open a modal to create a new board 
     * view a current board and its associated pins
     * search for a pin by title
     * upload new images as pins
-    * <img className='readme-img'src='./app/assets/images/create_pin3.png'/>
+    * <img src='./app/assets/images/create_pin3.png'/>
     * delete pins that they own
 
 
