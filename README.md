@@ -1,24 +1,11 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+<h1>Welcome to Pinteriors!</h1>
+<br></br>
+<a href='https://pinteriors.herokuapp.com/#/'>Click here for the homepage</a>
+<br></br>
+Pinteriors is a Pinterest Clone built specifically with interior designers in mind. You can use it as a digital pinboard to keep track of your photos and design ideas. 
+<br></br>
 
-Things you may want to cover:
 
-* Ruby version
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialzation
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
