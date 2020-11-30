@@ -5,7 +5,7 @@ Pinteriors is a <a href='https://www.pinterest.com' target='_blank'>Pinterest</a
 <br></br>
 <img src='./app/assets/images/pinteriors.png'>
 <h1>Features</h1>
-- User Authentication (signup, login, logout) with secure password hashing
+* User Authentication (signup, login, logout) with secure password hashing
 
 * Logged in users can:
     * browse the home feed
@@ -17,7 +17,20 @@ Pinteriors is a <a href='https://www.pinterest.com' target='_blank'>Pinterest</a
     * view a current board and its associated pins
     * search for a pin by title
     * upload new images as pins
+    * <img src='./app/assets/images/create_pin3.png'>
     * delete pins that they own
+
+
+<h1>Technology</h1>
+This is a fullstack web application that was built with 
+
+* React / Redux
+* JavaScript
+* HTML / CSS
+* Ruby on Rails
+* PostgreSQL
+* AWS S3
+* Jbuilder
 
 
 
