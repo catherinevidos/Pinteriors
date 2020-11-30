@@ -94,7 +94,7 @@ const name = currentUser.firstName && currentUser.lastName ? <div><span>{current
             })
             if (pinArr.length > 0) {
               allPins = pinArr.map((pin, idx) => {
-                if (idx < 3) {
+                if (idx < 3 && pin != 'undefined') {
                   return <img id='pin-image1' src={pin.photoUrl}/>
                 } 
               })

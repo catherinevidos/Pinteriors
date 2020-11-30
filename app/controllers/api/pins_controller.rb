@@ -39,7 +39,7 @@ class Api::PinsController < ApplicationController
     if @pin && @pin.destroy
       render "api/pins/show"
     else
-      render json: ["This pin could not be deleted."], status: 422
+      render json: ["You can only delete your own pin"], status: 422
     end
   end
 

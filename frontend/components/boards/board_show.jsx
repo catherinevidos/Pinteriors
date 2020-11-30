@@ -50,12 +50,10 @@ export default class BoardShow extends React.Component {
     let pinArr = [];
     if (this.state.fetched == true && board.pinIds.length > 0) {
       board.pinIds.map(pinId => {
-      pinArr.push(pins[pinId])})
-    }
-
-  //   if (this.state.openPin == true && this.state.openPinId) {
-  //   return <Redirect to={`/pins/${this.state.openPinId}`}/>
-  // }
+        if (pinId != 'undefined') {
+          pinArr.push(pins[pinId])
+        }
+    })}
 
     if (pinArr.length > 0) {
       return (
