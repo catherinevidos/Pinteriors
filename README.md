@@ -9,16 +9,19 @@ Pinteriors is a <a href='https://www.pinterest.com' target='_blank'>Pinterest</a
 
 * Logged in users can:
     * browse the home feed
+      * <img src='./app/assets/images/home_feed.png'/>
     * naviagate to specific pin images
     * pin that image to one of their existing boards 
     * view their profile page which includes a preview of the top three pins on their current boards
+      * <img src='./app/assets/images/create_pin3.png'/>
     * edit their profile information and avatar photo
-    * <img src='./app/assets/images/profile_edit.png' height='400' />
+      * <img src='./app/assets/images/profile_edit.png' height='400' />
     * open a modal to create a new board 
     * view a current board and its associated pins
     * search for a pin by title
+      * <img src='./app/assets/images/search_bar.png'/>
     * upload new images as pins
-    * <img src='./app/assets/images/create_pin3.png'/>
+      * <img src='./app/assets/images/create_pin3.png'/>
     * delete pins that they own
 
 
