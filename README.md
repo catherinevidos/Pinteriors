@@ -13,6 +13,7 @@ Pinteriors is a <a href='https://www.pinterest.com' target='_blank'>Pinterest</a
     * pin that image to one of their existing boards 
     * view their profile page which includes a preview of the top three pins on their current boards
     * edit their profile information and avatar photo
+    * <img src='./app/assets/images/profile_edit.png>
     * open a modal to create a new board 
     * view a current board and its associated pins
     * search for a pin by title
