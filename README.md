@@ -6,17 +6,18 @@ Pinteriors is a <a href='https://www.pinterest.com' target='_blank'>Pinterest</a
 <img src='./app/assets/images/pinteriors.png'>
 <h1>Features</h1>
 - User Authentication (signup, login, logout) with secure password hashing
+
 * Logged in users can:
-  * browse the home feed
-  * naviagate to specific pin images
-  * pin that image to one of their existing boards 
-  * view their profile page which includes a preview of the top three pins on their current boards
-  * edit their profile information and avatar photo
-  * open a modal to create a new board 
-  * view a current board and its associated pins
-  * search for a pin by title
-  * upload new images as pins
-  * delete pins that they own
+    * browse the home feed
+    * naviagate to specific pin images
+    * pin that image to one of their existing boards 
+    * view their profile page which includes a preview of the top three pins on their current boards
+    * edit their profile information and avatar photo
+    * open a modal to create a new board 
+    * view a current board and its associated pins
+    * search for a pin by title
+    * upload new images as pins
+    * delete pins that they own
 
 
 
