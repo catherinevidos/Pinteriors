@@ -3,7 +3,7 @@
 <h1><a href='https://pinteriors.herokuapp.com/#/' target='_blank'>Welcome to Pinteriors :pushpin:</a></h1>
 Pinteriors is a <a href='https://www.pinterest.com' target='_blank'>Pinterest</a> clone built specifically with interior designers in mind. You can use it as a digital pinboard to keep track of your photos and design ideas. The site is built with a Ruby on Rails backend, with PostgreSQL and AWS S3 for data storage and React/Redux on the frontend along with HTML/CSS. The app is deployed using Heroku.  
 <br></br>
-<img src='./app/assets/images/pinteriors.png' height='800'>
+<img src='./app/assets/images/pinteriors.png' height='500'>
 <h1>Features</h1>
 * User Authentication (signup, login, logout) with secure password hashing
 
