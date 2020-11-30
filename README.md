@@ -6,6 +6,7 @@ Pinteriors is a <a href='https://www.pinterest.com' target='_blank'>Pinterest</a
 <img src='./app/assets/images/pinteriors.png' height='800'>
 <h1>Features</h1>
 * User Authentication (signup, login, logout) with secure password hashing
+
 * Logged in users can:
     * browse the home feed
       * <img src='./app/assets/images/home_feed2.png'/>
