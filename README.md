@@ -46,7 +46,7 @@ I love working on this site and there is always something more to add. I am plan
 * More robust backend search functionality
 * Edit pins & boards
 * Follow users
-* Like/Comment on followed users' pins
+* Like and Comment on followed users' pins
 * Secret boards
 
 
