@@ -47,7 +47,7 @@ I love working on this site and there is always something more to add. I am plan
 * Edit pins & boards
 * Follow users
 * Like and Comment on followed users' pins
-* Secret boards
+* Secret/private boards
 
 
 
