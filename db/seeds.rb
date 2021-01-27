@@ -14,28 +14,28 @@ Pin.destroy_all
 JoinPinsBoard.destroy_all
 
 user1 = User.create!(email: 'pinteriors@catherine.com', password: 'welcome1', first_name: 'Demo', last_name: 'User')
-file = open('https://pinteriors-seeds.s3.us-east-2.amazonaws.com/karsten-winegeart-Qb7D1xw28Co-unsplash.jpeg')
-user1.photo.attach(io: file, filename: 'karsten-winegeart-Qb7D1xw28Co-unsplash.jpeg')
+file = open('https://pinteriors-seeds.s3.us-east-2.amazonaws.com/dog.jpeg')
+user1.photo.attach(io: file, filename: 'dog.jpeg')
 
 
 user2 = User.create!(email: 'jon@pinteriors.com', password: 'welcome1')
-file = open('https://pinteriors-seeds.s3.us-east-2.amazonaws.com/karsten-winegeart-Qb7D1xw28Co-unsplash.jpeg')
-user2.photo.attach(io: file, filename: 'karsten-winegeart-Qb7D1xw28Co-unsplash.jpeg')
+file = open('https://pinteriors-seeds.s3.us-east-2.amazonaws.com/dog.jpeg')
+user2.photo.attach(io: file, filename: 'dog.jpeg')
 
 
 user3 = User.create!(email: 'adel@pinteriors.com', password: 'welcome1')
-file = open('https://pinteriors-seeds.s3.us-east-2.amazonaws.com/karsten-winegeart-Qb7D1xw28Co-unsplash.jpeg')
-user3.photo.attach(io: file, filename: 'karsten-winegeart-Qb7D1xw28Co-unsplash.jpeg')
+file = open('https://pinteriors-seeds.s3.us-east-2.amazonaws.com/dog.jpeg')
+user3.photo.attach(io: file, filename: 'dog.jpeg')
 
 
 user4 = User.create(email: 'eugene@pinteriors.com', password: 'welcome1')
-file = open('https://pinteriors-seeds.s3.us-east-2.amazonaws.com/karsten-winegeart-Qb7D1xw28Co-unsplash.jpeg')
-user4.photo.attach(io: file, filename: 'karsten-winegeart-Qb7D1xw28Co-unsplash.jpeg')
+file = open('https://pinteriors-seeds.s3.us-east-2.amazonaws.com/dog.jpeg')
+user4.photo.attach(io: file, filename: 'dog.jpeg')
 
 
 user5 = User.create(email: 'patrick@pinteriors.com', password: 'welcome1')
-file = open('https://pinteriors-seeds.s3.us-east-2.amazonaws.com/karsten-winegeart-Qb7D1xw28Co-unsplash.jpeg')
-user5.photo.attach(io: file, filename: 'karsten-winegeart-Qb7D1xw28Co-unsplash.jpeg')
+file = open('https://pinteriors-seeds.s3.us-east-2.amazonaws.com/dog.jpeg')
+user5.photo.attach(io: file, filename: 'dog.jpeg')
 
 # PINS
 
